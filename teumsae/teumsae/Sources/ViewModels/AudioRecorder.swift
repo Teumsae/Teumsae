@@ -22,7 +22,9 @@ class AudioRecorder: NSObject, ObservableObject {
             }
         }
     
+    var audioConverter: AudioConverter
     override init() {
+        audioConverter = AudioConverter()
         super.init()
         fetchRecordings()
     }
@@ -38,10 +40,10 @@ class AudioRecorder: NSObject, ObservableObject {
         }
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).m4a")
+        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).wav")
         
         let settings = [
-                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                    AVFormatIDKey: Int(kAudioFormatLinearPCM),
                     AVSampleRateKey: 12000,
                     AVNumberOfChannelsKey: 1,
                     AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
@@ -61,6 +63,7 @@ class AudioRecorder: NSObject, ObservableObject {
         audioRecorder.stop()
         recording = false
         fetchRecordings()
+        audioConverter.convertToText(fileURL: (recordings.last?.fileURL) as! URL)
     }
     
     func fetchRecordings() {

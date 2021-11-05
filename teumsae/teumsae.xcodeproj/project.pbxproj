@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
+		64A6F40A2734FFA7007B600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A6F4092734FFA7007B600D /* Assets.xcassets */; };
 		64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */; };
 		68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3388D2732EDB30073A40D /* RecordingsList.swift */; };
 		8037E801B9C7EE00E9AAF601 /* Pods_teumsae_teumsaeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEED87944FC7F4A07AD4FAF0 /* Pods_teumsae_teumsaeUITests.framework */; };
@@ -20,7 +21,6 @@
 		CCE348082731884D00471492 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE348072731884D00471492 /* AppDelegate.swift */; };
 		CCE3480A2731884D00471492 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE348092731884D00471492 /* SceneDelegate.swift */; };
 		CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE348102731884D00471492 /* teumsae.xcdatamodeld */; };
-		CCE348142731884F00471492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE348132731884F00471492 /* Assets.xcassets */; };
 		CCE348172731884F00471492 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE348152731884F00471492 /* LaunchScreen.storyboard */; };
 		CCE348222731884F00471492 /* teumsaeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE348212731884F00471492 /* teumsaeTests.swift */; };
 		CCE3482C2731884F00471492 /* teumsaeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3482B2731884F00471492 /* teumsaeUITests.swift */; };
@@ -54,6 +54,7 @@
 		1C089CF7138B0FFAE730C4CB /* Pods-teumsaeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.debug.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		42BC0D0A9FD4E997D56BB41B /* Pods-teumsae-teumsaeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae-teumsaeUITests.release.xcconfig"; path = "Target Support Files/Pods-teumsae-teumsaeUITests/Pods-teumsae-teumsaeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
+		64A6F4092734FFA7007B600D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68E3388D2732EDB30073A40D /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		CCE348072731884D00471492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE348092731884D00471492 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CCE348112731884D00471492 /* teumsae.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = teumsae.xcdatamodel; sourceTree = "<group>"; };
-		CCE348132731884F00471492 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCE348162731884F00471492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCE348182731884F00471492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE3481D2731884F00471492 /* teumsaeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teumsaeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,7 +184,6 @@
 				CCE3483C2731892100471492 /* Sources */,
 				CCE348072731884D00471492 /* AppDelegate.swift */,
 				CCE348092731884D00471492 /* SceneDelegate.swift */,
-				CCE348132731884F00471492 /* Assets.xcassets */,
 				64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */,
 				CCE348152731884F00471492 /* LaunchScreen.storyboard */,
 				CCE348182731884F00471492 /* Info.plist */,
@@ -270,6 +269,7 @@
 		CCE3484827318B6200471492 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				64A6F4092734FFA7007B600D /* Assets.xcassets */,
 				CCB0B73627343ED000CFD1B2 /* Colors.xcassets */,
 			);
 			path = Resources;
@@ -386,8 +386,8 @@
 			files = (
 				CCB0B73727343ED000CFD1B2 /* Colors.xcassets in Resources */,
 				CCE348172731884F00471492 /* LaunchScreen.storyboard in Resources */,
-				CCE348142731884F00471492 /* Assets.xcassets in Resources */,
 				64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */,
+				64A6F40A2734FFA7007B600D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -729,7 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

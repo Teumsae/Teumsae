@@ -11,6 +11,7 @@
 		64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */; };
 		68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3388D2732EDB30073A40D /* RecordingsList.swift */; };
 		8037E801B9C7EE00E9AAF601 /* Pods_teumsae_teumsaeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEED87944FC7F4A07AD4FAF0 /* Pods_teumsae_teumsaeUITests.framework */; };
+		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
 		CCB0B73727343ED000CFD1B2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB0B73627343ED000CFD1B2 /* Colors.xcassets */; };
 		CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */; };
 		CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */; };
@@ -54,10 +55,11 @@
 		42BC0D0A9FD4E997D56BB41B /* Pods-teumsae-teumsaeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae-teumsaeUITests.release.xcconfig"; path = "Target Support Files/Pods-teumsae-teumsaeUITests/Pods-teumsae-teumsaeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
 		64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-    68E3388D2732EDB30073A40D /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
+		68E3388D2732EDB30073A40D /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CCB0B73627343ED000CFD1B2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		CCE3484727318B5700471492 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CC99C5B62734FD5500996B17 /* AudioPlayer.swift */,
 				CCE3484927318B6E00471492 /* AudioRecorder.swift */,
 				CCB0B740273446C100CFD1B2 /* ViewRounter.swift */,
 			);
@@ -267,7 +270,6 @@
 		CCE3484827318B6200471492 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CCE348132731884F00471492 /* Assets.xcassets */,
 				CCB0B73627343ED000CFD1B2 /* Colors.xcassets */,
 			);
 			path = Resources;
@@ -526,6 +528,7 @@
 				CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */,
 				CCE3484F27318EA100471492 /* Recording.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,
+				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

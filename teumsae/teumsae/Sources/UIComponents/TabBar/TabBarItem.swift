@@ -22,7 +22,7 @@ struct TabBarItem: View {
                  .resizable()
                  .aspectRatio(contentMode: .fit)
                  .frame(width: width, height: height)
-                 .padding(.top, 15)
+                 .padding(.top, 24)
              Spacer()
          }
          .foregroundColor(

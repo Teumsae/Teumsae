@@ -11,6 +11,7 @@ import SwiftUI
 struct LaunchView: View {
     
     @StateObject var viewRouter = ViewRouter()
+    @StateObject var audioRecorder = AudioRecorder()
     
     var body: some View {
         
@@ -25,6 +26,8 @@ struct LaunchView: View {
                       Text("Home")
                  case .book:
                       Text("Book")
+                 case .review:
+                     NewReviewView(audioRecorder: audioRecorder)
                  case .search:
                       Text("Search")
                  case .settings:
@@ -38,8 +41,8 @@ struct LaunchView: View {
                      TabBarItem(viewRouter: viewRouter, assignedPage: .book, width: geometry.size.width/6, height: geometry.size.height/28, imageName: "book")
 
                      // ADD BUTTON
-                     PlusButton(sideLength: geometry.size.width/6)
-                         .offset(y: -geometry.size.height/8/2)
+                     PlusButton(viewRouter: viewRouter, assignedPage: .review, sideLength: geometry.size.width/7)
+                         .offset(y: -6)
                      
                      TabBarItem(viewRouter: viewRouter, assignedPage: .search, width: geometry.size.width/6, height: geometry.size.height/28, imageName: "search")
                      TabBarItem(viewRouter: viewRouter, assignedPage: .settings, width: geometry.size.width/6, height: geometry.size.height/28, imageName: "settings")

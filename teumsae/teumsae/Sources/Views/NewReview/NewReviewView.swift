@@ -11,7 +11,7 @@ import SwiftUI
 struct NewReviewView: View {
     
     @ObservedObject var audioRecorder: AudioRecorder
-    @ObservedObject var audioConverter: AudioConverter
+    //@ObservedObject var audioConverter: AudioConverter
     
     var body: some View {
         NavigationView { // NAVIGATIONVIEW
@@ -35,7 +35,6 @@ struct NewReviewView: View {
                 else { // IF1-ELSE : STOP RECORDING
                     Button(action: {
                         self.audioRecorder.stopRecording()
-                        self.audioConverter.convertToText(fileURL: audioRecorder.recordings[0].fileURL) // TODO: index (last index)
                         print("Stop recording")
                         
                     }) {
@@ -57,6 +56,6 @@ struct NewReviewView: View {
 
 struct NewReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        NewReviewView(audioRecorder: AudioRecorder(), audioConverter: AudioConverter())
+        NewReviewView(audioRecorder: AudioRecorder())
     }
 }

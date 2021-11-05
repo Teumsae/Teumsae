@@ -47,6 +47,7 @@ struct NewReviewView: View {
                 } // END OF IF1 CLAUSE
             } // END OF VSTACK 0
                 .navigationBarTitle("Voice recorder")
+                .navigationBarItems(trailing: EditButton()) //TODO - will be deprecated
         } // END OF NAVIGATIONVIEW
     }
 }

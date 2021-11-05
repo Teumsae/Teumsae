@@ -56,7 +56,7 @@ class AudioConverter: NSObject, ObservableObject {
                      multipartFormData.append(audioData, withName: fileName)
             }, to: "https://kakaoi-newtone-openapi.kakao.com/v1/recognize", headers: headers)
                      .responseString { response in
-                         debugPrint(response)
+                         print(String(data: response.data!, encoding: .utf8))
                  }
 
         } catch {

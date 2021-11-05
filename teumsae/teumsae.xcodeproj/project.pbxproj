@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
 		64A6F40A2734FFA7007B600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A6F4092734FFA7007B600D /* Assets.xcassets */; };
+		64A6F40F273516E5007B600D /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F40E273516E5007B600D /* SpeechRecognizer.swift */; };
 		64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */; };
 		68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3388D2732EDB30073A40D /* RecordingsList.swift */; };
 		8037E801B9C7EE00E9AAF601 /* Pods_teumsae_teumsaeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEED87944FC7F4A07AD4FAF0 /* Pods_teumsae_teumsaeUITests.framework */; };
@@ -56,6 +57,7 @@
 		42BC0D0A9FD4E997D56BB41B /* Pods-teumsae-teumsaeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae-teumsaeUITests.release.xcconfig"; path = "Target Support Files/Pods-teumsae-teumsaeUITests/Pods-teumsae-teumsaeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
 		64A6F4092734FFA7007B600D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64A6F40E273516E5007B600D /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68E3388D2732EDB30073A40D /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		64A6F40D2735123B007B600D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				64A6F4092734FFA7007B600D /* Assets.xcassets */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		A98F4617ACFC254018CC9044 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 				CCE348052731884D00471492 /* Products */,
 				4C94F641FD7268527DA49547 /* Pods */,
 				A98F4617ACFC254018CC9044 /* Frameworks */,
+				64A6F40D2735123B007B600D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				CCE3484E27318EA100471492 /* Recording.swift */,
+				64A6F40E273516E5007B600D /* SpeechRecognizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -523,6 +535,7 @@
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
 				CCE3483F2731893E00471492 /* LaunchView.swift in Sources */,
+				64A6F40F273516E5007B600D /* SpeechRecognizer.swift in Sources */,
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
 				CCE348082731884D00471492 /* AppDelegate.swift in Sources */,
 				CCE3484D27318D6F00471492 /* Date+Extension.swift in Sources */,

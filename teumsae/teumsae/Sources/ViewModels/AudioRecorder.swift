@@ -12,6 +12,8 @@ import AVFoundation
 
 
 class AudioRecorder: NSObject, ObservableObject {
+	
+	static let shared = AudioRecorder()
     
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
     var audioRecorder: AVAudioRecorder!
@@ -39,8 +41,9 @@ class AudioRecorder: NSObject, ObservableObject {
             print("Failed to set up recording session")
         }
         
+        let timeStamp = Date()
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).wav")
+        let audioFilename = documentPath.appendingPathComponent("\(timeStamp.toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).wav")
         
         let settings = [
                     AVFormatIDKey: Int(kAudioFormatLinearPCM),
@@ -55,6 +58,7 @@ class AudioRecorder: NSObject, ObservableObject {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()
             recording = true
+            PersistenceManager.shared.create(Recording(fileURL: audioFilename, createdAt: timeStamp))
         } catch {
             print("Could not start recording")
         }
@@ -66,6 +70,8 @@ class AudioRecorder: NSObject, ObservableObject {
         recording = false
         fetchRecordings()
         audioConverter.convertToText(fileURL: (recordings.last?.fileURL) as! URL)
+        
+        print("\(PersistenceManager.shared.read())") 
     }
     
     func fetchRecordings() {

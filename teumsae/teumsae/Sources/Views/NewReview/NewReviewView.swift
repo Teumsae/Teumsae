@@ -18,6 +18,7 @@ struct NewReviewView: View {
     var body: some View {
         NavigationView { // NAVIGATIONVIEW
             VStack { // VSTACK 0
+				RecordingsHeaderView()
 				RecordingsList()
                 
                 if audioRecorder.recording == false { // IF1 : START RECORDING

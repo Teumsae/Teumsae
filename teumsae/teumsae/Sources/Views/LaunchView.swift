@@ -25,7 +25,7 @@ struct LaunchView: View {
                  case .home:
                       Text("Home")
                  case .book:
-                      Text("Book")
+                     ReviewList()
                  case .search:
                       Text("Search")
                  case .settings:

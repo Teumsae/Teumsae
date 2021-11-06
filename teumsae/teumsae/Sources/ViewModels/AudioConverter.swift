@@ -8,11 +8,47 @@
 import Foundation
 import Alamofire
 import AVFAudio
+import SwiftUI
+
+struct DecodableType: Decodable {
+    var type: String
+    var value: String
+    var nBest: [nBestStruct]
+    var voiceProfile: voieceProfileStruct
+    var durationMS: Int
+    var qmarkScore: Int
+    var gender: Int
+}
+
+struct nBestStruct: Decodable {
+    var value: String
+    var score : Int
+}
+
+struct voieceProfileStruct: Decodable {
+    var registered: Bool
+    var authenticated : Bool
+}
+
+
+
 
 class AudioConverter: NSObject, ObservableObject {
  
     override init() {
         super.init()
+    }
+
+    
+    func getBestText(text: String) -> String {
+        var textArr = text.components(separatedBy: "\r\n")
+        textArr.removeLast()
+        textArr.removeLast()
+        var finalVal = textArr.last!.components(separatedBy: ",")[1]
+        let start = finalVal.index(finalVal.startIndex, offsetBy: 9)
+        let end = finalVal.index(finalVal.endIndex, offsetBy: -1)
+//        print(String(finalVal[start..<end]))
+        return String(finalVal[start..<end])
     }
 
     
@@ -25,63 +61,26 @@ class AudioConverter: NSObject, ObservableObject {
         
         let headers : HTTPHeaders = ["Transfer-Encoding": "chunked", "Content-Type": "application/octet-stream", "Authorization": "e168cb15198d17108619e66fb061dc92"]
 
+        
         do {
             let audioData = try Data(contentsOf: fileURL)
             //let audioData = try AVAudioFile(forReading: fileURL)
             AF.upload(multipartFormData: { multipartFormData in
                      multipartFormData.append(audioData, withName: fileName)
             }, to: "https://kakaoi-newtone-openapi.kakao.com/v1/recognize", headers: headers)
-//                .responseData { dataResponse in
-//
-//                    switch dataResponse.result {
-//                    case .success:
-//                        guard let value = dataResponse.data else {return}
-//
-//                        print("VALUE \(value)")
-//
-//                        let decoder = JSONDecoder()
-//                        guard let decodedData =  try? decoder.decode(STTDataModel.self, from: value)
-//                        else {
-//                            print("DECODING ERROR")
-//                            return
-//                        }
-//
-//                        print("DECODING RESULT[nBEST]: \(decodedData.nBest)")
-//                        print("DECODING RESULT[VALUE]: \(decodedData.value)")
-//
-//                    case .failure:
-//                        print("API ERROR \(dataResponse.error)")
-//                    }
-//
-//                }
-//                     .responseString { response in
-//                         print(String(data: response.data!, encoding: .utf8))
-//                 }
-
+                    .responseString {
+                        response in
+//                        print(String(data: response.data!, encoding: .utf8))
+                        let text = String(data: response.data!, encoding: .utf8)
+                        let finalText = self.getBestText(text: text ?? "empty")
+                        print(finalText)
+                    }
+            
         } catch {
          print(" not able to upload data\(error)")
         }
-        
-        
-        /*
-        let headers : HTTPHeaders = ["Transfer-Encoding": "chunked", "Content-Type": "application/octet-stream", "Authorization": "e168cb15198d17108619e66fb061dc92"]  //TODO: REST_API_KEY
-        let kakaoURL = "https://kakaoi-newtone-openapi.kakao.com/v1/recognize"
-        print(fileURL)
-        //let audioData: NSData = fileURL
-        let parameters: Parameters = ["-data-binary": fileURL]
-        AF.request(kakaoURL, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseString() { response in
-          switch response.result {
-          case .success:
-            if let data = try! response.result.get() as? [String: String] {
-              print(data)
-            }
-          case .failure(let error):
-            print("Error: \(error)")
-            return
-          }
-        }*/
-        
+
+
     }
-    
     
 }

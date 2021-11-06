@@ -14,9 +14,6 @@ struct STTDataModel: Codable {
     var value: String
     var nBest: String?
     
-    
-    
-    
 }
 
 

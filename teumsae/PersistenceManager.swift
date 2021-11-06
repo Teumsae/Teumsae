@@ -86,4 +86,24 @@ class PersistenceManager {
         
     }
     
+    func updateByFileURL(fileURL: URL, recording: Recording) {
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "fileURL = %@", fileURL as CVarArg)
+        do {
+            let test = try context.fetch(fetchRequest)
+            let objectUpdate = test[0] as! NSManagedObject
+            objectUpdate.setValuesForKeys(recording.toDBinstance())
+            do {
+                try context.save()
+            } catch {
+                print(error)
+            }
+        }
+        catch {
+            print(error)
+        }
+        
+    }
+
 }

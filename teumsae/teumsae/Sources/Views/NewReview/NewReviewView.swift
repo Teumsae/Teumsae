@@ -10,13 +10,13 @@ import SwiftUI
 
 struct NewReviewView: View {
     
-    @ObservedObject var audioRecorder: AudioRecorder
+	@StateObject var audioRecorder: AudioRecorder = AudioRecorder().shared
     //@ObservedObject var audioConverter: AudioConverter
     
     var body: some View {
         NavigationView { // NAVIGATIONVIEW
             VStack { // VSTACK 0
-                RecordingsList(audioRecorder: audioRecorder)
+				RecordingsList()
                 
                 if audioRecorder.recording == false { // IF1 : START RECORDING
                     Button(action: {
@@ -31,6 +31,7 @@ struct NewReviewView: View {
                             .foregroundColor(.red)
                             .padding(.bottom, 40)
                     }
+					SoundWaveView().environmentObject(audioRecorder)
                 }
                 else { // IF1-ELSE : STOP RECORDING
                     Button(action: {
@@ -56,6 +57,6 @@ struct NewReviewView: View {
 
 struct NewReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        NewReviewView(audioRecorder: AudioRecorder())
+		NewReviewView().environmentObject(AudioRecorder())
     }
 }

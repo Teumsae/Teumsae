@@ -27,7 +27,7 @@ struct LaunchView: View {
                  case .book:
                       Text("Book")
                  case .review:
-                     NewReviewView(audioRecorder: audioRecorder)
+					 NewReviewView()
                  case .search:
                       Text("Search")
                  case .settings:

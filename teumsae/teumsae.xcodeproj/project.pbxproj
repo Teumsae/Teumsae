@@ -18,6 +18,10 @@
 		A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A30DC273638CA0048C3C5 /* RecordingView.swift */; };
 		A9C8AAC127359BB700168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
+		CC9750BA27364A05005CB3E5 /* _FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B927364A05005CB3E5 /* _FlexibleView.swift */; };
+		CC9750BC27364A38005CB3E5 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750BB27364A38005CB3E5 /* View+Extension.swift */; };
+		CC9750BE27364A73005CB3E5 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750BD27364A73005CB3E5 /* FlexibleView.swift */; };
+		CC9750C127365752005CB3E5 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750C027365752005CB3E5 /* ReviewList.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
@@ -73,6 +77,10 @@
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99A30DC273638CA0048C3C5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		CC9750B927364A05005CB3E5 /* _FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _FlexibleView.swift; sourceTree = "<group>"; };
+		CC9750BB27364A38005CB3E5 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		CC9750BD27364A73005CB3E5 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
+		CC9750C027365752005CB3E5 /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
 		CC9750A427360F9F005CB3E5 /* STTDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTDataModel.swift; sourceTree = "<group>"; };
 		CC9750B627362609005CB3E5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
@@ -163,6 +171,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+    
+		CC9750B8273649FA005CB3E5 /* TagView */ = {
+			isa = PBXGroup;
+			children = (
+				CC9750B927364A05005CB3E5 /* _FlexibleView.swift */,
+				CC9750BD27364A73005CB3E5 /* FlexibleView.swift */,
+			);
+			path = TagView;
+			sourceTree = "<group>";
+		};
+		CC9750BF27365741005CB3E5 /* ReviewList */ = {
+			isa = PBXGroup;
+			children = (
+				CC9750C027365752005CB3E5 /* ReviewList.swift */,
+			);
+			path = ReviewList;
 		CC9750A627361B58005CB3E5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +206,7 @@
 		CCB0B73A27343FCE00CFD1B2 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				CC9750B8273649FA005CB3E5 /* TagView */,
 				CCB0B73B27343FE600CFD1B2 /* TabBar */,
 			);
 			path = UIComponents;
@@ -254,6 +279,7 @@
 		CCE3483A273188E400471492 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC9750BF27365741005CB3E5 /* ReviewList */,
 				CCE3484327318AD200471492 /* NewReview */,
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
 				A99A30DC273638CA0048C3C5 /* RecordingView.swift */,
@@ -266,6 +292,7 @@
 			children = (
 				CCE3484C27318D6F00471492 /* Date+Extension.swift */,
 				CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */,
+				CC9750BB27364A38005CB3E5 /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,6 +593,9 @@
 				68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */,
 				64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */,
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
+				CC9750C127365752005CB3E5 /* ReviewList.swift in Sources */,
+				A99A30DB27361C120048C3C5 /* DetailView.swift in Sources */,
+				CC9750BC27364A38005CB3E5 /* View+Extension.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
@@ -576,8 +606,11 @@
 				CCE3480A2731884D00471492 /* SceneDelegate.swift in Sources */,
 				CCE3484527318ADF00471492 /* NewReviewView.swift in Sources */,
 				CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */,
+
 				CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */,
 				CCE3484F27318EA100471492 /* Recording.swift in Sources */,
+				CC9750BA27364A05005CB3E5 /* _FlexibleView.swift in Sources */,
+				CC9750BE27364A73005CB3E5 /* FlexibleView.swift in Sources */,
 				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,

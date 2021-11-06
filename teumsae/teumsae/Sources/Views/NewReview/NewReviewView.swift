@@ -11,6 +11,7 @@ import SwiftUI
 struct NewReviewView: View {
     
     @ObservedObject var audioRecorder: AudioRecorder
+    //@ObservedObject var audioConverter: AudioConverter
     
     var body: some View {
         NavigationView { // NAVIGATIONVIEW
@@ -35,6 +36,7 @@ struct NewReviewView: View {
                     Button(action: {
                         self.audioRecorder.stopRecording()
                         print("Stop recording")
+                        
                     }) {
                         Image(systemName: "stop.fill")
                             .resizable()

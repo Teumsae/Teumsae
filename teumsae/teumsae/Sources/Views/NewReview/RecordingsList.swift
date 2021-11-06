@@ -17,7 +17,7 @@ struct RecordingsList: View {
             List {
                 ForEach(audioRecorder.recordings, id: \.createdAt) {
                     recording in
-                    NavigationLink(destination: RecordingView(),
+                    NavigationLink(destination: RecordingView(recording: recording),
                                    label: {
                         RecordingRow(audioURL: recording.fileURL)
                     })

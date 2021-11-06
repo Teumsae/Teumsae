@@ -34,9 +34,11 @@ struct voieceProfileStruct: Decodable {
 
 
 class AudioConverter: NSObject, ObservableObject {
+ 
     override init() {
         super.init()
     }
+
     
     func getBestText(text: String) -> String {
         var textArr = text.components(separatedBy: "\r\n")
@@ -48,6 +50,7 @@ class AudioConverter: NSObject, ObservableObject {
 //        print(String(finalVal[start..<end]))
         return String(finalVal[start..<end])
     }
+
     
     func convertToText(fileURL: URL){
         // getting fileName
@@ -76,6 +79,8 @@ class AudioConverter: NSObject, ObservableObject {
         } catch {
          print(" not able to upload data\(error)")
         }
+
+
     }
     
 }

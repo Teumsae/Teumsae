@@ -11,12 +11,13 @@ import SwiftUI
 
 class ViewRouter: ObservableObject {
     
+    @Published var openCreateReview: Bool = false
+    
     enum Page {
          case home
          case book
          case search
          case settings
-         case review 
     }
     
     @Published var currentPage: Page = .home

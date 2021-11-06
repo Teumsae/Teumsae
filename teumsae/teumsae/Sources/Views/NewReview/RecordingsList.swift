@@ -13,12 +13,19 @@ struct RecordingsList: View {
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     
     var body: some View {
-        List {
+        NavigationView{
+            List {
                 ForEach(audioRecorder.recordings, id: \.createdAt) {
-                    recording in RecordingRow(audioURL: recording.fileURL)
+                    recording in
+//                    NavigationLink(destination: RecordingView(recording: <#T##Recording#>),
+//                                   label: {
+
+                        RecordingRow(audioURL: recording.fileURL)
+//                    })
                 }
-                    .onDelete(perform: delete)
+                .onDelete(perform: delete)
             }
+        }
     }
 
     func delete(at offsets: IndexSet) {
@@ -36,19 +43,21 @@ struct RecordingRow: View{
     
     @ObservedObject var audioPlayer = AudioPlayer()
     
-    var body: some View{
+    var body: some View {
+
         HStack{
             Text("\(audioURL.lastPathComponent)")
             Spacer()
             if audioPlayer.isPlaying == false { // IF1 : NOT PLAYING
                 Button(action: {
+                    // navigation
                     self.audioPlayer.startPlayback(audio: self.audioURL)
                 }) {
                     Image(systemName: "play.circle")
                         .imageScale(.large)
                 }
             }
-            else{ // IF1-ELSE : CURRENTLY PLAYING
+            else { // IF1-ELSE : CURRENTLY PLAYING
                 Button(action: {
                     self.audioPlayer.stopPlayback()
                 }) {

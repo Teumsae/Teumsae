@@ -49,32 +49,6 @@ struct RecordingView: View {
 }
 
 
-//extension Recording {
-//    var createdAtString: String {
-//        let dateFormatter = DateFormatter()
-//        // Set Date Format
-//        dateFormatter.dateFormat = "YY/MM/dd"
-//        // Convert Date to String
-//        dateFormatter.string(from: createdAt)
-//    }
-//}
-//
-//extension String {
-//
-//    func toDate() -> Date? {
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//    dateFormatter.timeZone = TimeZone(identifier: "UTC")
-//    if let date = dateFormatter.date(from: self) {
-//        return date
-//
-//    }
-//    else {
-//        return nil
-//    }
-//}
-//}
-
 //struct RecordingView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        let dateString = "2019-05-19"

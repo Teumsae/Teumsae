@@ -10,35 +10,11 @@ import Alamofire
 import AVFAudio
 
 class AudioConverter: NSObject, ObservableObject {
+ 
     override init() {
         super.init()
     }
-    
-    
-    func sendAudio(fileURL: URL){
-        // getting fileName
-        let urlStr = "\(fileURL)"
-        let pathArr = urlStr.components(separatedBy: "/")
-        let fileName = String(pathArr.last!)
-        print("Here is the fileName: \(fileName)")
-        
-        let headers : HTTPHeaders = ["Transfer-Encoding": "chunked", "Content-Type": "application/octet-stream", "Authorization": "e168cb15198d17108619e66fb061dc92"]
 
-        do {
-            let audioData = try Data(contentsOf: fileURL)
-            //let audioData = try AVAudioFile(contentsOf: fileURL)
-            AF.upload(multipartFormData: { multipartFormData in
-                     multipartFormData.append(audioData, withName: fileName)
-            }, to: "https://kakaoi-newtone-openapi.kakao.com/v1/recognize", headers: headers)
-                     .responseJSON { response in
-                         debugPrint(response)
-                 }
-
-        } catch {
-         print(" not able to upload data\(error)")
-        }
-
-    }
     
     func convertToText(fileURL: URL){
         // getting fileName
@@ -55,9 +31,32 @@ class AudioConverter: NSObject, ObservableObject {
             AF.upload(multipartFormData: { multipartFormData in
                      multipartFormData.append(audioData, withName: fileName)
             }, to: "https://kakaoi-newtone-openapi.kakao.com/v1/recognize", headers: headers)
-                     .responseString { response in
-                         print(String(data: response.data!, encoding: .utf8))
-                 }
+//                .responseData { dataResponse in
+//
+//                    switch dataResponse.result {
+//                    case .success:
+//                        guard let value = dataResponse.data else {return}
+//
+//                        print("VALUE \(value)")
+//
+//                        let decoder = JSONDecoder()
+//                        guard let decodedData =  try? decoder.decode(STTDataModel.self, from: value)
+//                        else {
+//                            print("DECODING ERROR")
+//                            return
+//                        }
+//
+//                        print("DECODING RESULT[nBEST]: \(decodedData.nBest)")
+//                        print("DECODING RESULT[VALUE]: \(decodedData.value)")
+//
+//                    case .failure:
+//                        print("API ERROR \(dataResponse.error)")
+//                    }
+//
+//                }
+//                     .responseString { response in
+//                         print(String(data: response.data!, encoding: .utf8))
+//                 }
 
         } catch {
          print(" not able to upload data\(error)")
@@ -81,6 +80,7 @@ class AudioConverter: NSObject, ObservableObject {
             return
           }
         }*/
+        
     }
     
     

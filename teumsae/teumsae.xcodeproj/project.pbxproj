@@ -15,6 +15,9 @@
 		64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */; };
 		68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3388D2732EDB30073A40D /* RecordingsList.swift */; };
 		8037E801B9C7EE00E9AAF601 /* Pods_teumsae_teumsaeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEED87944FC7F4A07AD4FAF0 /* Pods_teumsae_teumsaeUITests.framework */; };
+		A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A30DC273638CA0048C3C5 /* RecordingView.swift */; };
+		A9C8AAC127359BB700168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
+		A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
@@ -70,6 +73,7 @@
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
+		A99A30DC273638CA0048C3C5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		CC9750A427360F9F005CB3E5 /* STTDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTDataModel.swift; sourceTree = "<group>"; };
 		CC9750B627362609005CB3E5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 			children = (
 				CCE3484327318AD200471492 /* NewReview */,
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
+				A99A30DC273638CA0048C3C5 /* RecordingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 				CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */,
 				CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */,
 				CCE3484F27318EA100471492 /* Recording.swift in Sources */,
+				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
@@ -579,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCE348222731884F00471492 /* teumsaeTests.swift in Sources */,
+				A9C8AAC127359BB700168E0E /* AudioConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */,
 				CCE3482C2731884F00471492 /* teumsaeUITests.swift in Sources */,
 				CCE3482E2731884F00471492 /* teumsaeUITestsLaunchTests.swift in Sources */,
 			);

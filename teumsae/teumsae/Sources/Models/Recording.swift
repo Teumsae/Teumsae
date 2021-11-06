@@ -14,7 +14,7 @@ struct Recording {
     
     let fileURL: URL
     let createdAt: Date
-    
+
     // POST PROCESSING
     let fileName: String?
     let lastPlay: CMTimeValue?
@@ -47,5 +47,6 @@ struct Recording {
             "tags" : tags
         ]
     }
+
 
 }

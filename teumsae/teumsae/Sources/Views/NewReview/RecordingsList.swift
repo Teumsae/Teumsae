@@ -10,7 +10,7 @@ import Alamofire
 
 struct RecordingsList: View {
     
-	@StateObject var audioRecorder: AudioRecorder = AudioRecorder().shared
+	@StateObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     
     var body: some View {
         List {

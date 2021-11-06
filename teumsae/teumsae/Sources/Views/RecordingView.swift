@@ -10,28 +10,36 @@ import SwiftUI
 
 struct RecordingView: View {
     let recording: Recording
+    @ObservedObject var audioPlayer = AudioPlayer()
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 Divider()
                     .padding(.bottom)
-                Text("Attendees")
+                Text("Date")
                     .font(.headline)
-                if let transcript = recording.transcript {
-                    Text("Transcript")
-                        .font(.headline)
-                        .padding(.top)
-                    Text(transcript)
+                Text(recording.createdAt.toString(dateFormat: "YY/MM/dd"))
+                if audioPlayer.isPlaying == false { // IF1 : NOT PLAYING
+                    Button(action: {
+                        // navigation
+                        self.audioPlayer.startPlayback(audio: self.recording.fileURL)
+                    }) {
+                        Image(systemName: "play.circle")
+                            .imageScale(.large)
+                    }
                 }
+                else { // IF1-ELSE : CURRENTLY PLAYING
+                    Button(action: {
+                        self.audioPlayer.stopPlayback()
+                    }) {
+                        Image(systemName: "stop.fill")
+                            .imageScale(.large)
+                    }
+                } // END OF IF1 CLAUSE
+                
+
             }
         }
     }
 }
 
-
-//struct RecordingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RecordingView(recording:Recording(fileURL: "blahblah"
-//                                            transcript: "Darla, would you like to start today? Sure, yesterday I reviewed Luis' PR and met with the design team to finalize the UI…"))
-//       }
-//}

@@ -10,7 +10,7 @@ import Alamofire
 
 struct RecordingsList: View {
     
-    @ObservedObject var audioRecorder: AudioRecorder
+	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     
     var body: some View {
         NavigationView{
@@ -19,6 +19,7 @@ struct RecordingsList: View {
                     recording in
 //                    NavigationLink(destination: RecordingView(recording: <#T##Recording#>),
 //                                   label: {
+
                         RecordingRow(audioURL: recording.fileURL)
 //                    })
                 }
@@ -70,6 +71,6 @@ struct RecordingRow: View{
 
 struct RecordingsList_Previews: PreviewProvider {
     static var previews: some View {
-        RecordingsList(audioRecorder: AudioRecorder())
+        RecordingsList()
     }
 }

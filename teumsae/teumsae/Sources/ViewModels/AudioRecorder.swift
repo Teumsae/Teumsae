@@ -52,6 +52,8 @@ class AudioRecorder: NSObject, ObservableObject {
                     AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
                 ]
         
+        print("AUDIO FILE NAME \(audioFilename)")
+        
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()

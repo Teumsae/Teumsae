@@ -12,6 +12,7 @@ struct NewReviewView: View {
     
     @ObservedObject var audioRecorder: AudioRecorder
     //@ObservedObject var audioConverter: AudioConverter
+    //@State private var transcript = ""
     
     var body: some View {
         NavigationView { // NAVIGATIONVIEW
@@ -36,6 +37,7 @@ struct NewReviewView: View {
                     Button(action: {
                         self.audioRecorder.stopRecording()
                         print("Stop recording")
+                        //let newDetail = Detail(transcript: transcript)
                         
                     }) {
                         Image(systemName: "stop.fill")

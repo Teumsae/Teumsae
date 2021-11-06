@@ -11,7 +11,7 @@ import SwiftUI
 struct LaunchView: View {
     
     @StateObject var viewRouter = ViewRouter()
-    @StateObject var audioRecorder = AudioRecorder()
+    @ObservedObject var audioRecorder = AudioRecorder.shared
     
     var body: some View {
         
@@ -27,7 +27,7 @@ struct LaunchView: View {
                  case .book:
                       Text("Book")
                  case .review:
-                     NewReviewView(audioRecorder: audioRecorder)
+					 NewReviewView()
                  case .search:
                       Text("Search")
                  case .settings:

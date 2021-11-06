@@ -12,6 +12,8 @@ import AVFoundation
 
 
 class AudioRecorder: NSObject, ObservableObject {
+	
+	static let shared = AudioRecorder()
     
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
     var audioRecorder: AVAudioRecorder!

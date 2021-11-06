@@ -8,12 +8,12 @@ target 'teumsae' do
   # Pods for teumsae
   pod 'Moya', '~> 15.0'
   pod 'Alamofire', '~> 5.4'
-  
+
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   # or pod ‘Firebase/AnalyticsWithoutAdIdSupport’
   # for Analytics without IDFA collection capability
-  pod 'Firebase/Messaging'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
 

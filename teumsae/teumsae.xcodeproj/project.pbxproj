@@ -59,6 +59,7 @@
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
 		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CC99C5BB273500FE00996B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC99C5BE2735012000996B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -180,6 +181,7 @@
 		CCE348062731884D00471492 /* teumsae */ = {
 			isa = PBXGroup;
 			children = (
+				CC9750A32736080A005CB3E5 /* teumsae.entitlements */,
 				CCE3484827318B6200471492 /* Resources */,
 				CCE3483C2731892100471492 /* Sources */,
 				CCE348072731884D00471492 /* AppDelegate.swift */,
@@ -698,22 +700,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZB44VD5WX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME)이 마이크를 사용합니다🎙";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.subeen.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -727,22 +732,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZB44VD5WX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME)이 마이크를 사용합니다🎙";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.subeen.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

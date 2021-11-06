@@ -16,8 +16,8 @@ struct ClearButton: ViewModifier {
 			Button(action: {
 				self.text = ""
 			}) {
-				Image(systemName: "multiply.circle.fill")
-					.foregroundColor(Color.searchBarGray)
+				Image(systemName: "multiply.circle")
+					.foregroundColor(Color.black)
 			}
 		}
 	}}
@@ -31,24 +31,10 @@ struct RecordingsHeaderView: View {
 				.font(.title)
 				
 			Spacer(minLength: 30.0)
-//			SearchBar(text: $searchKey)
 			HStack{
-				Image(systemName: "magnifyingglass")
+				Image(systemName: "magnifyingglass").padding(5)
 				TextField("검색", text: $searchKey).modifier(ClearButton(text: $searchKey))
-//				Image(systemName: "delete.left")
-
-//				Button(action: {self.searchKey = ""}, label:{
-//						Image(systemName: "delete.left")
-//					}
-//				)
-			}
-//				.padding()
-//				.background()
-//				.overlay(
-//					RoundedRectangle(cornerRadius: 10)
-////						.stroke(Color.cardViewBackground, lineWidth:1 )
-//
-//						)
+			}.background(Color.searchBarGray)
 			Spacer(minLength :30.0)
 			RecordingsHeaderStatView()
 			
@@ -56,7 +42,7 @@ struct RecordingsHeaderView: View {
 		}
 		.padding(16)
 		.background(Color.cardViewBackground)
-		
+	
 	}
 }
 
@@ -68,22 +54,30 @@ struct RecordingsHeaderStatView: View {
 			Button(action: {
 				print("This is Header Icon")
 			}, label: {
-				Image(systemName: "repeat.circle")
+				Image(systemName: "repeat.circle").foregroundColor(.black)
 			})
 			Spacer()
 			HStack{
 				VStack(alignment: .leading){
 					Text("이번 주 복습 성취도 \(Int(progress))%").font(.headline)
-					Text("총 복습 시간: 2시간")
+					Text("총 복습 시간: 2시간").font(.footnote).fontWeight(.light)
 					ProgressView(value: progress, total: 100.0)
 				}
 				
 				Spacer()
 				
-				Image(systemName: "chevron.forward").foregroundColor(.black)
+				Image(systemName: "chevron.forward")
 			}
 			
 		}
+		.padding()
+		.background(Color.white)
+//		.overlay(
+//			RoundedRectangle(cornerRadius: 10)
+//				.stroke(.white, lineWidth: 2)
+//				.foregroundColor(Color.white)
+//
+//		)
 	}
 }
 

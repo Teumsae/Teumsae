@@ -14,7 +14,7 @@ extension Color {
     static var unselectedGray: Color { fetchColor(#function) }
 	static var cardViewBackground: Color{ fetchColor(#function)}
 	static var searchBarGray: Color{fetchColor(#function) }
-	
+		
     private static func fetchColor(_ name: String) -> Color {
         return Color(name)
     }

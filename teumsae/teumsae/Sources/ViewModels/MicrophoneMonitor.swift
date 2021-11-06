@@ -13,7 +13,7 @@ import SwiftUI
 class MicrophoneMonitor: ObservableObject {
 	
 	// properties
-	@StateObject var customAudioRecorder: AudioRecorder = AudioRecorder.shared
+	@ObservedObject var customAudioRecorder: AudioRecorder = AudioRecorder.shared
 	// 1
 	private var audioRecorder: AVAudioRecorder {
 		return customAudioRecorder.audioRecorder

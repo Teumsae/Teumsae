@@ -11,7 +11,7 @@ import SwiftUI
 struct LaunchView: View {
     
     @StateObject var viewRouter = ViewRouter()
-    @StateObject var audioRecorder = AudioRecorder()
+    @ObservedObject var audioRecorder = AudioRecorder.shared
     
     var body: some View {
         

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NewReviewView: View {
     
-	@StateObject var audioRecorder: AudioRecorder = AudioRecorder.shared
+	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     @StateObject var mic: MicrophoneMonitor = MicrophoneMonitor()
     //@ObservedObject var audioConverter: AudioConverter
     

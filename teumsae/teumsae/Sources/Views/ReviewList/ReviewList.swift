@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ReviewList: View {
     var body: some View {
-        NavigationView { // NAVIGATION VIEW
-            VStack {
-				RecordingsHeaderView()
-                RecordingsList()
-            }
+		NavigationView { // NAVIGATION VIEW
+			ScrollView{
+			VStack{
+					RecordingsHeaderView()
+					Spacer()
+					RecordingsList()
+			}
+			.padding()
+			}
         } // END OF NAVIGATION VIEW
+		.navigationBarTitle("틈새 복습")
+		.navigationBarItems(trailing: EditButton()) //TODO - will be deprecated
     }
 }
 

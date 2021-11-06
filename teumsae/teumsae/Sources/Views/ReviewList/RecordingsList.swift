@@ -13,17 +13,17 @@ struct RecordingsList: View {
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     
     var body: some View {
-        List {
+        VStack {
             ForEach(audioRecorder.recordings, id: \.createdAt) {
                 recording in
                 NavigationLink(destination: RecordingView(recording: recording),
                                label: {
-                    RecordingRow(audioURL: recording.fileURL)
+					RecordingRow(audioURL: recording.fileURL).foregroundColor(.black)
                 })
             }
-            .onDelete(perform: delete)
-        }
-    }
+//            .onDelete(perform: delete)
+		}.background(Color.cardViewBackground)
+	}
 
     func delete(at offsets: IndexSet) {
         var urlsToDelete = [URL]()

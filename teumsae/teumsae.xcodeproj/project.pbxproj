@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
 		64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */; };
+		64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
 		64A6F41727357458007B600D /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F4182736244A007B600D /* MicrophoneMonitor.swift */; };
 		64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41A273627F4007B600D /* SoundWaveView.swift */; };
 		64A6F41E27363E02007B600D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41D27363E02007B600D /* Const.swift */; };
+		64B326A42736D4C100ADBB9E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B326A32736D4C100ADBB9E /* SearchBar.swift */; };
 		64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */; };
 		68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3388D2732EDB30073A40D /* RecordingsList.swift */; };
 		8037E801B9C7EE00E9AAF601 /* Pods_teumsae_teumsaeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEED87944FC7F4A07AD4FAF0 /* Pods_teumsae_teumsaeUITests.framework */; };
@@ -25,7 +27,6 @@
 		CC9750D027366F2D005CB3E5 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750CF27366F2D005CB3E5 /* URL+Extension.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
 		CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BB273500FE00996B17 /* Assets.xcassets */; };
-		CC99C5BF2735012000996B17 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
 		CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */; };
 		CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */; };
 		CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B740273446C100CFD1B2 /* ViewRounter.swift */; };
@@ -71,6 +72,7 @@
 		64A6F4182736244A007B600D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		64A6F41A273627F4007B600D /* SoundWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundWaveView.swift; sourceTree = "<group>"; };
 		64A6F41D27363E02007B600D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		64B326A32736D4C100ADBB9E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68E3388D2732EDB30073A40D /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				CC9750CC27366612005CB3E5 /* ReviewList.swift */,
 				64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */,
 				68E3388D2732EDB30073A40D /* RecordingsList.swift */,
+				64B326A32736D4C100ADBB9E /* SearchBar.swift */,
 			);
 			path = ReviewList;
 			sourceTree = "<group>";
@@ -442,8 +445,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC99C5BF2735012000996B17 /* Colors.xcassets in Resources */,
 				CCE348172731884F00471492 /* LaunchScreen.storyboard in Resources */,
+				64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */,
 				CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */,
 				64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */,
 			);
@@ -580,6 +583,7 @@
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
 				CCE3483F2731893E00471492 /* LaunchView.swift in Sources */,
+				64B326A42736D4C100ADBB9E /* SearchBar.swift in Sources */,
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
 				CCE348082731884D00471492 /* AppDelegate.swift in Sources */,
 				CCE3484D27318D6F00471492 /* Date+Extension.swift in Sources */,

@@ -7,19 +7,56 @@
 
 import SwiftUI
 
-struct RecordingsHeaderView: View {
-	
-	var body: some View{
-		VStack{
-			Text("복습하기")
-			Spacer()
-			VStack{
-				Text("검색 아이콘")
-				Text("search placeholder")
-				Text("microphone Icon")
+struct ClearButton: ViewModifier {
+	@Binding var text: String
+   
+	public func body(content: Content) -> some View {
+		HStack {
+			content
+			Button(action: {
+				self.text = ""
+			}) {
+				Image(systemName: "multiply.circle.fill")
+					.foregroundColor(Color.searchBarGray)
 			}
-			RecordingsHeaderStatView()
 		}
+	}}
+
+struct RecordingsHeaderView: View {
+	@State private var searchKey: String = ""
+	var body: some View{
+		VStack(alignment: .leading){
+			Spacer()
+			Text("복습하기")
+				.font(.title)
+				
+			Spacer(minLength: 30.0)
+//			SearchBar(text: $searchKey)
+			HStack{
+				Image(systemName: "magnifyingglass")
+				TextField("검색", text: $searchKey).modifier(ClearButton(text: $searchKey))
+//				Image(systemName: "delete.left")
+
+//				Button(action: {self.searchKey = ""}, label:{
+//						Image(systemName: "delete.left")
+//					}
+//				)
+			}
+//				.padding()
+//				.background()
+//				.overlay(
+//					RoundedRectangle(cornerRadius: 10)
+////						.stroke(Color.cardViewBackground, lineWidth:1 )
+//
+//						)
+			Spacer(minLength :30.0)
+			RecordingsHeaderStatView()
+			
+			Spacer()
+		}
+		.padding(16)
+		.background(Color.cardViewBackground)
+		
 	}
 }
 
@@ -27,7 +64,7 @@ struct RecordingsHeaderStatView: View {
 	@State private var progress:Double = 0.8 * 100.0
 	
 	var body: some View{
-		HStack{
+		HStack(alignment: .top){
 			Button(action: {
 				print("This is Header Icon")
 			}, label: {
@@ -35,18 +72,18 @@ struct RecordingsHeaderStatView: View {
 			})
 			Spacer()
 			HStack{
-				VStack{
-					Text("이번 주 복습 성취도 \(Int(progress))%")
-					ProgressView(value: progress, total: 100.0)
+				VStack(alignment: .leading){
+					Text("이번 주 복습 성취도 \(Int(progress))%").font(.headline)
 					Text("총 복습 시간: 2시간")
+					ProgressView(value: progress, total: 100.0)
 				}
 				
 				Spacer()
 				
-				Image(systemName: "chevron.forward")
+				Image(systemName: "chevron.forward").foregroundColor(.black)
 			}
 			
-		}.padding()
+		}
 	}
 }
 

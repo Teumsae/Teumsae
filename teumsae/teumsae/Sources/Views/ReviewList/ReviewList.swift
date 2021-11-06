@@ -11,6 +11,7 @@ struct ReviewList: View {
     var body: some View {
         NavigationView { // NAVIGATION VIEW
             VStack {
+				RecordingsHeaderView()
                 RecordingsList()
             }
         } // END OF NAVIGATION VIEW

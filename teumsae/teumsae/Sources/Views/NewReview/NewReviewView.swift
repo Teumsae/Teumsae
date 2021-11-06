@@ -17,9 +17,6 @@ struct NewReviewView: View {
     
     var body: some View {
             VStack { // VSTACK 0
-				RecordingsHeaderView()
-				RecordingsList()
-                
                 if audioRecorder.recording == false { // IF1 : START RECORDING
                     Button(action: {
                         self.audioRecorder.startRecording()

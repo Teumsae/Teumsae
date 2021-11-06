@@ -151,14 +151,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		64A5CBD727365D9B00A59508 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				CC9750B627362609005CB3E5 /* PersistenceManager.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		64A6F41C27363DFB007B600D /* Const */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				CC9750CC27366612005CB3E5 /* ReviewList.swift */,
+				64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */,
+				68E3388D2732EDB30073A40D /* RecordingsList.swift */,
 			);
 			path = ReviewList;
 			sourceTree = "<group>";
@@ -304,9 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				CCE3484427318ADF00471492 /* NewReviewView.swift */,
-				68E3388D2732EDB30073A40D /* RecordingsList.swift */,
 				64A6F41A273627F4007B600D /* SoundWaveView.swift */,
-				64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */,
 			);
 			path = NewReview;
 			sourceTree = "<group>";

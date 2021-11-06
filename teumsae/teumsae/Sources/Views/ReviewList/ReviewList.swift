@@ -13,8 +13,3 @@ struct ReviewList: View {
     }
 }
 
-struct ReviewList_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewList()
-    }
-}

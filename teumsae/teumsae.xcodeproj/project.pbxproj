@@ -19,6 +19,7 @@
 		CC9750BA27364A05005CB3E5 /* _FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B927364A05005CB3E5 /* _FlexibleView.swift */; };
 		CC9750BC27364A38005CB3E5 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750BB27364A38005CB3E5 /* View+Extension.swift */; };
 		CC9750BE27364A73005CB3E5 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750BD27364A73005CB3E5 /* FlexibleView.swift */; };
+		CC9750C127365752005CB3E5 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750C027365752005CB3E5 /* ReviewList.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
 		CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BB273500FE00996B17 /* Assets.xcassets */; };
 		CC99C5BF2735012000996B17 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
@@ -73,6 +74,7 @@
 		CC9750B927364A05005CB3E5 /* _FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _FlexibleView.swift; sourceTree = "<group>"; };
 		CC9750BB27364A38005CB3E5 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		CC9750BD27364A73005CB3E5 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
+		CC9750C027365752005CB3E5 /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
 		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CC99C5BB273500FE00996B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC99C5BE2735012000996B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 			path = TagView;
 			sourceTree = "<group>";
 		};
+		CC9750BF27365741005CB3E5 /* ReviewList */ = {
+			isa = PBXGroup;
+			children = (
+				CC9750C027365752005CB3E5 /* ReviewList.swift */,
+			);
+			path = ReviewList;
+			sourceTree = "<group>";
+		};
 		CCB0B73A27343FCE00CFD1B2 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +246,7 @@
 		CCE3483A273188E400471492 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC9750BF27365741005CB3E5 /* ReviewList */,
 				CCE3484327318AD200471492 /* NewReview */,
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
 				A99A30DA27361C120048C3C5 /* DetailView.swift */,
@@ -545,6 +556,7 @@
 			files = (
 				68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */,
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
+				CC9750C127365752005CB3E5 /* ReviewList.swift in Sources */,
 				A99A30DB27361C120048C3C5 /* DetailView.swift in Sources */,
 				CC9750BC27364A38005CB3E5 /* View+Extension.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,

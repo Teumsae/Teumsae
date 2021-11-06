@@ -10,7 +10,6 @@ import SwiftUI
 struct PlusButton: View {
     
     @StateObject var viewRouter: ViewRouter
-    let assignedPage: ViewRouter.Page
     
     var sideLength: CGFloat
     
@@ -29,11 +28,8 @@ struct PlusButton: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: sideLength, height: sideLength)
          } // END OF ZSTACK 0
-        .foregroundColor(
-           viewRouter.currentPage == assignedPage ? .mainYellow : .unselectedGray
-        )
         .onTapGesture {
-            viewRouter.currentPage = assignedPage
+            viewRouter.openCreateReview = true
         }
     }
 }

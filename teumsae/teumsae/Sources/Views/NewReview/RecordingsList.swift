@@ -17,10 +17,10 @@ struct RecordingsList: View {
             List {
                 ForEach(audioRecorder.recordings, id: \.createdAt) {
                     recording in
-                    NavigationLink(destination: RecordingView(),
-                                   label: {
+//                    NavigationLink(destination: RecordingView(recording: <#T##Recording#>),
+//                                   label: {
                         RecordingRow(audioURL: recording.fileURL)
-                    })
+//                    })
                 }
                 .onDelete(perform: delete)
             }

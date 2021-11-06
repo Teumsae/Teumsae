@@ -21,13 +21,12 @@ struct LaunchView: View {
                  
                  // VIEWS UNDER TAB
                  Spacer()
+                 
                  switch viewRouter.currentPage {
                  case .home:
                       Text("Home")
                  case .book:
-                      Text("Book")
-                 case .review:
-                     NewReviewView(audioRecorder: audioRecorder)
+                      ReviewList()
                  case .search:
                       Text("Search")
                  case .settings:
@@ -41,7 +40,7 @@ struct LaunchView: View {
                      TabBarItem(viewRouter: viewRouter, assignedPage: .book, width: geometry.size.width/6, height: geometry.size.height/28, imageName: "book")
 
                      // ADD BUTTON
-                     PlusButton(viewRouter: viewRouter, assignedPage: .review, sideLength: geometry.size.width/7)
+                     PlusButton(viewRouter: viewRouter, sideLength: geometry.size.width/7)
                          .offset(y: -6)
                      
                      TabBarItem(viewRouter: viewRouter, assignedPage: .search, width: geometry.size.width/6, height: geometry.size.height/28, imageName: "search")
@@ -53,6 +52,11 @@ struct LaunchView: View {
              
              } // END OF VSTACK 0
              .edgesIgnoringSafeArea(.bottom)
+             .sheet(isPresented: $viewRouter.openCreateReview, onDismiss: {
+                 viewRouter.openCreateReview = false
+             }, content: {
+                 NewReviewView(audioRecorder: audioRecorder)
+             })
             
          
         } // END OF GEOMETRY READER

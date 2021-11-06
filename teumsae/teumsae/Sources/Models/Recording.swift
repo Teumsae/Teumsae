@@ -10,7 +10,7 @@ import Foundation
 struct Recording {
     let fileURL: URL
     let createdAt: Date
-    let fileName: String
-    let tags: [String]
-    let transcription: String?
+//     let fileName: String
+//     let tags: [String]
+//     let transcription: String?
 }

@@ -20,6 +20,7 @@
 		A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
+		CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750CC27366612005CB3E5 /* ReviewList.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
 		CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BB273500FE00996B17 /* Assets.xcassets */; };
 		CC99C5BF2735012000996B17 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
@@ -73,9 +74,10 @@
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99A30DC273638CA0048C3C5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
 		CC9750A427360F9F005CB3E5 /* STTDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTDataModel.swift; sourceTree = "<group>"; };
 		CC9750B627362609005CB3E5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
+		CC9750CC27366612005CB3E5 /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
 		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CC99C5BB273500FE00996B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC99C5BE2735012000996B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -163,20 +165,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CC9750A627361B58005CB3E5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CC9750A727361B5E005CB3E5 /* CoreDataModules */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		CC9750A727361B5E005CB3E5 /* CoreDataModules */ = {
+		CC9750C927366440005CB3E5 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				CC9750B627362609005CB3E5 /* PersistenceManager.swift */,
 			);
-			path = CoreDataModules;
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		CC9750CA273665FC005CB3E5 /* ReviewList */ = {
+			isa = PBXGroup;
+			children = (
+				CC9750CC27366612005CB3E5 /* ReviewList.swift */,
+			);
+			path = ReviewList;
 			sourceTree = "<group>";
 		};
 		CCB0B73A27343FCE00CFD1B2 /* UIComponents */ = {
@@ -205,6 +207,7 @@
 				CCE348052731884D00471492 /* Products */,
 				4C94F641FD7268527DA49547 /* Pods */,
 				A98F4617ACFC254018CC9044 /* Frameworks */,
+				CC9750C927366440005CB3E5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +257,7 @@
 		CCE3483A273188E400471492 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC9750CA273665FC005CB3E5 /* ReviewList */,
 				CCE3484327318AD200471492 /* NewReview */,
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
 				A99A30DC273638CA0048C3C5 /* RecordingView.swift */,
@@ -584,6 +588,7 @@
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
 				64A6F41E27363E02007B600D /* Const.swift in Sources */,
+				CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,10 +16,10 @@ class ViewRouter: ObservableObject {
          case book
          case search
          case settings
-         case review 
     }
     
     @Published var currentPage: Page = .home
+    @Published var openCreateReview = false
    
 }
 

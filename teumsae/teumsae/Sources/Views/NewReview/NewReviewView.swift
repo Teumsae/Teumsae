@@ -16,7 +16,6 @@ struct NewReviewView: View {
     //@State private var transcript = ""
     
     var body: some View {
-        NavigationView { // NAVIGATIONVIEW
             VStack { // VSTACK 0
 				RecordingsHeaderView()
 				RecordingsList()
@@ -63,7 +62,6 @@ struct NewReviewView: View {
             } // END OF VSTACK 0
                 .navigationBarTitle("Voice recorder")
                 .navigationBarItems(trailing: EditButton()) //TODO - will be deprecated
-        } // END OF NAVIGATIONVIEW
     }
 }
 

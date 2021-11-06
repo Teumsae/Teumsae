@@ -37,12 +37,6 @@ struct RecordingView: View {
                     }
                 } // END OF IF1 CLAUSE
                 
-//                if let transcript = recording.transcript {
-//                    Text("Transcript")
-//                        .font(.headline)
-//                        .padding(.top)
-//                    Text(transcript)
-//                }
             }
         }
     }

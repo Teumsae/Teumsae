@@ -39,30 +39,43 @@ struct RecordingRow: View{
     var audioURL: URL
     
     @ObservedObject var audioPlayer = AudioPlayer()
+    @State private var progress:Double = 0.8 * 100.0
     
     var body: some View {
-
-        HStack{
-            Text("\(audioURL.lastPathComponent)")
-            Spacer()
-            if audioPlayer.isPlaying == false { // IF1 : NOT PLAYING
-                Button(action: {
-                    // navigation
-                    self.audioPlayer.startPlayback(audio: self.audioURL)
-                }) {
-                    Image(systemName: "play.circle")
-                        .imageScale(.large)
-                }
+        VStack(alignment: .leading){
+            HStack{
+                Text("Subject")
+                    .foregroundColor(.gray)
             }
-            else { // IF1-ELSE : CURRENTLY PLAYING
-                Button(action: {
-                    self.audioPlayer.stopPlayback()
-                }) {
-                    Image(systemName: "stop.fill")
-                        .imageScale(.large)
+            HStack{ //HSTACK2
+                Text("\(audioURL.lastPathComponent)")
+                Spacer()
+                /*
+                if audioPlayer.isPlaying == false { // IF1 : NOT PLAYING
+                    Button(action: {
+                        // navigation
+                        self.audioPlayer.startPlayback(audio: self.audioURL)
+                    }) {
+                        Image(systemName: "play.circle")
+                            .imageScale(.large)
+                    }
                 }
-            } // END OF IF1 CLAUSE
-        }
+                else { // IF1-ELSE : CURRENTLY PLAYING
+                    Button(action: {
+                        self.audioPlayer.stopPlayback()
+                    }) {
+                        Image(systemName: "stop.fill")
+                            .imageScale(.large)
+                    }
+                } // END OF IF1 CLAUSE*/
+                Text("08:01")
+            } // END OF HSTACK2
+            HStack{ //HSTACK3
+                Text("Tags")
+                    .foregroundColor(.gray)
+            } // END OF HSTACK3
+            ProgressView(value: progress, total: 100.0)
+        } // END OF VSTACK
     }
 }
 

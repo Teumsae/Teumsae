@@ -37,50 +37,9 @@ struct RecordingView: View {
                     }
                 } // END OF IF1 CLAUSE
                 
-//                if let transcript = recording.transcript {
-//                    Text("Transcript")
-//                        .font(.headline)
-//                        .padding(.top)
-//                    Text(transcript)
-//                }
+
             }
         }
     }
 }
 
-
-//extension Recording {
-//    var createdAtString: String {
-//        let dateFormatter = DateFormatter()
-//        // Set Date Format
-//        dateFormatter.dateFormat = "YY/MM/dd"
-//        // Convert Date to String
-//        dateFormatter.string(from: createdAt)
-//    }
-//}
-//
-//extension String {
-//
-//    func toDate() -> Date? {
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//    dateFormatter.timeZone = TimeZone(identifier: "UTC")
-//    if let date = dateFormatter.date(from: self) {
-//        return date
-//
-//    }
-//    else {
-//        return nil
-//    }
-//}
-//}
-
-//struct RecordingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let dateString = "2019-05-19"
-//        RecordingView(recording:Recording(
-//            fileURL: URL(string: "recordings/2"),
-//            createdAt: dateString.toDate(),
-//            transcript: "Darla, would you like to start today? Sure, yesterday I reviewed Luis' PR and met with the design team to finalize the UI..."))
-//       }
-//}

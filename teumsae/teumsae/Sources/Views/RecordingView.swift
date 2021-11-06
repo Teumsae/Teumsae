@@ -29,8 +29,9 @@ struct RecordingView: View {
 }
 
 
-struct RecordingView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordingView(recording:Recording(fileURL:transcript: "Darla, would you like to start today? Sure, yesterday I reviewed Luis' PR and met with the design team to finalize the UI..."))
-       }
-}
+//struct RecordingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecordingView(recording:Recording(fileURL: "blahblah"
+//                                            transcript: "Darla, would you like to start today? Sure, yesterday I reviewed Luis' PR and met with the design team to finalize the UI…"))
+//       }
+//}

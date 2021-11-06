@@ -56,7 +56,10 @@ class MicrophoneMonitor: ObservableObject {
 			self.currentSample = (self.currentSample + 1) % self.numberOfSamples
 		})
 	}
-	
+	func stopMonitoring() {
+		audioRecorder.isMeteringEnabled = false
+		timer?.invalidate()
+	}
 	// 8
 	deinit {
 		timer?.invalidate()

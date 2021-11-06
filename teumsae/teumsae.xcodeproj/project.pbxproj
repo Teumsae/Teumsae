@@ -69,9 +69,9 @@
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
 		CC9750A427360F9F005CB3E5 /* STTDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTDataModel.swift; sourceTree = "<group>"; };
 		CC9750B627362609005CB3E5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
 		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CC99C5BB273500FE00996B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC99C5BE2735012000996B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -141,6 +141,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		64A5CBD727365D9B00A59508 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				CC9750B627362609005CB3E5 /* PersistenceManager.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		64A6F41C27363DFB007B600D /* Const */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,22 +165,6 @@
 				A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CC9750A627361B58005CB3E5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CC9750A727361B5E005CB3E5 /* CoreDataModules */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		CC9750A727361B5E005CB3E5 /* CoreDataModules */ = {
-			isa = PBXGroup;
-			children = (
-				CC9750B627362609005CB3E5 /* PersistenceManager.swift */,
-			);
-			path = CoreDataModules;
 			sourceTree = "<group>";
 		};
 		CCB0B73A27343FCE00CFD1B2 /* UIComponents */ = {
@@ -201,6 +193,7 @@
 				CCE348052731884D00471492 /* Products */,
 				4C94F641FD7268527DA49547 /* Pods */,
 				A98F4617ACFC254018CC9044 /* Frameworks */,
+				64A5CBD727365D9B00A59508 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -750,10 +743,10 @@
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "teumsae이 마이크를 사용합니다🎙";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT)앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -765,7 +758,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -782,10 +775,10 @@
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "teumsae이 마이크를 사용합니다🎙";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT)앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

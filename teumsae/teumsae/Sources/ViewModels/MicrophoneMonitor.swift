@@ -46,7 +46,7 @@ class MicrophoneMonitor: ObservableObject {
 	}
 	
 	// 6
-	private func startMonitoring() {
+	func startMonitoring() {
 		audioRecorder.isMeteringEnabled = true
 //		audioRecorder.record()
 		timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (timer) in

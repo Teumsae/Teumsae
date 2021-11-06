@@ -13,7 +13,7 @@ import SwiftUI
 struct SoundWaveView: View {
 	
 	@EnvironmentObject var customAudioRecorder: AudioRecorder
-	@StateObject private var mic: MicrophoneMonitor = MicrophoneMonitor()
+	@EnvironmentObject private var mic: MicrophoneMonitor
 	
 
 	

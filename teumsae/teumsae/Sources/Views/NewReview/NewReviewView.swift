@@ -11,6 +11,7 @@ import SwiftUI
 struct NewReviewView: View {
     
 	@StateObject var audioRecorder: AudioRecorder = AudioRecorder.shared
+    @StateObject var mic: MicrophoneMonitor = MicrophoneMonitor()
     //@ObservedObject var audioConverter: AudioConverter
     
     var body: some View {
@@ -21,6 +22,7 @@ struct NewReviewView: View {
                 if audioRecorder.recording == false { // IF1 : START RECORDING
                     Button(action: {
                         self.audioRecorder.startRecording()
+                        self.mic.startMonitoring()
                         print("Start recording")
                     }) {
                         Image(systemName: "circle.fill")
@@ -31,7 +33,7 @@ struct NewReviewView: View {
                             .foregroundColor(.red)
                             .padding(.bottom, 40)
                     }
-					SoundWaveView().environmentObject(audioRecorder)
+					
                 }
                 else { // IF1-ELSE : STOP RECORDING
                     Button(action: {
@@ -47,6 +49,9 @@ struct NewReviewView: View {
                             .foregroundColor(.red)
                             .padding(.bottom, 40)
                     }
+                    SoundWaveView()
+                        .environmentObject(audioRecorder)
+                        .environmentObject(mic)
                 } // END OF IF1 CLAUSE
             } // END OF VSTACK 0
                 .navigationBarTitle("Voice recorder")

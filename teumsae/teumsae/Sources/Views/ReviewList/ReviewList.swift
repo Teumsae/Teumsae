@@ -13,14 +13,6 @@ struct ReviewList: View {
 	
     var body: some View {
 		NavigationView { // NAVIGATION VIEW
-//			ScrollView{
-//				VStack{
-//						RecordingsHeaderCardView()
-//						Spacer()
-//						RecordingsList()
-//				}
-//				.padding()
-//			}
 			List{
 				Section(header: Text("복습하기")
 							.font(.title3).foregroundColor(.black)
@@ -39,8 +31,6 @@ struct ReviewList: View {
 			}
 			
         } // END OF NAVIGATION VIEW
-//		.navigationBarTitle("틈새 복습")
-//		.navigationBarItems(trailing: EditButton()) //TODO - will be deprecated
     }
 }
 

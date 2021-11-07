@@ -28,11 +28,14 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             } catch {
                 print("Playing over the device's speakers failed")
         }
-        do { audioPlayer = try AVAudioPlayer(contentsOf: audio)
+        do {
+			print(audio)
+			audioPlayer = try AVAudioPlayer(contentsOf: audio)
             audioPlayer.delegate = self
             audioPlayer.play()
             isPlaying = true
-        } catch {
+        } catch  {
+			print(error)
             print("Playback failed.")
         }
     }

@@ -105,5 +105,24 @@ class PersistenceManager {
         }
         
     }
+    
+    func deleteByFileURL(fileURL: URL) {
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "fileURL = %@", fileURL as CVarArg)
+        do {
+            let test = try context.fetch(fetchRequest)
+            let object = test[0] as! NSManagedObject
+            do {
+                try context.delete(object)
+            } catch {
+                print(error)
+            }
+        }
+        catch {
+            print(error)
+        }
+        
+    }
 
 }

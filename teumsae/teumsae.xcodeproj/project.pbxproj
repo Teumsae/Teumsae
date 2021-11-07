@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
+		64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */; };
+		64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
 		64A6F41727357458007B600D /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F4182736244A007B600D /* MicrophoneMonitor.swift */; };
 		64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41A273627F4007B600D /* SoundWaveView.swift */; };
@@ -28,7 +30,6 @@
 		CC9750DE2737F8E7005CB3E5 /* RecordingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750DD2737F8E7005CB3E5 /* RecordingDetailView.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
 		CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BB273500FE00996B17 /* Assets.xcassets */; };
-		CC99C5BF2735012000996B17 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
 		CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */; };
 		CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */; };
 		CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B740273446C100CFD1B2 /* ViewRounter.swift */; };
@@ -69,6 +70,7 @@
 		1C089CF7138B0FFAE730C4CB /* Pods-teumsaeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.debug.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		42BC0D0A9FD4E997D56BB41B /* Pods-teumsae-teumsaeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae-teumsaeUITests.release.xcconfig"; path = "Target Support Files/Pods-teumsae-teumsaeUITests/Pods-teumsae-teumsaeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
+		64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsHeaderView.swift; sourceTree = "<group>"; };
 		64A6F41627357457007B600D /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		64A6F4182736244A007B600D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		64A6F41A273627F4007B600D /* SoundWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundWaveView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				CC9750CC27366612005CB3E5 /* ReviewList.swift */,
+				64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */,
+				68E3388D2732EDB30073A40D /* RecordingsList.swift */,
 			);
 			path = ReviewList;
 			sourceTree = "<group>";
@@ -314,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				CCE3484427318ADF00471492 /* NewReviewView.swift */,
-				68E3388D2732EDB30073A40D /* RecordingsList.swift */,
 				64A6F41A273627F4007B600D /* SoundWaveView.swift */,
 			);
 			path = NewReview;
@@ -459,8 +462,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC99C5BF2735012000996B17 /* Colors.xcassets in Resources */,
 				CCE348172731884F00471492 /* LaunchScreen.storyboard in Resources */,
+				64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */,
 				CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */,
 				64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */,
 			);
@@ -611,6 +614,7 @@
 				CCE3484F27318EA100471492 /* Recording.swift in Sources */,
 				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
+				64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
@@ -791,10 +795,10 @@
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "teumsae이 마이크를 사용합니다🎙";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -806,7 +810,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -823,10 +827,10 @@
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "teumsae이 마이크를 사용합니다🎙";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -838,7 +842,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

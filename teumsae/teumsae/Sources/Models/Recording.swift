@@ -24,7 +24,7 @@ struct Recording {
     var tags: [String] = []
     
     var timeStamp: String {
-        return "\(createdAt.toString(dateFormat: "YY.MM.dd HH:mm:ss"))"
+        return "\(createdAt.toString(dateFormat: "YYYY.MM.dd hh:mm:ss a"))"
     }
     
     init(fileURL: URL, createdAt: Date, fileName: String? = nil, lastPlay: CMTimeValue? = nil, image: UIImage? = nil, transcription: String? = nil, reviewCount: Int = 0, tags: [String] = []) {

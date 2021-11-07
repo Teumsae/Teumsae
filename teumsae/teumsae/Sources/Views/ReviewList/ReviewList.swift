@@ -8,16 +8,36 @@
 import SwiftUI
 
 struct ReviewList: View {
+	
+	@State var searchKey: String = ""
+	
     var body: some View {
 		NavigationView { // NAVIGATION VIEW
-			ScrollView{
-				VStack{
-						RecordingsHeaderCardView()
-						Spacer()
-						RecordingsList()
+//			ScrollView{
+//				VStack{
+//						RecordingsHeaderCardView()
+//						Spacer()
+//						RecordingsList()
+//				}
+//				.padding()
+//			}
+			List{
+				Section(header: Text("복습하기")
+							.font(.title3).foregroundColor(.black)
+							.padding(.bottom, 5)
+							){
+					RecordingsHeaderCardView(searchKey: $searchKey).cornerRadius(10)
 				}
-				.padding()
+					
+					.buttonStyle(.plain)
+
+				
+				
+				Section(header:Text("오늘의 복습").font(.title3).foregroundColor(.black).padding(.bottom, 5)){
+					RecordingsList(searchKey: $searchKey)
+				}
 			}
+			
         } // END OF NAVIGATION VIEW
 //		.navigationBarTitle("틈새 복습")
 //		.navigationBarItems(trailing: EditButton()) //TODO - will be deprecated

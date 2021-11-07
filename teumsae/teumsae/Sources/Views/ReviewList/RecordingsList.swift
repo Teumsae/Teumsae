@@ -9,36 +9,28 @@ import SwiftUI
 import Alamofire
 
 struct RecordingsList: View {
-
+	@Binding var searchKey: String
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
 
     var body: some View {
-		VStack(alignment: .leading) {
-			Spacer()
-			
-			Text("오늘의 복습")
-				.font(.title)
-				.padding(.trailing, 30)
+		ForEach(audioRecorder.recordings, id: \.createdAt) {
+			recording in
 			
 			
-            ForEach(audioRecorder.recordings, id: \.createdAt) {
-                recording in
-				
-				
-                NavigationLink(destination: RecordingView(recording: recording),
-                               label: {
-					RecordingRow(audioURL: recording.fileURL).foregroundColor(.black)
-						
-				})
-//					.buttonStyle(PlainButtonStyle())
-            }
-            .onDelete(perform: delete)
+			NavigationLink(destination: RecordingView(recording: recording),
+						   label: {
+				RecordingRow(audioURL: recording.fileURL).foregroundColor(.black)
+					
+			})
+				.buttonStyle(PlainButtonStyle()).cornerRadius(10)
 		}
-		.padding(16)
-		.background(Color.cardViewBackground)
-		
-		
-	}
+		.onDelete(perform: delete)
+
+		if audioRecorder.recordings.count == 0 {
+			Text("모든 복습을 완료하셨습니다.").font(.title2)
+		}
+}
+
 
     func delete(at offsets: IndexSet) {
         var urlsToDelete = [URL]()
@@ -64,9 +56,9 @@ struct RecordingRow: View{
 				}, label: {
 					Image(systemName: "repeat.circle")
 						.foregroundColor(.black)
-			}).padding()
+			})
 			
-			Spacer()
+			
 			
 			VStack(alignment: .leading){
 				HStack{
@@ -79,7 +71,6 @@ struct RecordingRow: View{
 						.font(.caption)
 					Spacer()
 					Text("08:01").font(.caption2)
-					Image(systemName: "chevron.forward")
 				} // END OF HSTACK2
 				HStack{ //HSTACK3
 					Text("Tags")
@@ -90,14 +81,14 @@ struct RecordingRow: View{
 			} // END OF VSTACK
 		} // END OF HSTACK
 		.padding()
-		.background(Color.white).cornerRadius(10)
+		.background(Color.cardViewBackground).cornerRadius(10)
 		
 	}
 }
 
-
-struct RecordingsList_Previews: PreviewProvider {
-	static var previews: some View {
-		RecordingsList()
-	}
-}
+//
+//struct RecordingsList_Previews: PreviewProvider {
+//	static var previews: some View {
+//		RecordingsList()
+//	}
+//}

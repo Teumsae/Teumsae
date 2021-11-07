@@ -14,7 +14,6 @@
 		64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F4182736244A007B600D /* MicrophoneMonitor.swift */; };
 		64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41A273627F4007B600D /* SoundWaveView.swift */; };
 		64A6F41E27363E02007B600D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41D27363E02007B600D /* Const.swift */; };
-		64B326A42736D4C100ADBB9E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B326A32736D4C100ADBB9E /* SearchBar.swift */; };
 		64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */; };
 		68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E3388D2732EDB30073A40D /* RecordingsList.swift */; };
 		8037E801B9C7EE00E9AAF601 /* Pods_teumsae_teumsaeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEED87944FC7F4A07AD4FAF0 /* Pods_teumsae_teumsaeUITests.framework */; };
@@ -72,7 +71,6 @@
 		64A6F4182736244A007B600D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		64A6F41A273627F4007B600D /* SoundWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundWaveView.swift; sourceTree = "<group>"; };
 		64A6F41D27363E02007B600D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		64B326A32736D4C100ADBB9E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		64CFFC732733DA3E00E255EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68E3388D2732EDB30073A40D /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
 		716FF5311B04C40490F5E582 /* Pods-teumsae.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.release.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				CC9750CC27366612005CB3E5 /* ReviewList.swift */,
 				64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */,
 				68E3388D2732EDB30073A40D /* RecordingsList.swift */,
-				64B326A32736D4C100ADBB9E /* SearchBar.swift */,
 			);
 			path = ReviewList;
 			sourceTree = "<group>";
@@ -583,7 +580,6 @@
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
 				CCE3483F2731893E00471492 /* LaunchView.swift in Sources */,
-				64B326A42736D4C100ADBB9E /* SearchBar.swift in Sources */,
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
 				CCE348082731884D00471492 /* AppDelegate.swift in Sources */,
 				CCE3484D27318D6F00471492 /* Date+Extension.swift in Sources */,

@@ -18,19 +18,15 @@ struct ClearButton: ViewModifier {
 			}) {
 				Image(systemName: "multiply.circle")
 					.foregroundColor(Color.black)
-			}
+			}.padding(.horizontal, 5)
 		}
 	}}
 
 struct RecordingsHeaderCardView: View {
-	@State private var searchKey: String = ""
+	@Binding var searchKey: String
+	
 	var body: some View{
 		VStack(alignment: .leading){
-			Spacer()
-			Text("복습하기")
-				.font(.title)
-				
-			Spacer(minLength: 30.0)
 			HStack{
 				Image(systemName: "magnifyingglass").padding(5)
 				TextField("검색", text: $searchKey)
@@ -46,9 +42,9 @@ struct RecordingsHeaderCardView: View {
 			
 			Spacer()
 		}
-		.padding(16)
-		.background(Color.cardViewBackground)
 		.cornerRadius(10)
+		.padding(5)
+		.frame(minWidth: 0, maxWidth: .infinity,alignment: .leading)
 		.navigationTitle("틈새 복습")
 		.navigationBarItems(trailing: Button(action: {}) {
 					Image(systemName: "plus")
@@ -78,10 +74,9 @@ struct RecordingsHeaderStatView: View {
 				
 				Image(systemName: "chevron.forward")
 			}
-			
 		}
 		.padding()
-		.background(Color.white)
+		.background(Color.cardViewBackground)
 		.cornerRadius(10)
 
 	}

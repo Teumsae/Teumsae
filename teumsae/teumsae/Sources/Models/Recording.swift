@@ -16,12 +16,16 @@ struct Recording {
     let createdAt: Date
 
     // POST PROCESSING
-    let fileName: String?
-    let lastPlay: CMTimeValue?
-    let image: UIImage?
-    let transcription: String?
+    var fileName: String?
+    var lastPlay: CMTimeValue?
+    var image: UIImage?
+    var transcription: String?
     var reviewCount: Int = 0
     var tags: [String] = []
+    
+    var timeStamp: String {
+        return "\(createdAt.toString(dateFormat: "YY.MM.dd HH:mm:ss"))"
+    }
     
     init(fileURL: URL, createdAt: Date, fileName: String? = nil, lastPlay: CMTimeValue? = nil, image: UIImage? = nil, transcription: String? = nil, reviewCount: Int = 0, tags: [String] = []) {
         self.fileURL = fileURL

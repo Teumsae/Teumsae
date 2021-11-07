@@ -9,8 +9,15 @@ import Foundation
 import SwiftUI
 
 struct RecordingView: View {
+    
     let recording: Recording
     @ObservedObject var audioPlayer = AudioPlayer()
+    
+    init (recording: Recording) {
+        self.recording = recording
+    }
+    
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -19,6 +26,14 @@ struct RecordingView: View {
                 Text("Date")
                     .font(.headline)
                 Text(recording.createdAt.toString(dateFormat: "YY/MM/dd"))
+                
+                FlexibleView(data: recording.tags, spacing: 8, alignment: .leading, content: { item in
+                    Text(item)
+                        .padding()
+                        .border(Color.mainYellow, width: 1)
+                        .cornerRadius(10)
+                })
+                
                 if audioPlayer.isPlaying == false { // IF1 : NOT PLAYING
                     Button(action: {
                         // navigation

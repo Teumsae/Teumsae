@@ -38,6 +38,7 @@ struct RecordingRow: View{
     
     var audioURL: URL
     
+    
     @ObservedObject var audioPlayer = AudioPlayer()
     
     var body: some View {

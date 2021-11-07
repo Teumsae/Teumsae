@@ -5,10 +5,10 @@
 //  Created by seungyeon on 2021/11/05.
 //
 
-import Foundation
 import Alamofire
 import AVFAudio
 import SwiftUI
+import Combine
 
 struct DecodableType: Decodable {
     var type: String
@@ -34,7 +34,15 @@ struct voieceProfileStruct: Decodable {
 
 
 class AudioConverter: NSObject, ObservableObject {
- 
+	
+	let objectWillChange = PassthroughSubject<AudioConverter, Never>()
+
+	var isLoading = false {
+		didSet {
+			objectWillChange.send(self)
+		}
+	}
+	
     override init() {
         super.init()
     }
@@ -53,6 +61,7 @@ class AudioConverter: NSObject, ObservableObject {
 
     
     func convertToText(fileURL: URL){
+		isLoading = true
         // getting fileName
         let urlStr = "\(fileURL)"
         let pathArr = urlStr.components(separatedBy: "/")
@@ -76,15 +85,18 @@ class AudioConverter: NSObject, ObservableObject {
                         
                         print("CONVERT TO TEXT - FILE NAME \(fileName)")
                         PersistenceManager.shared.updateByFileURL(audioFileName: fileName, recording: Recording(audioFileName: fileName, createdAt: fileURL.getCreationDate(), transcription: finalText))
+						AudioRecorder.shared.fetchRecordings()
                         
                         let updatedRecordings = PersistenceManager.shared.read()
                         print("UPDATED RECORDINGS \(updatedRecordings)")
                         
                         print(finalText)
+						self.isLoading = false
                     }
             
         } catch {
-         print(" not able to upload data\(error)")
+			isLoading = false
+			print(" not able to upload data\(error)")
         }
 
 

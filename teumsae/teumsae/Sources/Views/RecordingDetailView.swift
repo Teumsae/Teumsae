@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordingDetailView: View {
     
-    let recording: Recording = Recording(fileURL: URL(fileURLWithPath: "file:///var/mobile/Containers/Data/Application/026E8AE2-B2E5-4E30-A813-0FF23EE34AC5/Documents/07-11-21_at_20:24:37.wav"), createdAt: Date(), fileName: "제목", lastPlay: nil, image: UIImage(named: "dummyImage"), transcription: "transcription", reviewCount: 2, tags: ["tag1", "tag2"])
+    let recording: Recording = Recording(audioFileName: "07-11-21_at_20:24:37.wav", createdAt: Date(), fileName: "제목", lastPlay: nil, image: UIImage(named: "dummyImage"), transcription: "transcription", reviewCount: 2, tags: ["tag1", "tag2"])
     
     var body: some View {
         

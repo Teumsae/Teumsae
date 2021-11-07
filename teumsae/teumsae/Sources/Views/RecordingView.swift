@@ -7,11 +7,21 @@
 
 import Foundation
 import SwiftUI
+import AVKit
 
 struct RecordingView: View {
     
     let recording: Recording
     @ObservedObject var audioPlayer = AudioPlayer()
+
+    @State var data : Data = .init(count: 0)
+    //@State var title = ""
+    @State var playing = false
+    @State var width : CGFloat = 0
+    //@State var songs = ["black","bad"]
+    @State var current = 0
+    @State var finish = false
+    @State var del = AVdelegate()
     
     init (recording: Recording) {
         self.recording = recording
@@ -21,48 +31,186 @@ struct RecordingView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Divider()
-                    .padding(.bottom)
+                Text(recording.fileName ?? "<no_name>")
+//                    .font(.headline)
+                    .font(.system(size:30))
+                    .frame(height: 43, alignment: .leading)
+                    .padding(.leading, 17)
+                    //.padding(.top, 17)
                 Text("Date")
                     .font(.headline)
-                Text(recording.createdAt.toString(dateFormat: "YY/MM/dd"))
+                    .font(.system(size:17))
+                    .frame(height: 23, alignment: .leading)
+                    .padding(.leading, 17)
+                Text(recording.createdAt.toString(dateFormat: "yyyy-MM-dd HH:mm"))
+                    .font(.headline)
+                    .frame(height: 23)
+                    //.padding(.top, 104)
+                    .padding(.leading, 17)
+                    
+                    
+                    ZStack(alignment: .leading) {
+                    
+                        Capsule().fill(Color.black.opacity(0.08)).frame(height: 8)
+                        
+                        Capsule().fill(Color.red).frame(width: self.width, height: 8)
+                        .gesture(DragGesture()
+                            .onChanged({ (value) in
+                                
+                                let x = value.location.x
+                                
+                                self.width = x
+                                
+                            }).onEnded({ (value) in
+                                
+                                let x = value.location.x
+                                
+                                let screen = UIScreen.main.bounds.width
+                                
+                                let percent = x / screen
+                                
+                                self.audioPlayer.audioPlayer.currentTime = Double(percent) * self.audioPlayer.audioPlayer.duration
+                            }))
+                    }
+                    .padding(.top)
+                    
+                HStack{
+                        
+//                        Button(action: {
+//
+//                            if self.current > 0{
+//
+//                                self.current -= 1
+//
+//                                //self.ChangeSongs()
+//                            }
+//
+//                        }) {
+//
+//                            Image(systemName: "backward.fill").font(.title)
+//
+//                        }
+                            Spacer()
+                            Button(action: {
+                                
+                                self.audioPlayer.audioPlayer.currentTime -= 15
+                                
+                            }) {
+                        
+                                Image(systemName: "gobackward.15").font(.title)
+                                
+                            }
+                        
+                            Button(action: {
+                                
+                                if self.audioPlayer.isPlaying{
+                                    
+                                    self.audioPlayer.stopPlayback()
+                                    self.playing = false
+                                }
+                                else{
+                                    
+                                    if self.finish{
+                                        
+                                        self.audioPlayer.audioPlayer.currentTime = 0
+                                        self.width = 0
+                                        self.finish = false
+                                        
+                                    }
+                                    
+                                    self.audioPlayer.startPlayback(audio: self.recording.fileURL)
+                                    self.playing = true
+                                }
+                                
+                            }) {
+                        
+                                Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.title)
+                                
+                            }
+                        
+                            Button(action: {
+                               
+                                let increase = self.audioPlayer.audioPlayer.currentTime + 15
+                                
+                                if increase < self.audioPlayer.audioPlayer.duration{
+                                    
+                                    self.audioPlayer.audioPlayer.currentTime = increase
+                                }
+                                
+                            }) {
+                        
+                                Image(systemName: "goforward.15").font(.title)
+                                
+                            }
+                            Spacer()
+                        
+//                            Button(action: {
+//
+//                                if self.songs.count - 1 != self.current{
+//
+//                                    self.current += 1
+//
+//                                    //self.ChangeSongs()
+//                                }
+//
+//                            }) {
+//
+//                                Image(systemName: "forward.fill").font(.title)
+//
+//                            }
+                        
+                    }.padding(.top,25)
+                    .foregroundColor(.black)
+
+                Divider()
                 
-                FlexibleView(data: recording.tags, spacing: 8, alignment: .leading, content: { item in
-                    Text(item)
-                        .padding()
-                        .border(Color.mainYellow, width: 1)
-                        .cornerRadius(10)
-                })
+                Text(recording.transcription ?? "<no_transcription>")
+                    .padding(.leading, 17)
+            }
+            .onAppear {
                 
-                if audioPlayer.isPlaying == false { // IF1 : NOT PLAYING
-                    Button(action: {
-                        // navigation
-                        self.audioPlayer.startPlayback(audio: self.recording.fileURL)
-                    }) {
-                        Image(systemName: "play.circle")
-                            .imageScale(.large)
+                self.audioPlayer.audioPlayer = try! AVAudioPlayer(contentsOf: self.recording.fileURL)
+                
+                self.audioPlayer.audioPlayer.delegate = self.del
+                
+
+                Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (_) in
+
+                    if self.audioPlayer.audioPlayer.isPlaying{
+
+                        let screen = UIScreen.main.bounds.width - 30
+
+                        let value = self.audioPlayer.audioPlayer.currentTime / self.audioPlayer.audioPlayer.duration
+
+                        self.width = screen * CGFloat(value)
                     }
                 }
-                else { // IF1-ELSE : CURRENTLY PLAYING
-                    Button(action: {
-                        self.audioPlayer.stopPlayback()
-                    }) {
-                        Image(systemName: "stop.fill")
-                            .imageScale(.large)
-                    }
-                } // END OF IF1 CLAUSE
                 
-//                if let transcript = recording.transcript {
-//                    Text("Transcript")
-//                        .font(.headline)
-//                        .padding(.top)
-//                    Text(transcript)
-//                }
+                NotificationCenter.default.addObserver(forName: NSNotification.Name("Finish"), object: nil, queue: .main) { (_) in
+                    
+                    self.finish = true
+                }
             }
+            
+            .frame(
+                  minWidth: 0,
+                  maxWidth: .infinity,
+                  minHeight: 0,
+                  maxHeight: .infinity,
+                  alignment: .topLeading
+                )
+            
         }
     }
 }
 
+class AVdelegate : NSObject,AVAudioPlayerDelegate{
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name("Finish"), object: nil)
+    }
+}
 
 //struct RecordingView_Previews: PreviewProvider {
 //    static var previews: some View {
@@ -73,3 +221,4 @@ struct RecordingView: View {
 //            transcript: "Darla, would you like to start today? Sure, yesterday I reviewed Luis' PR and met with the design team to finalize the UI..."))
 //       }
 //}
+

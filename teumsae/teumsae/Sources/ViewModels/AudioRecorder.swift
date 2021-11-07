@@ -43,7 +43,9 @@ class AudioRecorder: NSObject, ObservableObject {
         
         let timeStamp = Date()
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFilename = documentPath.appendingPathComponent("\(timeStamp.toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).wav")
+        let relFilePath = "\(timeStamp.toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).wav"
+        let audioFilename = documentPath.appendingPathComponent(relFilePath)
+        
         
         let settings = [
                     AVFormatIDKey: Int(kAudioFormatLinearPCM),
@@ -58,7 +60,7 @@ class AudioRecorder: NSObject, ObservableObject {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()
             recording = true
-            PersistenceManager.shared.create(Recording(fileURL: audioFilename, createdAt: timeStamp))
+            PersistenceManager.shared.create(Recording(audioFileName: relFilePath, createdAt: timeStamp))
         } catch {
             print("Could not start recording")
         }

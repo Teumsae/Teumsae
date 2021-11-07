@@ -31,7 +31,7 @@ struct NewReviewView: View {
                 
                 // MARK - TITLE AND TIMESTAMP
                 VStack(alignment: .center) { // VSTACK 1
-                    Text("새 녹음 \(audioRecorder.recordings.count + 1)")
+                    Text("새 녹음 \(audioRecorder.recordings.count + 2)")
                         .font(.title)
                         .bold()
                         .foregroundColor(.placeHolderGray)

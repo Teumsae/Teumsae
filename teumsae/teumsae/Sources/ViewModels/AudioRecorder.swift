@@ -24,9 +24,16 @@ class AudioRecorder: NSObject, ObservableObject {
             }
         }
     
-    var audioConverter: AudioConverter
+    var saving = false {
+        didSet {
+            print("Saving \(oldValue)")
+            objectWillChange.send(self)
+        }
+    }
+    
+    @ObservedObject var audioConverter: AudioConverter = AudioConverter.shared
+    
     override init() {
-        audioConverter = AudioConverter()
         super.init()
         fetchRecordings()
     }
@@ -67,10 +74,10 @@ class AudioRecorder: NSObject, ObservableObject {
     
     func stopRecording() {
         audioRecorder.stop()
+        saving = true
         recording = false
         fetchRecordings()
         audioConverter.convertToText(fileURL: (recordings.last?.fileURL) as! URL)
-        
         print("\(PersistenceManager.shared.read())") 
     }
     

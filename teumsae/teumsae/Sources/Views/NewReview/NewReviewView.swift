@@ -12,58 +12,71 @@ struct NewReviewView: View {
     
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     @StateObject var mic: MicrophoneMonitor = MicrophoneMonitor()
-    //@ObservedObject var audioConverter: AudioConverter
-    //@State private var transcript = ""
+    @State var title: String = ""
     
     var body: some View {
-            VStack { // VSTACK 0
-                if audioRecorder.recording == false { // IF1 : START RECORDING
-                    Button(action: {
-                        self.audioRecorder.startRecording()
-                        self.mic.startMonitoring()
-                        print("Start recording")
-                    }) {
-                        Image(systemName: "circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 100)
-                            .clipped()
-                            .foregroundColor(.red)
-                            .padding(.bottom, 40)
+        
+        VStack(spacing: 20) { // VSTACK 0
+            if audioRecorder.recording || audioRecorder.saving { // IF CLAUSE 0
+                VStack { // VSTACK 1
+                    ZStack {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                
+                            }, label: {
+                                Text("완료")
+                            })
+                        }
+                        HStack {
+                            Spacer()
+                            TextField("새 녹음1", text: $title)
+                                .font(.title)
+                                .multilineTextAlignment(TextAlignment.center)
+                            Spacer()
+                        }
+                        
                     }
-					
-                }
-                else { // IF1-ELSE : STOP RECORDING
-                  
-                  VStack {
-                      Button(action: {
-                        self.audioRecorder.stopRecording()
-                        self.mic.stopMonitoring()
-                        print("Stop recording")
-                      }) {
-                        Image(systemName: "stop.fill")
-                          .resizable()
-                          .aspectRatio(contentMode: .fill)
-                          .frame(width: 100, height: 100)
-                          .clipped()
-                          .foregroundColor(.red)
-                          .padding(.bottom, 40)
-                      }
-                      Spacer()
-                      SoundWaveView()
-                        .environmentObject(audioRecorder)
-                        .environmentObject(mic)
-                   }.fixedSize(horizontal: false, vertical: true).frame( height: 450)
-
-                } // END OF IF1 CLAUSE
-            } // END OF VSTACK 0
-                .navigationBarTitle("Voice recorder")
-                .navigationBarItems(trailing: EditButton()) //TODO - will be deprecated
+                    
+                    VStack { // VSTACK 2
+                        Spacer()
+                        SoundWaveView()
+                            .frame(height: 300)
+                            .background(Color.waveBackgroundGray)
+                            .environmentObject(audioRecorder)
+                            .environmentObject(mic)
+                        Spacer()
+                    } // END OF VSTACK 2
+                    
+                    
+                } // END OF VSTACK 1
+            }
+            Button(action: { // BUTTON 0
+                if audioRecorder.recording { // IF CLAUSE 1
+                    self.audioRecorder.stopRecording()
+                    self.mic.stopMonitoring()
+                    print("Stop recording")
+                } // ELSE CLAUSE 1
+                else {
+                    self.audioRecorder.startRecording()
+                    self.mic.startMonitoring()
+                    print("Start recording")
+                } // END OF IF CLAUSE 1
+                
+            }, label: {
+                Image(systemName: audioRecorder.recording ? "stop.fill" : "circle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 60, height: 60)
+                    .clipped()
+                    .foregroundColor(.red)
+                    .padding(.bottom, 40)
+            }) // END OF BUTTON 0
+        } // END OF VSTACK 0
+        .padding([.leading, .trailing, .bottom])
+        .ignoresSafeArea(.keyboard)
+        .navigationBarTitle("Voice recorder")
+        .navigationBarItems(trailing: EditButton()) //TODO - will be deprecated
     }
 }
 
-struct NewReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-		NewReviewView().environmentObject(AudioRecorder())
-    }
-}

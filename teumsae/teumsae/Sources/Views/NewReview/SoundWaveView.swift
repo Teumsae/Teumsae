@@ -46,7 +46,7 @@ struct BarView: View {
 	var body: some View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 20)
-				.fill(LinearGradient(gradient: Gradient(colors: [.purple, .blue]),
+                .fill(LinearGradient(gradient: Gradient(colors: [.red, .yellow]),
 									 startPoint: .top,
 									 endPoint: .bottom))
 				.frame(width: (UIScreen.main.bounds.width - CGFloat(Const.numberOfSamples) * 4) / CGFloat(Const.numberOfSamples), height: value)

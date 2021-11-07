@@ -10,7 +10,9 @@ import SwiftUI
 
 struct RecordingView: View {
     let recording: Recording
+    
     @ObservedObject var audioPlayer = AudioPlayer()
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {

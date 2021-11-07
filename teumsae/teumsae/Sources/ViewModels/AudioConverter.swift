@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import AVFAudio
 import SwiftUI
+import Combine
 
 struct DecodableType: Decodable {
     var type: String
@@ -34,11 +35,15 @@ struct voieceProfileStruct: Decodable {
 
 
 class AudioConverter: NSObject, ObservableObject {
+    
+    static let shared = AudioConverter()
  
     override init() {
         super.init()
     }
 
+    
+    
     
     func getBestText(text: String) -> String {
         var textArr = text.components(separatedBy: "\r\n")
@@ -77,7 +82,7 @@ class AudioConverter: NSObject, ObservableObject {
                     }
             
         } catch {
-         print(" not able to upload data\(error)")
+            print(" not able to upload data\(error)")
         }
 
 

@@ -30,7 +30,7 @@ struct NewReviewView: View {
 			VStack() { // VSTACK 0
 				
 				NavigationLink(isActive: $finishRecording,
-							   destination: { NewReviewSaveView() },
+                               destination: { NewReviewSaveView(image: $image).environmentObject(imagePicker) },
 							   label: { EmptyView() })
 				
 				Spacer()
@@ -63,64 +63,46 @@ struct NewReviewView: View {
 					}
 				}
 				.frame(height: 300)
-				
-            VStack() { // VSTACK 0
                 
-                NavigationLink(isActive: $finishRecording,
-                               destination: { NewReviewSaveView(image: $image).environmentObject(imagePicker) },
-                               label: { EmptyView() })
+                Spacer()
+                                
+                Button(action: { // BUTTON 0
+                    if audioRecorder.recording { // IF CLAUSE 1
+                        self.audioRecorder.stopRecording()
+                        self.mic.stopMonitoring()
+                        self.finishRecording = true
+                        print("Stop recording")
+                    } // ELSE CLAUSE 1
+                    else {
+                        self.audioRecorder.startRecording()
+                        self.mic.startMonitoring()
+                        print("Start recording")
+                    } // END OF IF CLAUSE 1
+                    
+                }, label: {
+                    Image(systemName: audioRecorder.recording ? "stop.fill" : "circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 60, height: 60)
+                        .clipped()
+                        .foregroundColor(.red)
+                        .padding(.bottom, 40)
+                }) // END OF BUTTON 0
                 
                 Spacer()
                 
-                // MARK - TITLE AND TIMESTAMP
-                VStack(alignment: .center) { // VSTACK 1
-                    Text("새 녹음 \(audioRecorder.recordings.count + 2)")
-                        .font(.title)
-                        .bold()
-                        .foregroundColor(.placeHolderGray)
-                    Text(Date().description)
-                        .font(.system(size: 16))
-                        .bold()
-                        .foregroundColor(.placeHolderGray)
-                } // END OF VSTACK 1
-                .padding()
-                
-                
-                Spacer()
-                
-                // MARK - SOUND WAVE
-                ZStack {
-                    Rectangle()
-                        .frame(height: 300)
-                        .foregroundColor(Color.backgroundGray)
-                    if audioRecorder.recording {
-                        SoundWaveView()
-                            .environmentObject(audioRecorder)
-                            .environmentObject(mic)
-                    }
-                }
-                .frame(height: 300)
- 
-
-            
-            
+            } // END OF VSTACK
+           
         } // END OF NAVIGATION VIEW
         .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .sheet(isPresented: $imagePicker.showImagePicker, content: {
-            PhotoPicker(sourceType: .photoLibrary) { image in
-                self.image = image
-                print("IMAGE \(image)")
-            }
-            
-        })
-    
+       .navigationBarHidden(true)
+       .sheet(isPresented: $imagePicker.showImagePicker, content: {
+           PhotoPicker(sourceType: .photoLibrary) { image in
+               self.image = image
+               print("IMAGE \(image)")
+           }
+           
+       })
+
     }
 }
-
-struct NewReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-		NewReviewView().environmentObject(AudioRecorder())
-    }
-}
-

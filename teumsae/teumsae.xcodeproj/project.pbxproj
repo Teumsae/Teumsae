@@ -819,10 +819,10 @@
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7579VWN4HA;
+				DEVELOPMENT_TEAM = ZB44VD5WX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT)앱이 마이크를 사용합니다!🎙 화이팅🥳";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -834,7 +834,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -851,10 +851,10 @@
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7579VWN4HA;
+				DEVELOPMENT_TEAM = ZB44VD5WX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT)앱이 마이크를 사용합니다!🎙 화이팅🥳";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -866,7 +866,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

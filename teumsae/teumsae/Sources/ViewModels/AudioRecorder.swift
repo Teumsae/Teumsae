@@ -85,7 +85,8 @@ class AudioRecorder: NSObject, ObservableObject {
         for url in urlsToDelete{
             print(url)
             do{
-                try FileManager.default.removeItem(at: url)
+//                try FileManager.default.removeItem(at: url)
+                PersistenceManager.shared.deleteByFileURL(fileURL: url)
             } catch{
                 print("File could not be deleted!")
             }

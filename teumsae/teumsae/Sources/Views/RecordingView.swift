@@ -10,6 +10,7 @@ import SwiftUI
 import AVKit
 
 struct RecordingView: View {
+    
     let recording: Recording
     @ObservedObject var audioPlayer = AudioPlayer()
 
@@ -21,6 +22,11 @@ struct RecordingView: View {
     @State var current = 0
     @State var finish = false
     @State var del = AVdelegate()
+    
+    init (recording: Recording) {
+        self.recording = recording
+    }
+    
     
     var body: some View {
         ScrollView {

@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct ReviewList: View {
+	
+	@State var searchKey: String = ""
+	
     var body: some View {
-        NavigationView { // NAVIGATION VIEW
-            VStack {
-                RecordingsList()
-            }
+		NavigationView { // NAVIGATION VIEW
+			List{
+				Section(header: Text("복습하기")
+							.font(.title3).foregroundColor(.black)
+							.padding(.bottom, 5)
+							){
+					RecordingsHeaderCardView(searchKey: $searchKey).cornerRadius(10)
+				}
+					
+					.buttonStyle(.plain)
+
+				
+				
+				Section(header:Text("오늘의 복습").font(.title3).foregroundColor(.black).padding(.bottom, 5)){
+					RecordingsList(searchKey: $searchKey)
+				}
+			}
+			
         } // END OF NAVIGATION VIEW
     }
 }

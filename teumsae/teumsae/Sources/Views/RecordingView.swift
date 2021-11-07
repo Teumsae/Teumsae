@@ -16,7 +16,7 @@ struct RecordingView: View {
 //    @State var player : AVAudioPlayer!
 
     @State var data : Data = .init(count: 0)
-    //@State var title = ""
+    @State var title = ""
     @State var playing = false
     @State var width : CGFloat = 0
     //@State var songs = ["black","bad"]

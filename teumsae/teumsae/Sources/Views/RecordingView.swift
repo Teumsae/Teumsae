@@ -14,10 +14,10 @@ struct RecordingView: View {
     @ObservedObject var audioPlayer = AudioPlayer()
 
     @State var data : Data = .init(count: 0)
-    @State var title = ""
+    //@State var title = ""
     @State var playing = false
     @State var width : CGFloat = 0
-    @State var songs = ["black","bad"]
+    //@State var songs = ["black","bad"]
     @State var current = 0
     @State var finish = false
     @State var del = AVdelegate()
@@ -59,7 +59,7 @@ struct RecordingView: View {
                                 
                                 let x = value.location.x
                                 
-                                let screen = UIScreen.main.bounds.width - 30
+                                let screen = UIScreen.main.bounds.width-30
                                 
                                 let percent = x / screen
                                 
@@ -68,7 +68,7 @@ struct RecordingView: View {
                     }
                     .padding(.top)
                     
-                    HStack(spacing: UIScreen.main.bounds.width / 5 - 30){
+                HStack{
                         
 //                        Button(action: {
 //
@@ -84,7 +84,7 @@ struct RecordingView: View {
 //                            Image(systemName: "backward.fill").font(.title)
 //
 //                        }
-                        
+                            Spacer()
                             Button(action: {
                                 
                                 self.audioPlayer.audioPlayer.currentTime -= 15
@@ -136,6 +136,7 @@ struct RecordingView: View {
                                 Image(systemName: "goforward.15").font(.title)
                                 
                             }
+                            Spacer()
                         
 //                            Button(action: {
 //
@@ -167,7 +168,7 @@ struct RecordingView: View {
                 self.audioPlayer.audioPlayer.delegate = self.del
                 
 
-                Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
+                Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (_) in
 
                     if self.audioPlayer.audioPlayer.isPlaying{
 

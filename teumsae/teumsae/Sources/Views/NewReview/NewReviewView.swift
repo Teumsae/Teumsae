@@ -123,3 +123,4 @@ struct NewReviewView_Previews: PreviewProvider {
 		NewReviewView().environmentObject(AudioRecorder())
     }
 }
+

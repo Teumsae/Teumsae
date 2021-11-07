@@ -21,6 +21,8 @@
 		A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A30DC273638CA0048C3C5 /* RecordingView.swift */; };
 		A9C8AAC127359BB700168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
+		CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE090273828950082E884 /* PhotoPicker.swift */; };
+		CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE09227382B2C0082E884 /* ImagePicker.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
 		CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750CC27366612005CB3E5 /* ReviewList.swift */; };
@@ -84,6 +86,8 @@
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99A30DC273638CA0048C3C5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		CC2CE090273828950082E884 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		CC2CE09227382B2C0082E884 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
 		CC9750A427360F9F005CB3E5 /* STTDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTDataModel.swift; sourceTree = "<group>"; };
 		CC9750B627362609005CB3E5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
@@ -179,6 +183,14 @@
 				A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC2CE08F2738286A0082E884 /* ViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				CC2CE090273828950082E884 /* PhotoPicker.swift */,
+			);
+			path = ViewRepresentables;
 			sourceTree = "<group>";
 		};
 		CC9750C927366440005CB3E5 /* Recovered References */ = {
@@ -309,6 +321,7 @@
 		CCE3483C2731892100471492 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CC2CE08F2738286A0082E884 /* ViewRepresentables */,
 				64A6F41C27363DFB007B600D /* Const */,
 				CCB0B73A27343FCE00CFD1B2 /* UIComponents */,
 				CCE3484727318B5700471492 /* ViewModels */,
@@ -346,6 +359,7 @@
 				CCE3484927318B6E00471492 /* AudioRecorder.swift */,
 				CCB0B740273446C100CFD1B2 /* ViewRounter.swift */,
 				64A6F4182736244A007B600D /* MicrophoneMonitor.swift */,
+				CC2CE09227382B2C0082E884 /* ImagePicker.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -607,6 +621,7 @@
 				CC9750D92737F6CC005CB3E5 /* FlexibleView.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
 				CCE3483F2731893E00471492 /* LaunchView.swift in Sources */,
+				CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */,
 				CC9750E227381631005CB3E5 /* NewReviewSaveView.swift in Sources */,
 				CC9750DE2737F8E7005CB3E5 /* RecordingDetailView.swift in Sources */,
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
@@ -621,6 +636,7 @@
 				CCE3484F27318EA100471492 /* Recording.swift in Sources */,
 				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
+				CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */,
 				64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */,
 				644CF8DA27382F6300524F0C /* CustomProgressiveView.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,

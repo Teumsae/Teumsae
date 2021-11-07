@@ -24,6 +24,10 @@ class AudioRecorder: NSObject, ObservableObject {
             }
         }
     
+    var lastRecoreding: Recording? {
+        return recordings.last
+    }
+    
     var audioConverter: AudioConverter
     override init() {
         audioConverter = AudioConverter()

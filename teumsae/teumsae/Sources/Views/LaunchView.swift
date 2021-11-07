@@ -55,6 +55,7 @@ struct LaunchView: View {
                  viewRouter.openCreateReview = false
              }, content: {
                  NewReviewView()
+                     .environmentObject(viewRouter)
              })
             
          

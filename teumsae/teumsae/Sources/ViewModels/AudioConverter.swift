@@ -73,6 +73,12 @@ class AudioConverter: NSObject, ObservableObject {
 //                        print(String(data: response.data!, encoding: .utf8))
                         let text = String(data: response.data!, encoding: .utf8)
                         let finalText = self.getBestText(text: text ?? "empty")
+                        
+                        PersistenceManager.shared.updateByFileURL(fileURL: fileURL, recording: Recording(fileURL: fileURL, createdAt: fileURL.getCreationDate(), transcription: finalText))
+                        
+                        let updatedRecordings = PersistenceManager.shared.read()
+                        print("UPDATED RECORDINGS \(updatedRecordings)")
+                        
                         print(finalText)
                     }
             

@@ -33,9 +33,9 @@ struct RecordingsList: View {
 
 
     func delete(at offsets: IndexSet) {
-        var urlsToDelete = [URL]()
+        var urlsToDelete = [String]()
         for index in offsets{
-            urlsToDelete.append(audioRecorder.recordings[index].fileURL)
+            urlsToDelete.append(audioRecorder.recordings[index].audioFileName)
         }
         audioRecorder.deleteRecording(urlsToDelete: urlsToDelete)
     }

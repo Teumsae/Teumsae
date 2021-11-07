@@ -65,7 +65,7 @@ struct RecordingView: View {
                                 
                                 let x = value.location.x
                                 
-                                let screen = UIScreen.main.bounds.width-30
+                                let screen = UIScreen.main.bounds.width
                                 
                                 let percent = x / screen
                                 

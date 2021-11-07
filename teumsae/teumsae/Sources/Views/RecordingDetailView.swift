@@ -9,7 +9,13 @@ import SwiftUI
 
 struct RecordingDetailView: View {
     
-    let recording: Recording = Recording(audioFileName: "07-11-21_at_20:24:37.wav", createdAt: Date(), fileName: "제목", lastPlay: nil, image: UIImage(named: "dummyImage"), transcription: "transcription", reviewCount: 2, tags: ["tag1", "tag2"])
+    var recording: Recording = Recording(audioFileName: "07-11-21_at_20:24:37.wav", createdAt: Date(), fileName: "제목", lastPlay: nil, image: UIImage(named: "dummyImage"), transcription: "transcription", reviewCount: 2, tags: ["tag1", "tag2"])
+    
+    init() {
+        if let rec = AudioRecorder.shared.lastRecoreding {
+            self.recording = rec
+        }
+    }
     
     var body: some View {
         
@@ -59,6 +65,7 @@ struct RecordingDetailView: View {
                 if let image = recording.image {
                     Image(uiImage: image)
                         .resizable()
+                        .aspectRatio(contentMode: .fit)
                 }
                 
                 // MARK - PLAYER
@@ -77,6 +84,7 @@ struct RecordingDetailView: View {
 
             } // END OF VSTACK 0
             .padding(20)
+            .navigationBarTitle(recording.fileName ?? recording.audioFileName, displayMode: .inline)
             
             
         } // END OF SCROLL VIEW

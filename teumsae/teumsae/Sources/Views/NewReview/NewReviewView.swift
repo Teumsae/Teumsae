@@ -7,13 +7,18 @@
 // Reference: https://blckbirds.com/post/voice-recorder-app-in-swiftui-1/
 
 import SwiftUI
+import Photos
+import PhotosUI
+
 
 struct NewReviewView: View {
     
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
+    @StateObject var imagePicker = ImagePicker()
     @StateObject var mic: MicrophoneMonitor = MicrophoneMonitor()
     @State var title: String = ""
     @State var finishRecording = false
+    @State var image: UIImage? = nil
     //@ObservedObject var audioConverter: AudioConverter
     //@State private var transcript = ""
     
@@ -24,7 +29,7 @@ struct NewReviewView: View {
             VStack() { // VSTACK 0
                 
                 NavigationLink(isActive: $finishRecording,
-                               destination: { NewReviewSaveView() },
+                               destination: { NewReviewSaveView(image: $image).environmentObject(imagePicker) },
                                label: { EmptyView() })
                 
                 Spacer()
@@ -90,8 +95,15 @@ struct NewReviewView: View {
             } // END OF VSTACK 0
             
         } // END OF NAVIGATION VIEW
+        .navigationBarTitle("")
         .navigationBarHidden(true)
-        .navigationBarTitle("", displayMode: .inline)
+        .sheet(isPresented: $imagePicker.showImagePicker, content: {
+            PhotoPicker(sourceType: .photoLibrary) { image in
+                self.image = image
+                print("IMAGE \(image)")
+            }
+            
+        })
     
     }
 }

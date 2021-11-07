@@ -20,6 +20,7 @@ class ViewRouter: ObservableObject {
     
     @Published var currentPage: Page = .home
     @Published var openCreateReview = false
+
    
 }
 

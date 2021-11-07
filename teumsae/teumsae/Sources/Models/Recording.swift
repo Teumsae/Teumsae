@@ -11,7 +11,6 @@ import SwiftUI
 
 struct Recording {
  
-    
     var fileURL: URL {
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let audioFilePath = documentPath.appendingPathComponent("\(audioFileName)")

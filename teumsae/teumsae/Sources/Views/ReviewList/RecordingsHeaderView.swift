@@ -22,7 +22,7 @@ struct ClearButton: ViewModifier {
 		}
 	}}
 
-struct RecordingsHeaderView: View {
+struct RecordingsHeaderCardView: View {
 	@State private var searchKey: String = ""
 	var body: some View{
 		VStack(alignment: .leading){
@@ -33,8 +33,14 @@ struct RecordingsHeaderView: View {
 			Spacer(minLength: 30.0)
 			HStack{
 				Image(systemName: "magnifyingglass").padding(5)
-				TextField("검색", text: $searchKey).modifier(ClearButton(text: $searchKey))
-			}.background(Color.searchBarGray)
+				TextField("검색", text: $searchKey)
+					.modifier(ClearButton(text: $searchKey))
+					.accessibilityElement(children: .ignore)
+					.accessibilityLabel(Text("검색어 입력창"))
+					.accessibilityValue(Text("\(searchKey)"))
+
+				
+			}.background(Color.searchBarGray).cornerRadius(10)
 			Spacer(minLength :30.0)
 			RecordingsHeaderStatView()
 			
@@ -42,7 +48,11 @@ struct RecordingsHeaderView: View {
 		}
 		.padding(16)
 		.background(Color.cardViewBackground)
-	
+		.cornerRadius(10)
+		.navigationTitle("틈새 복습")
+		.navigationBarItems(trailing: Button(action: {}) {
+					Image(systemName: "plus")
+				})
 	}
 }
 
@@ -72,12 +82,8 @@ struct RecordingsHeaderStatView: View {
 		}
 		.padding()
 		.background(Color.white)
-//		.overlay(
-//			RoundedRectangle(cornerRadius: 10)
-//				.stroke(.white, lineWidth: 2)
-//				.foregroundColor(Color.white)
-//
-//		)
+		.cornerRadius(10)
+
 	}
 }
 

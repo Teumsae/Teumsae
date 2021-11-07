@@ -23,6 +23,9 @@ struct SearchBar: View {
 				.onTapGesture {
 					self.isEditing = true
 				}
+				.accessibilityElement(children: .ignore)
+				.accessibilityLabel(Text("검색어 입력창"))
+				.accessibilityValue(Text("\(text)"))
 
 			if isEditing {
 				Button(action: {

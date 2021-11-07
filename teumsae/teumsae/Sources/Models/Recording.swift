@@ -12,7 +12,12 @@ import SwiftUI
 struct Recording {
  
     
-    let fileURL: URL
+    var fileURL: URL {
+        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let audioFilePath = documentPath.appendingPathComponent("\(audioFileName)")
+        return audioFilePath
+    }
+    var audioFileName: String
     let createdAt: Date
 
     // POST PROCESSING
@@ -23,12 +28,13 @@ struct Recording {
     var reviewCount: Int = 0
     var tags: [String] = []
     
+    
     var timeStamp: String {
         return "\(createdAt.toString(dateFormat: "YYYY.MM.dd hh:mm:ss a"))"
     }
     
-    init(fileURL: URL, createdAt: Date, fileName: String? = nil, lastPlay: CMTimeValue? = nil, image: UIImage? = nil, transcription: String? = nil, reviewCount: Int = 0, tags: [String] = []) {
-        self.fileURL = fileURL
+    init(audioFileName: String, createdAt: Date, fileName: String? = nil, lastPlay: CMTimeValue? = nil, image: UIImage? = nil, transcription: String? = nil, reviewCount: Int = 0, tags: [String] = []) {
+        self.audioFileName = audioFileName
         self.createdAt = createdAt
         self.fileName = fileName
         self.lastPlay = lastPlay
@@ -41,7 +47,7 @@ struct Recording {
     
     func toDBinstance() -> [String: Any?] {
         return [
-            "fileURL" : fileURL,
+            "audioFileName" : audioFileName,
             "createdAt" : createdAt,
             "fileName" : fileName,
             "lastPlay" : lastPlay,

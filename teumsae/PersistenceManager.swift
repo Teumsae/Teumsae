@@ -58,7 +58,7 @@ class PersistenceManager {
         
         for data in recordingData{
             
-            let fileURL = data.value(forKey: "fileURL") as! URL
+            let audioFileName = data.value(forKey: "audioFileName") as! String
             let createdAt = data.value(forKey: "createdAt") as! Date
             
             let fileName =  data.value(forKey: "fileName") as? String
@@ -72,7 +72,7 @@ class PersistenceManager {
             var reviewCount = data.value(forKey: "reviewCount") as? Int ?? 0
             var tags: [String] = data.value(forKey: "tags") as? [String] ?? []
             
-            dataToRecordings.append(Recording(fileURL: fileURL,
+            dataToRecordings.append(Recording(audioFileName: audioFileName,
                                               createdAt: createdAt,
                                               fileName: fileName,
                                               lastPlay: lastPlay,
@@ -86,10 +86,10 @@ class PersistenceManager {
         
     }
     
-    func updateByFileURL(fileURL: URL, recording: Recording) {
+    func updateByFileURL(audioFileName: String, recording: Recording) {
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: ENTITY_NAME)
-        fetchRequest.predicate = NSPredicate(format: "fileURL = %@", fileURL as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "audioFileName= %@", audioFileName as CVarArg)
         do {
             let test = try context.fetch(fetchRequest)
             let objectUpdate = test[0] as! NSManagedObject

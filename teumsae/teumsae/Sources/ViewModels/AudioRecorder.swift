@@ -53,7 +53,8 @@ class AudioRecorder: NSObject, ObservableObject {
         
         let settings = [
                     AVFormatIDKey: Int(kAudioFormatLinearPCM),
-                    AVSampleRateKey: 12000,
+//                    AVSampleRateKey: 12000,
+					AVSampleRateKey: 16000,
                     AVNumberOfChannelsKey: 1,
                     AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
                 ]
@@ -87,12 +88,12 @@ class AudioRecorder: NSObject, ObservableObject {
         objectWillChange.send(self)
     }
     
-    func deleteRecording(urlsToDelete: [URL]){
+    func deleteRecording(urlsToDelete: [String]){
         for url in urlsToDelete{
             print(url)
             do{
 //                try FileManager.default.removeItem(at: url)
-                PersistenceManager.shared.deleteByFileURL(fileURL: url)
+                PersistenceManager.shared.deleteByFileURL(audioFileName: url)
             } catch{
                 print("File could not be deleted!")
             }

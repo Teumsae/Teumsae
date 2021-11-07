@@ -106,10 +106,10 @@ class PersistenceManager {
         
     }
     
-    func deleteByFileURL(fileURL: URL) {
+    func deleteByFileURL(audioFileName: String) {
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: ENTITY_NAME)
-        fetchRequest.predicate = NSPredicate(format: "fileURL = %@", fileURL as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "audioFileName = %@", audioFileName as CVarArg)
         do {
             let test = try context.fetch(fetchRequest)
             let object = test[0] as! NSManagedObject

@@ -25,7 +25,45 @@ struct NewReviewView: View {
     var body: some View {
         
         NavigationView { // NAVIGATION VIEW
-
+			
+				
+			VStack() { // VSTACK 0
+				
+				NavigationLink(isActive: $finishRecording,
+							   destination: { NewReviewSaveView() },
+							   label: { EmptyView() })
+				
+				Spacer()
+				
+				// MARK - TITLE AND TIMESTAMP
+				VStack(alignment: .center) { // VSTACK 1
+					Text("새 녹음 \(audioRecorder.recordings.count + 2)")
+						.font(.title)
+						.bold()
+						.foregroundColor(.placeHolderGray)
+					Text(Date().description)
+						.font(.system(size: 16))
+						.bold()
+						.foregroundColor(.placeHolderGray)
+				} // END OF VSTACK 1
+				.padding()
+				
+				
+				Spacer()
+				
+				// MARK - SOUND WAVE
+				ZStack {
+					Rectangle()
+						.frame(height: 300)
+						.foregroundColor(Color.backgroundGray)
+					if audioRecorder.recording {
+						SoundWaveView()
+							.environmentObject(audioRecorder)
+							.environmentObject(mic)
+					}
+				}
+				.frame(height: 300)
+				
             VStack() { // VSTACK 0
                 
                 NavigationLink(isActive: $finishRecording,
@@ -62,37 +100,9 @@ struct NewReviewView: View {
                     }
                 }
                 .frame(height: 300)
-                
+ 
 
-                
-                Spacer()
-                
-                Button(action: { // BUTTON 0
-                    if audioRecorder.recording { // IF CLAUSE 1
-                        self.audioRecorder.stopRecording()
-                        self.mic.stopMonitoring()
-                        self.finishRecording = true
-                        print("Stop recording")
-                    } // ELSE CLAUSE 1
-                    else {
-                        self.audioRecorder.startRecording()
-                        self.mic.startMonitoring()
-                        print("Start recording")
-                    } // END OF IF CLAUSE 1
-                    
-                }, label: {
-                    Image(systemName: audioRecorder.recording ? "stop.fill" : "circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 60, height: 60)
-                        .clipped()
-                        .foregroundColor(.red)
-                        .padding(.bottom, 40)
-                }) // END OF BUTTON 0
-                
-                Spacer()
-                
-            } // END OF VSTACK 0
+            
             
         } // END OF NAVIGATION VIEW
         .navigationBarTitle("")

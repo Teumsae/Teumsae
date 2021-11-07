@@ -27,6 +27,8 @@ struct NewReviewSaveView: View {
     }
     
     var body: some View {
+      
+      ZStack {
         
         ScrollView { // SCROLL VIEW
             
@@ -123,9 +125,17 @@ struct NewReviewSaveView: View {
             .padding([.top], 10)
             
         } // END OF SCROLL VIEW
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
         
+        if self.audioRecorder.audioConverter.isLoading {
+				  CustomProgressiveView(msg: "Transcripting...")
+			  }
+        
+      }
+      .navigationBarTitle("")
+      .navigationBarHidden(true)
+        
+        
+   
     }
 }
 

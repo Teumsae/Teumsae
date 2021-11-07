@@ -31,6 +31,7 @@ struct CustomProgressiveView: View {
 			}
 			Spacer()
 		}
+        .background(Color.gray.opacity(0.8))
     }
 }
 

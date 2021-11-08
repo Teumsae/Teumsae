@@ -49,5 +49,9 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         if flag {
             isPlaying = false
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("Finish"), object: nil)
+        print("finish")
     }
+    
 }

@@ -11,7 +11,7 @@ import Alamofire
 struct RecordingsList: View {
 	@Binding var searchKey: String
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
-
+//	@State var searchResult: [Recording] = audioRecorder.recordings
     var body: some View {
 		ForEach(audioRecorder.recordings, id: \.createdAt) {
 			recording in
@@ -25,13 +25,27 @@ struct RecordingsList: View {
 				.buttonStyle(PlainButtonStyle()).cornerRadius(10)
 		}
 		.onDelete(perform: delete)
-
+		
 		if audioRecorder.recordings.count == 0 {
 			Text("모든 복습을 완료하셨습니다.").font(.title2)
 		}
-}
-
-
+	}
+//	func searchFilter(f )
+//	func search(recordings: [Recording], searchKey: String) -> [Recording]{
+//		var result = [Recording]()
+//
+//		if searchKey == ""{
+//			return recordings
+//		}
+//
+//		for recording in recordings {
+//			if recording.audioFileName.contains(searchKey){
+//				result.append(recording)
+//			}
+//		}
+//
+//		return result
+//	}
     func delete(at offsets: IndexSet) {
         var urlsToDelete = [String]()
         for index in offsets{

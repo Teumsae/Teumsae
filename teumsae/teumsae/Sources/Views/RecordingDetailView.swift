@@ -22,6 +22,8 @@ struct RecordingDetailView: View {
     @State var current = 0
     @State var finish = false
     @State var del = AVdelegate()
+    @State var percent: Double = 0
+    var barWidth = 0
     
     init() {
         if let rec = AudioRecorder.shared.lastRecoreding {
@@ -116,10 +118,7 @@ struct RecordingDetailView: View {
                             }
                 
                     Button(action: {
-                        let increase = self.audioPlayer.audioPlayer.currentTime + 15
-                        if increase < self.audioPlayer.audioPlayer.duration {
-                            self.audioPlayer.audioPlayer.currentTime = increase
-                        }
+                        self.audioPlayer.audioPlayer.currentTime = [self.audioPlayer.audioPlayer.duration,   self.audioPlayer.audioPlayer.currentTime + 15].min()!
                     }) {
                         Image(systemName: "goforward.15")
                             .foregroundColor(Color.black)
@@ -130,23 +129,29 @@ struct RecordingDetailView: View {
                     VStack { // VSTACK PLAYER BAR
                         Spacer()
                         ZStack(alignment: .leading) { // ZSTACK PLAYER BAR
-                        
-                            Capsule().fill(Color.black.opacity(0.08)).frame(height: 8)
-                            Capsule().fill(Color.mainYellow).frame(width: self.width, height: 8)
-                            .gesture(DragGesture()
-                                        .onChanged({ value in
-                                let x = value.location.x
-                                self.width = x
-                                    })
-                                        .onEnded({ value in
-                                    let x = value.location.x
-                                    let screen = UIScreen.main.bounds.width
-                                    let percent = x / screen
-                                    self.audioPlayer.audioPlayer.currentTime = Double(percent) * self.audioPlayer.audioPlayer.duration
-                                }))
+                            
+                            GeometryReader { geometry in // GEOMETRY READER
+                                Capsule().fill(Color.black.opacity(0.08)).frame(width: geometry.size.width, height: 8)
+                                Capsule().fill(Color.mainYellow).frame(width: geometry.size.width * percent, height: 8)
+                                .gesture(DragGesture()
+                                            .onChanged({ value in
+                                    self.percent = value.location.x / geometry.size.width
+                                        })
+                                            .onEnded({ value in
+                                    self.percent = value.location.x / geometry.size.width
+                                        self.audioPlayer.audioPlayer.currentTime = Double(percent) * self.audioPlayer.audioPlayer.duration
+                                    }))
+                            }  // END OF GEOMETRY READER
                         } // END OF ZSTACK PLAYER BAR
                         Spacer()
                     } // END OF VSTACK PLAYER BAR
+                    .padding()
+                    .frame(
+                          maxWidth: .infinity,
+                          alignment: .topLeading
+                        )
+                    .background(Color.backgroundGray)
+                    .cornerRadius(8)
                 } // END OF HSTACK PLAYER
             
                 // MARK - TRANSCRIPTION
@@ -175,9 +180,7 @@ struct RecordingDetailView: View {
 
             Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (_) in
                 if self.audioPlayer.audioPlayer.isPlaying {
-                    let screen = UIScreen.main.bounds.width - 30
-                    let value = self.audioPlayer.audioPlayer.currentTime / self.audioPlayer.audioPlayer.duration
-                    self.width = screen * CGFloat(value)
+                    self.percent = self.audioPlayer.audioPlayer.currentTime / self.audioPlayer.audioPlayer.duration
                 }
             }
             

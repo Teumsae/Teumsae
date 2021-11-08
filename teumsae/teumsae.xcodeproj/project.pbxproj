@@ -826,6 +826,7 @@
 				DEVELOPMENT_TEAM = ZB44VD5WX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "틈새복습";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -858,6 +859,7 @@
 				DEVELOPMENT_TEAM = ZB44VD5WX7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "틈새복습";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

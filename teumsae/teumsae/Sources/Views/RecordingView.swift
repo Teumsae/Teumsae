@@ -56,109 +56,54 @@ struct RecordingView: View {
                         Capsule().fill(Color.red).frame(width: self.width, height: 8)
                         .gesture(DragGesture()
                             .onChanged({ (value) in
-                                
                                 let x = value.location.x
-                                
                                 self.width = x
-                                
                             }).onEnded({ (value) in
-                                
                                 let x = value.location.x
-                                
                                 let screen = UIScreen.main.bounds.width
-                                
                                 let percent = x / screen
-                                
                                 self.audioPlayer.audioPlayer.currentTime = Double(percent) * self.audioPlayer.audioPlayer.duration
                             }))
                     }
                     .padding(.top)
                     
                 HStack{
-                        
-//                        Button(action: {
-//
-//                            if self.current > 0{
-//
-//                                self.current -= 1
-//
-//                                //self.ChangeSongs()
-//                            }
-//
-//                        }) {
-//
-//                            Image(systemName: "backward.fill").font(.title)
-//
-//                        }
                             Spacer()
                             Button(action: {
-                                
                                 self.audioPlayer.audioPlayer.currentTime -= 15
-                                
                             }) {
-                        
                                 Image(systemName: "gobackward.15").font(.title)
-                                
                             }
                         
                             Button(action: {
-                                
                                 if self.audioPlayer.isPlaying{
-                                    
                                     self.audioPlayer.stopPlayback()
                                     self.playing = false
                                 }
-                                else{
-                                    
-                                    if self.finish{
-                                        
+                                else {
+                                    if self.finish {
                                         self.audioPlayer.audioPlayer.currentTime = 0
                                         self.width = 0
                                         self.finish = false
                                         
                                     }
-                                    
                                     self.audioPlayer.startPlayback(audio: self.recording.fileURL)
                                     self.playing = true
                                 }
                                 
                             }) {
-                        
                                 Image(systemName: self.playing && !self.finish ? "pause.fill" : "play.fill").font(.title)
-                                
                             }
                         
                             Button(action: {
-                               
                                 let increase = self.audioPlayer.audioPlayer.currentTime + 15
-                                
-                                if increase < self.audioPlayer.audioPlayer.duration{
-                                    
+                                if increase < self.audioPlayer.audioPlayer.duration {
                                     self.audioPlayer.audioPlayer.currentTime = increase
                                 }
-                                
                             }) {
-                        
                                 Image(systemName: "goforward.15").font(.title)
-                                
                             }
                             Spacer()
-                        
-//                            Button(action: {
-//
-//                                if self.songs.count - 1 != self.current{
-//
-//                                    self.current += 1
-//
-//                                    //self.ChangeSongs()
-//                                }
-//
-//                            }) {
-//
-//                                Image(systemName: "forward.fill").font(.title)
-//
-//                            }
-                        
                     }.padding(.top,25)
                     .foregroundColor(.black)
 
@@ -168,7 +113,6 @@ struct RecordingView: View {
                     .padding(.leading, 17)
             }
             .onAppear {
-                
                 self.audioPlayer.audioPlayer = try! AVAudioPlayer(contentsOf: self.recording.fileURL)
                 
                 self.audioPlayer.audioPlayer.delegate = self.del
@@ -204,21 +148,4 @@ struct RecordingView: View {
     }
 }
 
-class AVdelegate : NSObject,AVAudioPlayerDelegate{
-    
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        
-        NotificationCenter.default.post(name: NSNotification.Name("Finish"), object: nil)
-    }
-}
-
-//struct RecordingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let dateString = "2019-05-19"
-//        RecordingView(recording:Recording(
-//            fileURL: URL(string: "recordings/2"),
-//            createdAt: dateString.toDate(),
-//            transcript: "Darla, would you like to start today? Sure, yesterday I reviewed Luis' PR and met with the design team to finalize the UI..."))
-//       }
-//}
 

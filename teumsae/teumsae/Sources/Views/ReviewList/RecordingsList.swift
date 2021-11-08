@@ -17,9 +17,9 @@ struct RecordingsList: View {
 			recording in
 			
 			
-			NavigationLink(destination: RecordingView(recording: recording),
+			NavigationLink(destination: RecordingDetailView(recording: recording),
 						   label: {
-				RecordingRow(audioURL: recording.fileURL).foregroundColor(.black)
+                RecordingRow(recording: recording).foregroundColor(.black)
 					
 			})
 				.buttonStyle(PlainButtonStyle()).cornerRadius(10)
@@ -42,8 +42,14 @@ struct RecordingsList: View {
 }
 
 struct RecordingRow: View{
+    
+    var recording: Recording
+    
+    init(recording: Recording) {
+        self.recording = recording
+    }
 	
-	var audioURL: URL
+	
 	
 	@ObservedObject var audioPlayer = AudioPlayer()
 	@State private var progress:Double = 0.8 * 100.0
@@ -67,13 +73,13 @@ struct RecordingRow: View{
 						.font(.caption)
 				}
 				HStack{ //HSTACK2
-					Text("\(audioURL.lastPathComponent)")
-						.font(.caption)
+                    Text("\(recording.fileName ?? recording.audioFileName)")
+						.font(.system(size: 15))
 					Spacer()
 					Text("08:01").font(.caption2)
 				} // END OF HSTACK2
 				HStack{ //HSTACK3
-					Text("Tags")
+                    Text(recording.tags.reduce("", { $0 + "#\($1) "}))
 						.font(.caption2)
 						.foregroundColor(.gray)
 				} // END OF HSTACK3

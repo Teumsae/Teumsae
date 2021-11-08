@@ -23,6 +23,7 @@
 		A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE090273828950082E884 /* PhotoPicker.swift */; };
 		CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE09227382B2C0082E884 /* ImagePicker.swift */; };
+		CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE0942738F0300082E884 /* AVdelegate.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
 		CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750CC27366612005CB3E5 /* ReviewList.swift */; };
@@ -88,6 +89,7 @@
 		A99A30DC273638CA0048C3C5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		CC2CE090273828950082E884 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		CC2CE09227382B2C0082E884 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CC2CE0942738F0300082E884 /* AVdelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVdelegate.swift; sourceTree = "<group>"; };
 		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
 		CC9750A427360F9F005CB3E5 /* STTDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTDataModel.swift; sourceTree = "<group>"; };
 		CC9750B627362609005CB3E5 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				CCB0B740273446C100CFD1B2 /* ViewRounter.swift */,
 				64A6F4182736244A007B600D /* MicrophoneMonitor.swift */,
 				CC2CE09227382B2C0082E884 /* ImagePicker.swift */,
+				CC2CE0942738F0300082E884 /* AVdelegate.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */,
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
+				CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */,
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,
 				CC9750D92737F6CC005CB3E5 /* FlexibleView.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,

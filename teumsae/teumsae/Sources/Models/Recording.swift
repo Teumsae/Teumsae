@@ -10,12 +10,7 @@ import CoreMedia
 import SwiftUI
 
 struct Recording {
- 
-    var fileURL: URL {
-        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFilePath = documentPath.appendingPathComponent("\(audioFileName)")
-        return audioFilePath
-    }
+    
     var audioFileName: String
     let createdAt: Date
 
@@ -27,6 +22,11 @@ struct Recording {
     var reviewCount: Int = 0
     var tags: [String] = []
     
+    var fileURL: URL {
+        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let audioFilePath = documentPath.appendingPathComponent("\(audioFileName)")
+        return audioFilePath
+    }
     
     var timeStamp: String {
         return "\(createdAt.toString(dateFormat: "YYYY.MM.dd hh:mm:ss a"))"

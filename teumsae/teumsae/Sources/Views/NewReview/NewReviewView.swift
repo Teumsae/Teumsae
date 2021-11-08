@@ -32,8 +32,7 @@ struct NewReviewView: View {
 				NavigationLink(isActive: $finishRecording,
                                destination: { NewReviewSaveView(image: $image).environmentObject(imagePicker) },
 							   label: { EmptyView() })
-				
-				Spacer()
+                
 				
 				// MARK - TITLE AND TIMESTAMP
 				VStack(alignment: .center) { // VSTACK 1
@@ -94,8 +93,8 @@ struct NewReviewView: View {
             } // END OF VSTACK
            
         } // END OF NAVIGATION VIEW
-        .navigationBarTitle("")
-       .navigationBarHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
        .sheet(isPresented: $imagePicker.showImagePicker, content: {
            PhotoPicker(sourceType: .photoLibrary) { image in
                self.image = image

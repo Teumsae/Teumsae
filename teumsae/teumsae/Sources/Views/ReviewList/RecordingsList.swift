@@ -9,11 +9,15 @@ import SwiftUI
 import Alamofire
 
 struct RecordingsList: View {
+    
 	@Binding var searchKey: String
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
 
     var body: some View {
-		ForEach(audioRecorder.recordings, id: \.createdAt) {
+        ForEach(
+            searchKey.isEmpty ? audioRecorder.recordings : audioRecorder.recordings.filter {
+            ($0.fileName?.contains(searchKey) ?? false) || ($0.tags.contains(searchKey) ?? false)
+        }, id: \.createdAt) {
 			recording in
 			
 			

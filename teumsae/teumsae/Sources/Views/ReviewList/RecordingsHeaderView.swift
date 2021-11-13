@@ -23,17 +23,21 @@ struct ClearButton: ViewModifier {
 	}}
 
 struct RecordingsHeaderCardView: View {
-	@Binding var searchKey: String
+    
+	@State var searchKey: String = ""
+    @Binding var searchKeyOnCommit: String
 	
 	var body: some View{
 		VStack(alignment: .leading){
 			HStack{
 				Image(systemName: "magnifyingglass").padding(5)
-				TextField("검색", text: $searchKey)
-					.modifier(ClearButton(text: $searchKey))
-					.accessibilityElement(children: .ignore)
-					.accessibilityLabel(Text("검색어 입력창"))
-					.accessibilityValue(Text("\(searchKey)"))
+                TextField("검색", text: $searchKey, onCommit: {
+                    searchKeyOnCommit = searchKey
+                })
+                .modifier(ClearButton(text: $searchKey))
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("검색어 입력창"))
+                .accessibilityValue(Text("\(searchKey)"))
 
 				
 			}.background(Color.searchBarGray).cornerRadius(10)

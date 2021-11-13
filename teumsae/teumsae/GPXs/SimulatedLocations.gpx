@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+  <wpt lat="37.422155" lon="-122.134751">
+    <name>Apple Park</name>
+    <time>2021-01-23T14:00:00Z</time>
+  </wpt>
+  <wpt lat="37.33182000" lon="-122.03118000">
+    <name>Apple Campus</name>
+    <time>2021-01-23T14:00:05Z</time>
+  </wpt>
+</gpx>

@@ -18,7 +18,7 @@ struct ReviewList: View {
 							.font(.title3).foregroundColor(.black)
 							.padding(.bottom, 5)
 							){
-					RecordingsHeaderCardView(searchKey: $searchKey).cornerRadius(10)
+					RecordingsHeaderCardView(searchKeyOnCommit: $searchKey).cornerRadius(10)
 				}
 					
 					.buttonStyle(.plain)

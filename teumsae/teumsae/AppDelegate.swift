@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseMessaging
-
+import UserNotifications
 
 
 
@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let gcmMessageIDKey = "gcm.message_id"
 	
+    
+    private func registerNotificationCategories() {  // TODO: 위치가 여기 맞는지?
+          let openBoardAction = UNNotificationAction(identifier: UNNotificationDefaultActionIdentifier, title: "지금 당장 복습하기", options: UNNotificationActionOptions.foreground)
+          let ignoreAction = UNNotificationAction(identifier: "Ignore", title: "무시하기", options: UNNotificationActionOptions.foreground)  //TODO: add identifier
+          let contentAddedCategory = UNNotificationCategory(identifier: "content_added_notification", actions: [openBoardAction, ignoreAction], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: .customDismissAction)
+          UNUserNotificationCenter.current().setNotificationCategories([contentAddedCategory])
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -27,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
         
         UNUserNotificationCenter.current().delegate = self
+        
+        //UNUserNotificationCenter.current().setNotificationCategories([notifCategory])
 
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
@@ -35,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         application.registerForRemoteNotifications()
+        self.registerNotificationCategories()
+        //UIApplication.shared.registerForRemoteNotifications()
 		
         return true
     }
@@ -97,6 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
     
     
     func application(_ application: UIApplication,
@@ -194,8 +207,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // Messaging.messaging().appDidReceiveMessage(userInfo)
     // Print full message.
     print(userInfo)
-
-    completionHandler()
+      
+    defer{
+      completionHandler()
+    }
+    
+    /// Identify the action by matching its identifier.
+      if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
+          /// Perform the related action
+          print("Open board tapped from a notification!")
+      } else {
+          print("User ignored a notification!")
+          return
+      }
   }
 }
 
@@ -217,4 +241,5 @@ extension AppDelegate: MessagingDelegate {
 
   // [END refresh_token]
 }
+
 

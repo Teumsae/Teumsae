@@ -835,12 +835,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "틈새복습";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "📍틈새복습이 사용자의 위치정보를 이용합니다";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -853,8 +855,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -868,12 +871,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = teumsae/teumsae.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZB44VD5WX7;
+				DEVELOPMENT_TEAM = 7579VWN4HA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = teumsae/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "틈새복습";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "📍틈새복습이 사용자의 위치정보를 이용합니다";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "앱이 마이크를 사용합니다!🎙 화이팅🥳";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -886,8 +891,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = snu.mcom.teumsae;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gogiants1.teumsae;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

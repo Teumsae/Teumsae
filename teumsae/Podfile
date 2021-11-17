@@ -9,7 +9,13 @@ target 'teumsae' do
   pod 'Moya', '~> 15.0'
   pod 'Alamofire', '~> 5.4'
 
+	
+	
   # add the Firebase pod for Google Analytics
+	pod 'Firebase/Firestore'
+	# Optionally, include the Swift extensions if you're using Swift.
+	pod 'FirebaseFirestoreSwift', '8.9.0-beta'
+
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
   # or pod ‘Firebase/AnalyticsWithoutAdIdSupport’

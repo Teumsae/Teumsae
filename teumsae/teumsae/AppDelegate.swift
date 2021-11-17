@@ -9,8 +9,8 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseMessaging
-
-
+import FirebaseCore
+import FirebaseFirestore
 
 
 @main
@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// firebase init
 		FirebaseApp.configure()
+		// firestore
+		let db = Firestore.firestore()
+		// [END default_firestore]
+		print(db) // silence warning
+			
+		// to get Token
         Messaging.messaging().delegate = self
         
         UNUserNotificationCenter.current().delegate = self
@@ -145,12 +151,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
       // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
       // the FCM registration token.
+	  // FCM 토큰 등록이 되었을 때,
       func application(_ application: UIApplication,
                        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
 
         // With swizzling disabled you must set the APNs token here.
-        // Messaging.messaging().apnsToken = deviceToken
+         Messaging.messaging().apnsToken = deviceToken
       }
 
 }
@@ -158,6 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
   // Receive displayed notifications for iOS 10 devices.
+  // 앱이 켜져있을 때.
   func userNotificationCenter(_ center: UNUserNotificationCenter,
                               willPresent notification: UNNotification,
                               withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions)
@@ -176,9 +184,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     print(userInfo)
 
     // Change this to your preferred presentation option
-    completionHandler([[.alert, .sound]])
+	  completionHandler([[.banner, .badge, .sound]])
   }
 
+// 푸시 메세지를 받을 때,
   func userNotificationCenter(_ center: UNUserNotificationCenter,
                               didReceive response: UNNotificationResponse,
                               withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -213,6 +222,20 @@ extension AppDelegate: MessagingDelegate {
     )
     // TODO: If necessary send token to application server.
     // Note: This callback is fired at each app startup and whenever a new token is generated.
+	  
+	  let db = Firestore.firestore()
+	  
+	  var ref: DocumentReference? = nil
+	  ref = db.collection("users").addDocument(data: [
+		  "fcmTokent": fcmToken!,
+		  "timeStamp": Timestamp(date: Date()),
+	  ]) { err in
+		  if let err = err {
+			  print("Error adding document: \(err)")
+		  } else {
+			  print("Document added with ID: \(ref!.documentID)")
+		  }
+	  }
   }
 
   // [END refresh_token]

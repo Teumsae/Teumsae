@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>📍틈새복습이 사용자의 위치정보를 이용합니다</string>
+	<key>NSMotionUsageDescription</key>
+	<string>틈새복습이 사용자의 움직임 정보를 이용합니다</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

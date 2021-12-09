@@ -14,17 +14,19 @@ struct LaunchView: View {
     @StateObject private var locationManager = LocationManager()
     @ObservedObject var audioRecorder = AudioRecorder.shared
     
+//    @StateObject var motionManager = MotionManager()
+    
     var body: some View {
-        
         GeometryReader { geometry in
-            
+
             VStack(spacing: 0) { // VSTACK 0
                  
                  // VIEWS UNDER TAB
                  Spacer()
                  switch viewRouter.currentPage {
                  case .home:
-                      Text("Home")
+//                      Text("Home")
+                     MotionTestView()
                  case .book:
                      ReviewList()
                  case .search:
@@ -55,6 +57,7 @@ struct LaunchView: View {
              .edgesIgnoringSafeArea(.bottom)
              .onAppear {
                  locationManager.validateLocationAuthorizationStatus()
+//                 motionManager.startTrackingMotionActivity()
              }
              .sheet(isPresented: $viewRouter.openCreateReview, onDismiss: {
                  viewRouter.openCreateReview = false

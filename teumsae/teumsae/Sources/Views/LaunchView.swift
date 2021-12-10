@@ -14,7 +14,7 @@ struct LaunchView: View {
     @StateObject private var locationManager = LocationManager()
     @ObservedObject var audioRecorder = AudioRecorder.shared
     
-//    @StateObject var motionManager = MotionManager()
+    @StateObject var motionManager = MotionManager()
     
     var body: some View {
         GeometryReader { geometry in
@@ -57,7 +57,7 @@ struct LaunchView: View {
              .edgesIgnoringSafeArea(.bottom)
              .onAppear {
                  locationManager.validateLocationAuthorizationStatus()
-//                 motionManager.startTrackingMotionActivity()
+                 motionManager.validateMotionAuthorizationStatus()
              }
              .sheet(isPresented: $viewRouter.openCreateReview, onDismiss: {
                  viewRouter.openCreateReview = false

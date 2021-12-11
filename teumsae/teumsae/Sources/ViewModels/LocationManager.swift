@@ -10,7 +10,7 @@ import CoreLocation
 import UserNotifications
 
 class LocationManager: NSObject, ObservableObject {
-  let location = CLLocationCoordinate2D(latitude: 37.33182, longitude: -122.03118)
+  var location = CLLocationCoordinate2D(latitude: 37.532600, longitude: 127.024612)
   let notificationCenter = UNUserNotificationCenter.current()
   lazy var storeRegion = makeStoreRegion()
   @Published var didArriveAtTakeout = false
@@ -25,6 +25,16 @@ class LocationManager: NSObject, ObservableObject {
     return manager
   }
 
+    // 1
+    public func setCenterLocation(latitude: Double, longitude: Double) {
+      // 2
+        self.location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) //default
+        print("LocationManager: setCenterLocation ", location.latitude, location.longitude)
+        storeRegion = makeStoreRegion()
+        validateLocationAuthorizationStatus()
+//      return location
+    }
+   
   // 1
   private func makeStoreRegion() -> CLCircularRegion {
     // 2
@@ -42,7 +52,7 @@ class LocationManager: NSObject, ObservableObject {
   func validateLocationAuthorizationStatus() {
     // 2
       
-    print("validateLocationAuthorizationStatus()")
+    print("LocationManager: validateLocationAuthorizationStatus()")
     switch locationManager.authorizationStatus {
     // 3
     case .notDetermined, .denied, .restricted:
@@ -65,7 +75,7 @@ class LocationManager: NSObject, ObservableObject {
   // 1
   private func requestNotificationAuthorization() {
     // 2
-    print("requestNotificationAuthorization()")
+    print("LocationManager: requestNotificationAuthorization()")
     let options: UNAuthorizationOptions = [.sound, .alert]
     // 3
     notificationCenter
@@ -81,7 +91,7 @@ class LocationManager: NSObject, ObservableObject {
   // 1
   private func registerNotification() {
     // 2
-    print("registerNotification() ")
+    print("LocationManager: registerNotification() ")
     let notificationContent = UNMutableNotificationContent()
     notificationContent.title = "집에 도착하셨나요?"
     notificationContent.body = "복습을 시작해봅시다"

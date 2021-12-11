@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
 		644CF8DA27382F6300524F0C /* CustomProgressiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644CF8D927382F6300524F0C /* CustomProgressiveView.swift */; };
+		644D17A3275364760081429D /* TeumsaeActivityClassifier.mlproj in Resources */ = {isa = PBXBuildFile; fileRef = 644D17A2275364760081429D /* TeumsaeActivityClassifier.mlproj */; };
+		64873DEA275354C4004E2A3B /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64873DE9275354C4004E2A3B /* ActivityManager.swift */; };
+		64A4E0B527536F5200F228B6 /* TeumsaeActivityClassifier1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 64A4E0B327536F5200F228B6 /* TeumsaeActivityClassifier1.mlmodel */; };
+		64A4E0B627536F5200F228B6 /* TeumsaeActivityClassifier2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 64A4E0B427536F5200F228B6 /* TeumsaeActivityClassifier2.mlmodel */; };
 		64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */; };
 		64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
 		64A6F41727357458007B600D /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
@@ -77,6 +81,10 @@
 		42BC0D0A9FD4E997D56BB41B /* Pods-teumsae-teumsaeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae-teumsaeUITests.release.xcconfig"; path = "Target Support Files/Pods-teumsae-teumsaeUITests/Pods-teumsae-teumsaeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
 		644CF8D927382F6300524F0C /* CustomProgressiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressiveView.swift; sourceTree = "<group>"; };
+		644D17A2275364760081429D /* TeumsaeActivityClassifier.mlproj */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TeumsaeActivityClassifier.mlproj; sourceTree = "<group>"; };
+		64873DE9275354C4004E2A3B /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
+		64A4E0B327536F5200F228B6 /* TeumsaeActivityClassifier1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TeumsaeActivityClassifier1.mlmodel; sourceTree = "<group>"; };
+		64A4E0B427536F5200F228B6 /* TeumsaeActivityClassifier2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TeumsaeActivityClassifier2.mlmodel; sourceTree = "<group>"; };
 		64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsHeaderView.swift; sourceTree = "<group>"; };
 		64A6F41627357457007B600D /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		64A6F4182736244A007B600D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
@@ -170,6 +178,17 @@
 				9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		644D17A4275364920081429D /* ActivityClassifier */ = {
+			isa = PBXGroup;
+			children = (
+				64A4E0B327536F5200F228B6 /* TeumsaeActivityClassifier1.mlmodel */,
+				64A4E0B427536F5200F228B6 /* TeumsaeActivityClassifier2.mlmodel */,
+				64873DE9275354C4004E2A3B /* ActivityManager.swift */,
+				644D17A2275364760081429D /* TeumsaeActivityClassifier.mlproj */,
+			);
+			path = ActivityClassifier;
 			sourceTree = "<group>";
 		};
 		64A6F41C27363DFB007B600D /* Const */ = {
@@ -335,6 +354,7 @@
 		CCE3483C2731892100471492 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				644D17A4275364920081429D /* ActivityClassifier */,
 				CC2CE08F2738286A0082E884 /* ViewRepresentables */,
 				64A6F41C27363DFB007B600D /* Const */,
 				CCB0B73A27343FCE00CFD1B2 /* UIComponents */,
@@ -501,6 +521,7 @@
 				CCE348172731884F00471492 /* LaunchScreen.storyboard in Resources */,
 				64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */,
 				CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */,
+				644D17A3275364760081429D /* TeumsaeActivityClassifier.mlproj in Resources */,
 				64CFFC742733DA3E00E255EA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,10 +655,12 @@
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
 				CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */,
+				64A4E0B527536F5200F228B6 /* TeumsaeActivityClassifier1.mlmodel in Sources */,
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,
 				CC9750D92737F6CC005CB3E5 /* FlexibleView.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
 				CCE3483F2731893E00471492 /* LaunchView.swift in Sources */,
+				64A4E0B627536F5200F228B6 /* TeumsaeActivityClassifier2.mlmodel in Sources */,
 				CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */,
 				CC9750E227381631005CB3E5 /* NewReviewSaveView.swift in Sources */,
 				CC9750DE2737F8E7005CB3E5 /* RecordingDetailView.swift in Sources */,
@@ -661,6 +684,7 @@
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
 				64A6F41E27363E02007B600D /* Const.swift in Sources */,
+				64873DEA275354C4004E2A3B /* ActivityManager.swift in Sources */,
 				CC9750D027366F2D005CB3E5 /* URL+Extension.swift in Sources */,
 				CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */,
 			);

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMotionUsageDescription</key>
+	<string>💪틈새복습이 사용자의 가속도계와 자이로스코프 정보를 이용합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>📍틈새복습이 사용자의 위치정보를 이용합니다</string>
 	<key>NSAppTransportSecurity</key>

@@ -10,7 +10,7 @@ import CoreLocation
 import UserNotifications
 
 class LocationManager: NSObject, ObservableObject {
-  let location = CLLocationCoordinate2D(latitude: 37.33182, longitude: -122.03118)
+  var location = CLLocationCoordinate2D(latitude: 37.532600, longitude: 127.024612)
   let notificationCenter = UNUserNotificationCenter.current()
   lazy var storeRegion = makeStoreRegion()
   @Published var didArriveAtTakeout = false
@@ -25,6 +25,13 @@ class LocationManager: NSObject, ObservableObject {
     return manager
   }
 
+    // 1
+    public func setCenterLocation(latitude: Double, longitude: Double) {
+      // 2
+        self.location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) //default
+//      return location
+    }
+   
   // 1
   private func makeStoreRegion() -> CLCircularRegion {
     // 2

@@ -29,6 +29,9 @@ class LocationManager: NSObject, ObservableObject {
     public func setCenterLocation(latitude: Double, longitude: Double) {
       // 2
         self.location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) //default
+        print("LocationManager: setCenterLocation ", location.latitude, location.longitude)
+        storeRegion = makeStoreRegion()
+        validateLocationAuthorizationStatus()
 //      return location
     }
    
@@ -49,7 +52,7 @@ class LocationManager: NSObject, ObservableObject {
   func validateLocationAuthorizationStatus() {
     // 2
       
-    print("validateLocationAuthorizationStatus()")
+    print("LocationManager: validateLocationAuthorizationStatus()")
     switch locationManager.authorizationStatus {
     // 3
     case .notDetermined, .denied, .restricted:
@@ -72,7 +75,7 @@ class LocationManager: NSObject, ObservableObject {
   // 1
   private func requestNotificationAuthorization() {
     // 2
-    print("requestNotificationAuthorization()")
+    print("LocationManager: requestNotificationAuthorization()")
     let options: UNAuthorizationOptions = [.sound, .alert]
     // 3
     notificationCenter
@@ -88,7 +91,7 @@ class LocationManager: NSObject, ObservableObject {
   // 1
   private func registerNotification() {
     // 2
-    print("registerNotification() ")
+    print("LocationManager: registerNotification() ")
     let notificationContent = UNMutableNotificationContent()
     notificationContent.title = "집에 도착하셨나요?"
     notificationContent.body = "복습을 시작해봅시다"

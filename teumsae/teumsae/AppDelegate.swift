@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func registerNotificationCategories() {  // TODO: 위치가 여기 맞는지?
           let openBoardAction = UNNotificationAction(identifier: UNNotificationDefaultActionIdentifier, title: "지금 당장 복습하기", options: UNNotificationActionOptions.foreground)
           let ignoreAction = UNNotificationAction(identifier: "Ignore", title: "무시하기", options: UNNotificationActionOptions.foreground)  //TODO: add identifier
-          let contentAddedCategory = UNNotificationCategory(identifier: "content_added_notification", actions: [openBoardAction, ignoreAction], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: .customDismissAction)
-          UNUserNotificationCenter.current().setNotificationCategories([contentAddedCategory])
+          let recapNotificationCategory = UNNotificationCategory(identifier: "rich_notification", actions: [openBoardAction, ignoreAction], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: .customDismissAction)
+          UNUserNotificationCenter.current().setNotificationCategories([recapNotificationCategory])
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

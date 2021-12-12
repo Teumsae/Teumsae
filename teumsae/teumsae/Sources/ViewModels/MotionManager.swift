@@ -4,6 +4,8 @@
 //
 //  Created by seungyeon on 2021/11/28.
 //
+//ref: https://developer.apple.com/forums/thread/685018
+// ref https://medium.com/the-lenfest-local-lab/building-context-aware-notifications-c3a7ec9d6bc4
 
 
 
@@ -11,7 +13,6 @@ import Foundation
 import SwiftUI
 import CoreMotion
 import UserNotifications
-
 
 
 
@@ -23,7 +24,9 @@ class MotionManager: NSObject, ObservableObject{
     
     @Published var isWalking = true
     @Published var isWalkingStill = false
-    @Published var triggerNotification = 0
+    @Published var consecutiveWalking = 0
+    @Published var triggerNotification = true
+    var time: Double = 2.2
 
     
     override init(){
@@ -32,43 +35,60 @@ class MotionManager: NSObject, ObservableObject{
 //        self.motionManager = CMMotionActivityManager()
         self.motionManager.startActivityUpdates(to: OperationQueue.current!, withHandler: {
             (deviceActivity: CMMotionActivity!) -> Void in
-            if deviceActivity.stationary {
-                print("Motion: stationary")
-                self.isWalking = false
-                self.isWalkingStill = false
-            }
-            else if deviceActivity.walking {
+            
+            if deviceActivity.walking {
                 print("Motion: walking")
                 if (self.isWalking){
                     print("Motion: Still walking")
                     self.isWalkingStill = true
                     // TODO: 지금은 walking 하고 있으면 계속 알림 보냄 -> location, motion, 시간대 맞춰 로직 수정할 것
-                    if (self.triggerNotification  == 0){ //if there is no notification in queue, request notification
-                        self.triggerNotification += 1
-                        print("Motion: triggerNotification ", self.triggerNotification)
+                    self.consecutiveWalking += 1
+                    print("Motion: triggerNotification ", self.consecutiveWalking)
+                    if ((self.consecutiveWalking == 3) && (self.triggerNotification == true)){
+                        //only when three consecutive walking sensed
+                        //&& there was no noficiation within 1 hour, we send a new notification
                         self.registerNotification(title_: "복습을 시작해볼까요? (trigger)")
+                        self.manageTriggerNotification()
                     }
+                    
                 }
                 else{ //newly sensed walking
                     self.isWalking = true
                 }
             }
-            else if deviceActivity.running{
-                print("Motion: running")
+            else { // NOT WALKING
+                if deviceActivity.stationary {
+                    print("Motion: stationary")
+                }
+                else if deviceActivity.running{
+                    print("Motion: running")
+                }
+                else if deviceActivity.automotive{
+                    print("Motion: automotive")
+                }
+                else {
+                    print("Motion: unknown")
+                }
                 self.isWalking = false
                 self.isWalkingStill = false
-            }
-            else if deviceActivity.automotive{
-                print("Motion: automotive")
-                self.isWalking = false
-                self.isWalkingStill = false
-            }
-            else {
-                print("Motion: unknown")
-                self.isWalking = false
-                self.isWalkingStill = false
-            }
+                self.consecutiveWalking = 0
+                
+            } // END OF NOT WALKING
         })
+    }
+    
+    private func manageTriggerNotification(){
+        self.triggerNotification = false
+        self.consecutiveWalking = 0
+        
+        print("MotionManager: manageTriggerNotification starts ", DispatchTime.now())
+        let when = DispatchTime.now() + 60*60 // do not send notification after 60*60 seconds (1 hour) even though walking
+        print("MotionManager: manageTriggerNotification starts ", when)
+        DispatchQueue.main.asyncAfter(deadline: when){
+            self.triggerNotification = true
+            print("MotionManager: manageTriggerNotification set triggerNotification ", self.triggerNotification, " ", DispatchTime.now())
+        }
+        
     }
     
     // 1
@@ -78,33 +98,6 @@ class MotionManager: NSObject, ObservableObject{
         requestNotificationAuthorization()
         print("MotionManager: requestNotificationAuthorization finished")
         
-//        while(true){
-//            if (triggerNotification > 0){
-//                print("MotionManager: triggerNotification > 0")
-//                registerNotification(title_: "복습을 시작해봅시다 (trigger)")
-//                triggerNotification -= 1
-//            }
-//        }
-        
-        
-        
-//        switch CMMotionActivityManager.authorizationStatus() {
-//      // 3
-//      case .notDetermined, .denied, .restricted:
-//        // 4
-//        print("Motion Services Not Authorized")
-//        motionManager.requestWhenInUseAuthorization()
-//        requestNotificationAuthorization()
-//
-//      // 5
-//      case .authorizedWhenInUse, .authorizedAlways:
-//        // 6
-//        print("Location Services Authorized")
-//        requestNotificationAuthorization()
-//
-//      default:
-//        break
-//      }
     }
     
     
@@ -120,7 +113,9 @@ class MotionManager: NSObject, ObservableObject{
           print("Auth Request result: \(result)")
           if result {
               if ((self?.isWalking) != nil){
-                  self?.registerNotification(title_: "복습을 시작해봅시다 (1st)")
+                  //no notification when app starts.
+//                  self?.registerNotification(title_: "복습을 시작해봅시다 (1st)")
+                  
               }
           }
         }
@@ -213,7 +208,7 @@ extension MotionManager: UNUserNotificationCenterDelegate {
   ) {
     // 5
     print("MotionManager: Received Notification in Foreground")
-    self.triggerNotification = 0
+    self.consecutiveWalking = 0
 //      isWalking = true
     // 6
     completionHandler([.alert, .sound])
@@ -222,11 +217,9 @@ extension MotionManager: UNUserNotificationCenterDelegate {
 }
 
 
-// ref https://medium.com/the-lenfest-local-lab/building-context-aware-notifications-c3a7ec9d6bc4
 
-/*
- //ref: https://developer.apple.com/forums/thread/685018
- */
+
+
 
 
 

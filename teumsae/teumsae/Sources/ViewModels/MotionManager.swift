@@ -44,7 +44,7 @@ class MotionManager: NSObject, ObservableObject{
                     // TODO: 지금은 walking 하고 있으면 계속 알림 보냄 -> location, motion, 시간대 맞춰 로직 수정할 것
                     self.consecutiveWalking += 1
                     print("Motion: triggerNotification ", self.consecutiveWalking)
-                    if ((self.consecutiveWalking == 1) && (self.triggerNotification == true)){
+                    if ((self.consecutiveWalking == 3) && (self.triggerNotification == true)){
                         //only when three consecutive walking sensed
                         //&& there was no noficiation within 1 hour, we send a new notification
                         self.registerNotification(title_: "복습을 시작해볼까요? (trigger)")

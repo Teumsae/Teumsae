@@ -81,9 +81,9 @@ class MotionManager: NSObject, ObservableObject{
         self.triggerNotification = false
         self.consecutiveWalking = 0
         
-        print("MotionManager: manageTriggerNotification starts ", DispatchTime.now())
+//        print("MotionManager: manageTriggerNotification starts ", DispatchTime.now())
         let when = DispatchTime.now() + 60*60 // do not send notification after 60*60 seconds (1 hour) even though walking
-        print("MotionManager: manageTriggerNotification starts ", when)
+//        print("MotionManager: manageTriggerNotification starts ", when)
         DispatchQueue.main.asyncAfter(deadline: when){
             self.triggerNotification = true
             print("MotionManager: manageTriggerNotification set triggerNotification ", self.triggerNotification, " ", DispatchTime.now())
@@ -130,7 +130,31 @@ class MotionManager: NSObject, ObservableObject{
       notificationContent.title = "이동 중이신가요?"
       notificationContent.body = title_
       notificationContent.sound = .default
+      notificationContent.categoryIdentifier = "rich_notification"
+        
+        
+        //add image
+//        let imageURLString = "image_url"
+//        if let imagePath = DownloadManager.image(imageURLString) {
+//
+//            let imageURL = URL(fileURLWithPath: imagePath)
+//
+//            do {
+//
+//                let attach = try UNNotificationAttachment(identifier: "imate-test", url: imageURL, options: nil)
+//
+//                content.attachments = [attach]
+//
+//            } catch {
+//
+//                print(error)
+//
+//            }
+//
+//        }
 
+
+        
       // 3
 //        let trigger = UNPushNotificationTrigger()
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (1*15), repeats: false) // notification after 1 * 15 sec
@@ -139,7 +163,8 @@ class MotionManager: NSObject, ObservableObject{
       let request = UNNotificationRequest(
         identifier: UUID().uuidString,
         content: notificationContent,
-        trigger: trigger)
+        trigger: trigger
+        )
 
       // 5
       notificationCenter

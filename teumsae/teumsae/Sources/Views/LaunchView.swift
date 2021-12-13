@@ -15,6 +15,7 @@ struct LaunchView: View {
     @ObservedObject var audioRecorder = AudioRecorder.shared
     
     @StateObject var motionManager = MotionManager()
+    @StateObject var timeManager = TimeManager()
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,7 +33,8 @@ struct LaunchView: View {
                  case .search:
                       Text("Search")
                  case .settings:
-                      Text("Settings")
+//                      Text("Settings")
+                     LocationView(locationManager: locationManager)
                   }
                   Spacer()
                  
@@ -58,6 +60,7 @@ struct LaunchView: View {
              .onAppear {
                  locationManager.validateLocationAuthorizationStatus()
                  motionManager.validateMotionAuthorizationStatus()
+                 timeManager.validateTimeAuthorizationStatus()
              }
              .sheet(isPresented: $viewRouter.openCreateReview, onDismiss: {
                  viewRouter.openCreateReview = false
@@ -71,4 +74,3 @@ struct LaunchView: View {
         
     }
 }
-

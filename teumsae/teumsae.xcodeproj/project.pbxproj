@@ -21,6 +21,7 @@
 		A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A30DC273638CA0048C3C5 /* RecordingView.swift */; };
 		A9C8AAC127359BB700168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
 		A9C8AAC227359BB900168E0E /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
+		A9FCBBC7276795FB00C5AC1B /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCBBC6276795FB00C5AC1B /* ReminderViewController.swift */; };
 		CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE090273828950082E884 /* PhotoPicker.swift */; };
 		CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE09227382B2C0082E884 /* ImagePicker.swift */; };
 		CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE0942738F0300082E884 /* AVdelegate.swift */; };
@@ -88,6 +89,7 @@
 		9CF470A7C2E6AB2125206772 /* Pods-teumsaeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.release.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A648F31DFBCB4F29B7556451 /* Pods_teumsaeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teumsaeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99A30DC273638CA0048C3C5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		A9FCBBC6276795FB00C5AC1B /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		CC2CE090273828950082E884 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		CC2CE09227382B2C0082E884 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CC2CE0942738F0300082E884 /* AVdelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVdelegate.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		CCE3484727318B5700471492 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A9FCBBC6276795FB00C5AC1B /* ReminderViewController.swift */,
 				64A6F41627357457007B600D /* AudioConverter.swift */,
 				CC99C5B62734FD5500996B17 /* AudioPlayer.swift */,
 				CCE3484927318B6E00471492 /* AudioRecorder.swift */,
@@ -631,6 +634,7 @@
 			files = (
 				68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */,
 				64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */,
+				A9FCBBC7276795FB00C5AC1B /* ReminderViewController.swift in Sources */,
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
 				CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */,

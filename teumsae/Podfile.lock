@@ -104,12 +104,18 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - Firebase/Analytics
   - Firebase/Messaging
   - Moya (~> 15.0)
+  - RealmSwift (~> 10)
 
 SPEC REPOS:
   trunk:
@@ -126,6 +132,8 @@ SPEC REPOS:
     - Moya
     - nanopb
     - PromisesObjC
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -141,7 +149,9 @@ SPEC CHECKSUMS:
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
 
-PODFILE CHECKSUM: 0049b7b709045b931e42d8b8fa33d06f870e278f
+PODFILE CHECKSUM: 7e6ecee4b9c2ee6fdcc56e80b3db773e9fa0320a
 
 COCOAPODS: 1.11.2

@@ -33,7 +33,8 @@ struct LaunchView: View {
                       Text("Search")
                  case .settings:
 //                      Text("Settings")
-                     LocationView(locationManager: locationManager)
+                     SettingsView()
+//                     LocationView(locationManager: locationManager)
                   }
                   Spacer()
                  

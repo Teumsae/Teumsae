@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+
+@available(iOS 15.0, *)
 struct LaunchView: View {
     
     @StateObject var viewRouter = ViewRouter()
@@ -15,8 +17,11 @@ struct LaunchView: View {
     @ObservedObject var audioRecorder = AudioRecorder.shared
     
     @StateObject var motionManager = MotionManager()
-    
-    var body: some View {
+	
+	@StateObject private var screenTimeManager = ScreenTimeManager()
+
+	
+	var body: some View {
         GeometryReader { geometry in
 
             VStack(spacing: 0) { // VSTACK 0
@@ -30,7 +35,8 @@ struct LaunchView: View {
                  case .book:
                      ReviewList()
                  case .search:
-                      Text("Search")
+					 ScreenTimeView(screenTimeManager: screenTimeManager)
+//					 DeviceActivityView()
                  case .settings:
 //                      Text("Settings")
                      LocationView(locationManager: locationManager)

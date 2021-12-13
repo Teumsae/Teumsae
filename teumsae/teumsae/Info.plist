@@ -47,5 +47,13 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).NotificationService</string>
 	</dict>
+	
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.deviceactivity.monitor-extension</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>$(PRODUCT_MODULE_NAME).MyDeviceActivityMonitor</string>
+	</dict>
 </dict>
 </plist>

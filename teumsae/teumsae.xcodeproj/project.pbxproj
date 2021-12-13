@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
+		643A67FC27676E5200114F68 /* ScreenTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A67FB27676E5200114F68 /* ScreenTimeManager.swift */; };
+		643A680027676EEB00114F68 /* ScreenTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A67FF27676EEB00114F68 /* ScreenTimeView.swift */; };
+		643A680227677C4100114F68 /* MyDeviceActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A680127677C4100114F68 /* MyDeviceActivityManager.swift */; };
+		643A680427677F1A00114F68 /* DeviceActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A680327677F1A00114F68 /* DeviceActivityView.swift */; };
 		644CF8DA27382F6300524F0C /* CustomProgressiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644CF8D927382F6300524F0C /* CustomProgressiveView.swift */; };
 		64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */; };
 		64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
@@ -80,6 +84,10 @@
 		1C089CF7138B0FFAE730C4CB /* Pods-teumsaeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsaeTests.debug.xcconfig"; path = "Target Support Files/Pods-teumsaeTests/Pods-teumsaeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		42BC0D0A9FD4E997D56BB41B /* Pods-teumsae-teumsaeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae-teumsaeUITests.release.xcconfig"; path = "Target Support Files/Pods-teumsae-teumsaeUITests/Pods-teumsae-teumsaeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
+		643A67FB27676E5200114F68 /* ScreenTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeManager.swift; sourceTree = "<group>"; };
+		643A67FF27676EEB00114F68 /* ScreenTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeView.swift; sourceTree = "<group>"; };
+		643A680127677C4100114F68 /* MyDeviceActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDeviceActivityManager.swift; sourceTree = "<group>"; };
+		643A680327677F1A00114F68 /* DeviceActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityView.swift; sourceTree = "<group>"; };
 		644CF8D927382F6300524F0C /* CustomProgressiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressiveView.swift; sourceTree = "<group>"; };
 		64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsHeaderView.swift; sourceTree = "<group>"; };
 		64A6F41627357457007B600D /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
@@ -336,6 +344,8 @@
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
 				A99A30DC273638CA0048C3C5 /* RecordingView.swift */,
 				CC9750DD2737F8E7005CB3E5 /* RecordingDetailView.swift */,
+				643A67FF27676EEB00114F68 /* ScreenTimeView.swift */,
+				643A680327677F1A00114F68 /* DeviceActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,6 +406,8 @@
 				CC2CE09227382B2C0082E884 /* ImagePicker.swift */,
 				CC2CE0942738F0300082E884 /* AVdelegate.swift */,
 				CC7EA996273F81920049A3A5 /* LocationManager.swift */,
+				643A67FB27676E5200114F68 /* ScreenTimeManager.swift */,
+				643A680127677C4100114F68 /* MyDeviceActivityManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -650,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68E3388E2732EDB30073A40D /* RecordingsList.swift in Sources */,
+				643A680027676EEB00114F68 /* ScreenTimeView.swift in Sources */,
 				64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */,
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
@@ -664,6 +677,7 @@
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
 				CCE348082731884D00471492 /* AppDelegate.swift in Sources */,
 				CCE3484D27318D6F00471492 /* Date+Extension.swift in Sources */,
+				643A67FC27676E5200114F68 /* ScreenTimeManager.swift in Sources */,
 				CC495AA62766570B000D018E /* LocationView.swift in Sources */,
 				CC9750D52737F693005CB3E5 /* View+Extension.swift in Sources */,
 				CCE3480A2731884D00471492 /* SceneDelegate.swift in Sources */,
@@ -677,12 +691,14 @@
 				CC495AA52766570B000D018E /* MotionTestView.swift in Sources */,
 				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
+				643A680227677C4100114F68 /* MyDeviceActivityManager.swift in Sources */,
 				CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */,
 				64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */,
 				644CF8DA27382F6300524F0C /* CustomProgressiveView.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
+				643A680427677F1A00114F68 /* DeviceActivityView.swift in Sources */,
 				64A6F41E27363E02007B600D /* Const.swift in Sources */,
 				CC495AA827665712000D018E /* MotionManager.swift in Sources */,
 				CC9750D027366F2D005CB3E5 /* URL+Extension.swift in Sources */,

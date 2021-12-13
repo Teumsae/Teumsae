@@ -18,6 +18,7 @@ class TimeNotificationGroup: Object, ObjectKeyIdentifiable {
 class TimeNotification: Object, ObjectKeyIdentifiable {
     
     @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var title: String
     @Persisted var days: List<Int>
     @Persisted var hr: Int
     @Persisted var min: Int

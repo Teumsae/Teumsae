@@ -70,7 +70,6 @@ struct LocationNotificationView: View {
         List {
             Section(content: {
                 ForEach(group.notifications) { item in
-//                    ItemRow(item: item)
                     HStack {
                         Text("hello")
                         Spacer()
@@ -98,7 +97,7 @@ struct LocationNotificationView: View {
         .listRowSeparator(.hidden)
         .listRowInsets(EdgeInsets(
             top: 0,
-            leading: 0,
+            leading: 10,
             bottom: 0,
             trailing: 0)
         )
@@ -116,11 +115,7 @@ struct TimeNotificationView: View {
         List {
             Section(content: {
                 ForEach(group.notifications) { item in
-//                    ItemRow(item: item)
-                    HStack {
-                        Text("hello")
-                        Spacer()
-                    }
+                    TimeNotificationRow(item: item)
                     .listRowSeparator(.hidden)
                 }
                 .onDelete(perform: $group.notifications.remove)
@@ -152,3 +147,20 @@ struct TimeNotificationView: View {
     }
     
 }
+
+
+struct TimeNotificationRow: View {
+    @ObservedRealmObject var item: TimeNotification
+    var body: some View {
+        // You can click an item in the list to navigate to an edit details screen.
+        HStack {
+            Text("\(item.hr) : \(item.min)")
+                .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 16))
+            if item.isTurnedOn {
+                // If the user "favorited" the item, display a heart icon
+                Image(systemName: "heart.fill")
+            }
+        }
+    }
+}
+

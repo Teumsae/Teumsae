@@ -64,12 +64,15 @@ struct NewTimeNotificationView: View {
 //            guard let realm = thawed.realm() else {
 //                return
 //            }
-//
-//            try! realm.write {
-//                if let timeGroup = timeGroups.first {
-//                    timeGroup.notifications.append(TimeNotification(title: title.isEmpty ? "알림 \(timeGroup.notifications.count + 1)" : title, hr: hour, min: minute, days: daysSelected))
-//                }
-//            }
+            
+            let realm = try! Realm()
+
+            try! realm.write {
+                guard let timeGroups = timeGroups.thaw() else { return }
+                if let timeGroup = timeGroups.first {
+                    timeGroup.notifications.append(TimeNotification(title: title.isEmpty ? "알림 \(timeGroup.notifications.count + 1)" : title, hr: hour, min: minute, days: daysSelected))
+                }
+            }
 
             
         }, label: {

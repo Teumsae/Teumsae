@@ -24,6 +24,10 @@
 		CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE090273828950082E884 /* PhotoPicker.swift */; };
 		CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE09227382B2C0082E884 /* ImagePicker.swift */; };
 		CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2CE0942738F0300082E884 /* AVdelegate.swift */; };
+		CC495AA1276656F9000D018E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495A9F276656F9000D018E /* NotificationService.swift */; };
+		CC495AA52766570B000D018E /* MotionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AA32766570A000D018E /* MotionTestView.swift */; };
+		CC495AA62766570B000D018E /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AA42766570B000D018E /* LocationView.swift */; };
+		CC495AA827665712000D018E /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AA727665712000D018E /* MotionManager.swift */; };
 		CC7EA997273F81920049A3A5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7EA996273F81920049A3A5 /* LocationManager.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
@@ -91,6 +95,10 @@
 		CC2CE090273828950082E884 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		CC2CE09227382B2C0082E884 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CC2CE0942738F0300082E884 /* AVdelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVdelegate.swift; sourceTree = "<group>"; };
+		CC495A9F276656F9000D018E /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		CC495AA32766570A000D018E /* MotionTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionTestView.swift; sourceTree = "<group>"; };
+		CC495AA42766570B000D018E /* LocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		CC495AA727665712000D018E /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		CC7EA996273F81920049A3A5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CC7EA999273F8AE90049A3A5 /* SimulatedLocations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimulatedLocations.gpx; sourceTree = "<group>"; };
 		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
@@ -198,6 +206,14 @@
 			path = ViewRepresentables;
 			sourceTree = "<group>";
 		};
+		CC495A9E276656F9000D018E /* RichNotification */ = {
+			isa = PBXGroup;
+			children = (
+				CC495A9F276656F9000D018E /* NotificationService.swift */,
+			);
+			path = RichNotification;
+			sourceTree = "<group>";
+		};
 		CC7EA998273F8AA50049A3A5 /* GPXs */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +294,7 @@
 		CCE348062731884D00471492 /* teumsae */ = {
 			isa = PBXGroup;
 			children = (
+				CC495A9E276656F9000D018E /* RichNotification */,
 				CC7EA998273F8AA50049A3A5 /* GPXs */,
 				CC9750A32736080A005CB3E5 /* teumsae.entitlements */,
 				CCE3484827318B6200471492 /* Resources */,
@@ -312,6 +329,8 @@
 		CCE3483A273188E400471492 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC495AA42766570B000D018E /* LocationView.swift */,
+				CC495AA32766570A000D018E /* MotionTestView.swift */,
 				CC9750CA273665FC005CB3E5 /* ReviewList */,
 				CCE3484327318AD200471492 /* NewReview */,
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
@@ -368,6 +387,7 @@
 		CCE3484727318B5700471492 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CC495AA727665712000D018E /* MotionManager.swift */,
 				64A6F41627357457007B600D /* AudioConverter.swift */,
 				CC99C5B62734FD5500996B17 /* AudioPlayer.swift */,
 				CCE3484927318B6E00471492 /* AudioRecorder.swift */,
@@ -644,6 +664,7 @@
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
 				CCE348082731884D00471492 /* AppDelegate.swift in Sources */,
 				CCE3484D27318D6F00471492 /* Date+Extension.swift in Sources */,
+				CC495AA62766570B000D018E /* LocationView.swift in Sources */,
 				CC9750D52737F693005CB3E5 /* View+Extension.swift in Sources */,
 				CCE3480A2731884D00471492 /* SceneDelegate.swift in Sources */,
 				CCE3484527318ADF00471492 /* NewReviewView.swift in Sources */,
@@ -652,6 +673,8 @@
 				CC9750DB2737F6D9005CB3E5 /* _FlexibleView.swift in Sources */,
 				CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */,
 				CCE3484F27318EA100471492 /* Recording.swift in Sources */,
+				CC495AA1276656F9000D018E /* NotificationService.swift in Sources */,
+				CC495AA52766570B000D018E /* MotionTestView.swift in Sources */,
 				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
 				CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */,
@@ -661,6 +684,7 @@
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
 				64A6F41E27363E02007B600D /* Const.swift in Sources */,
+				CC495AA827665712000D018E /* MotionManager.swift in Sources */,
 				CC9750D027366F2D005CB3E5 /* URL+Extension.swift in Sources */,
 				CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */,
 			);

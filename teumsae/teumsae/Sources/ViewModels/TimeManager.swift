@@ -69,7 +69,6 @@ class TimeManager: NSObject, ObservableObject{
    func registerNotification(title_: String, hr: Int, min: Int, daysSelected: [Int]) { //TODO: 여기 인풋을 사용자로부터(마이페이지에서) 받게끔 수정해주시면 좋을 것 같습니다 :) 고맙습니다.
         
         for day in daysSelected{
-            print ("day", day)
             // 2
             print("TimeManager: registerNotification() ")
             let notificationContent = UNMutableNotificationContent()

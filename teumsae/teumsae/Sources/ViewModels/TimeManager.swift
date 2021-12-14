@@ -63,47 +63,57 @@ class TimeManager: NSObject, ObservableObject{
 			}
 		}
     }
-
-
-    // 1
-    private func registerNotification(title_: String) { //TODO: 여기 인풋을 사용자로부터(마이페이지에서) 받게끔 수정해주시면 좋을 것 같습니다 :) 고맙습니다.
-        // 2
-        print("TimeManager: registerNotification() ")
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = title_
-        notificationContent.body = title_
-        notificationContent.sound = .default
-        notificationContent.categoryIdentifier = "rich_notification"
-        
-        
-        //Receive with date
-        var dateInfo = DateComponents()
-        dateInfo.day = 14 //Put your day
-        dateInfo.month = 12 //Put your month
-        dateInfo.year = 2021 // Put your year
-        dateInfo.hour = 0 //Put your hour
-        dateInfo.minute = 10 //Put your minutes //TODO: 여기 인풋을 사용자로부터(마이페이지에서) 받게끔 수정해주시면 좋을 것 같습니다 :) 고맙습니다.
-        
-        //specify if repeats or no
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
-        
     
-        
-      // 4
-        let request = UNNotificationRequest(
-            identifier: UUID().uuidString,
-            content: notificationContent,
-            trigger: trigger
-        )
+    // 1
 
-      // 5
-        notificationCenter
-            .add(request) { error in
-              if error != nil {
-                print("Error: \(String(describing: error))")
-              }
-            }
-    } // END OF REGISTERNOTIFICATION
+   func registerNotification(title_: String, hr: Int, min: Int, daysSelected: [Int]) { //TODO: 여기 인풋을 사용자로부터(마이페이지에서) 받게끔 수정해주시면 좋을 것 같습니다 :) 고맙습니다.
+        
+        for day in daysSelected{
+            print ("day", day)
+            // 2
+            print("TimeManager: registerNotification() ")
+            let notificationContent = UNMutableNotificationContent()
+            notificationContent.title = title_
+            notificationContent.body = title_
+            notificationContent.sound = .default
+            notificationContent.categoryIdentifier = "rich_notification"
+            
+            
+//            //Receive with date
+//            var dateInfo = DateComponents()
+//            dateInfo.day = 14 //Put your day
+//            dateInfo.month = 12 //Put your month
+//            dateInfo.year = 2021 // Put your year
+//            dateInfo.hour = 0 //Put your hour
+//            dateInfo.minute = 10 //Put your minutes 
+            
+            var date = DateComponents()
+            date.weekday = day+1
+            date.hour = hr
+            date.minute = min
+            
+            //specify if repeats or no
+            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+            
+        
+            
+          // 4
+            let request = UNNotificationRequest(
+                identifier: UUID().uuidString,
+                content: notificationContent,
+                trigger: trigger
+            )
+
+          // 5
+            notificationCenter
+                .add(request) { error in
+                  if error != nil {
+                    print("Error: \(String(describing: error))")
+                  }
+                }
+        } // END OF REGISTERNOTIFICATION
+        }
+        
 
 }
 

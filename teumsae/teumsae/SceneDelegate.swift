@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
 //            window.rootViewController = UIHostingController(rootView: NewReviewView(audioRecorder: AudioRecorder()))
             window.rootViewController = UIHostingController(rootView: LaunchView())
-//            window.rootViewController = UIHostingController(rootView: RecordingDetailView())
+//            window.rootViewController = UIHostingController(rootView: SettingsView())
             self.window = window
             window.makeKeyAndVisible()
         }

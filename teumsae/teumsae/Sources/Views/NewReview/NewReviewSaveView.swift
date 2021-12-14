@@ -6,24 +6,40 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 
 struct NewReviewSaveView: View {
     
     @State var title: String = ""
-    @State var tags: [String] = [] {
-        didSet {
-            tagEntry = ""
-        }
-    }
     @State var tagEntry: String = ""
     @ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
     @EnvironmentObject var imagePicker: ImagePicker
     @Binding var image: UIImage?
     @State var saved = false
+    @State var isExpanded = false
+    @State var transcription = ""
+    @State var score: Int = 3
+    var intProxy: Binding<Double>{
+            Binding<Double>(get: {
+                //returns the score as a Double
+                return Double(score)
+            }, set: {
+                //rounds the double to an Int
+                print($0.description)
+                score = Int($0)
+            })
+        }
+    
+    @ObservedResults(TagNotificationGroup.self) var tagGroups
+    @ObservedResults(Review.self) var reviews
+  
     
     init(image: Binding<UIImage?>) {
+        UINavigationBar.appearance().tintColor = UIColor(Color.mainYellow)
+        UITextView.appearance().backgroundColor = .clear
         self._image = image
+        self.transcription = reviews.last?.transcription ?? ""
     }
     
     var body: some View {
@@ -36,87 +52,119 @@ struct NewReviewSaveView: View {
                 
                 // MARK: Title Button
                 NavigationLink(isActive: $saved, destination: {
-                    RecordingDetailView()
+                    RecordingDetailView(recording: reviews.last!)
                 }, label: {
                     EmptyView()
                 })
                 
-                HStack { // HSTACK 0
-                    TextField("새 녹음 \(audioRecorder.recordings.count + 1)", text: $title)
-                        .font(.system(size: 30))
-                    Button(action: {
-                        if let curRecording = audioRecorder.lastRecoreding {
-                            
-                            var recording = Recording(audioFileName: curRecording.audioFileName,
-                                                      createdAt: curRecording.createdAt,
-                                                      fileName: title.isEmpty ? curRecording.audioFileName : title,
-                                                      image: image,
-                                                      transcription: curRecording.transcription,
-                                                      tags: tags)
-            
-                            PersistenceManager.shared.updateByFileURL(audioFileName: curRecording.audioFileName, recording: recording)
-                            
-                            audioRecorder.fetchRecordings()
-                            saved = true
-                        }
-                    }, label: {
-                        Text("기록 완료")
-                    })
-                    
-                } // END OF HSTACK 0
-                
-                // MARK: TagView
-                VStack {
-                    
-                    TextField("태그를 입력하세요", text: $tagEntry, onCommit: {
-                        tags.append(tagEntry)
-                    })
-                        .padding(6)
-                        .padding([.leading], 4)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.unselectedGray))
-                        
-                        
-                    
-                    if !tags.isEmpty {
-                        
-                        FlexibleView(data: tags, spacing: 8, alignment: .leading, content: { item in
-                            Text(item)
-                                .bold()
-                                .font(.system(size: 14))
-                                .foregroundColor(.mainYellow)
-                                .padding([.leading, .trailing], 10)
-                                .padding([.top, .bottom], 3)
-                                .background(RoundedRectangle(cornerRadius: 10).stroke(Color.mainYellow, lineWidth: 1))
-                            
-                        })
-                        
-                    }
-                    
+                GroupBox(
+                       label: Label("TITLE", systemImage: "book.closed.fill")
+                           .foregroundColor(.mainYellow)
+                   ) {
+                       TextField("새 녹음 \(reviews.count + 1)", text: $title)
+                           .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 24))
+                           .foregroundColor(.subBlack)
                 }
-                .padding(6)
-                .background(Color.backgroundGray)
-                .cornerRadius(8)
                 
-                VStack {
-                    if let uiImage = self.image {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                GroupBox(
+                       label: Label("TAG", systemImage: "tag.fill")
+                           .foregroundColor(.mainYellow)
+                   ) {
+                       DisclosureGroup("\(tagEntry.isEmpty ? "Select a tag" : tagEntry)", isExpanded: $isExpanded, content: {
+                           VStack {
+                               
 
-                    } else {
-                        Image("imagePlaceholder")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        Text("탭해서 사진을 추가하세요!")
-                            .foregroundColor(Color.unselectedGray)
-                        
-                    }
+                               ForEach(tagGroups.first!.notifications) { tag in
+                                   HStack {
+                                       Text(tag.title)
+                                           .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 15))
+                                       Spacer()
+                                   }
+                                   .padding([.top, .bottom], 3)
+                                   .padding([.leading, .trailing], 10)
+                                   .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 12))
+                                   .onTapGesture {
+                                       self.tagEntry = tag.title
+                                       withAnimation {
+                                           self.isExpanded.toggle()
+                                       }
+                                   }
+                               }
+                               .padding([.top, .bottom], 3)
+                               NavigationLink(destination: NewTagNotificationView().padding()) {
+                                   HStack {
+                                       Text("+ Add tag")
+                                           .foregroundColor(.secondary)
+                                           .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 15))
+                                       Spacer()
+                                   }
+                                   .padding([.top, .bottom], 3)
+                                   .padding([.leading, .trailing], 10)
+                                   .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 12))
+                               }
+                              
+                               
+                               
+                           }
+                       }) // END OF DISCLOSURE GROUP
+                           .accentColor(.yellow)
+                           .foregroundColor(.yellow)
+                           .padding([.top, .bottom], 5)
+                           .padding([.leading, .trailing], 10)
+                           .background(Color.white)
+                           .cornerRadius(8)
                 }
-                .padding(6)
-                .background(Color.backgroundGray)
-                .cornerRadius(8)
-                .onTapGesture {
-                    imagePicker.showImagePicker = true
+                
+                GroupBox(
+                       label: Label("GOAL", systemImage: "brain.head.profile")
+                           .foregroundColor(.mainYellow)
+                   ) {
+                       HStack {
+                           Slider(value: intProxy , in: 0.0...5.0, step: 1.0, onEditingChanged: {_ in
+                                           print(score.description)
+                                       })
+                           Text("\(score)")
+                               .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
+                               .foregroundColor(.subBlack)
+                       }
+                       
+                }
+                   .accentColor(.yellow)
+                   
+                
+                
+                GroupBox(
+                       label: Label("IMAGE", systemImage: "photo")
+                           .foregroundColor(.mainYellow)
+                   ) {
+                       VStack {
+                           if let uiImage = self.image {
+                               Image(uiImage: uiImage)
+                                   .resizable()
+                                   .aspectRatio(contentMode: .fit)
+
+                           } else {
+                               Image("imagePlaceholder")
+                                   .resizable()
+                                   .aspectRatio(contentMode: .fit)
+                               Text("탭해서 사진을 추가하세요!")
+                                   .foregroundColor(Color.unselectedGray)
+                               
+                           }
+                       }
+                       .onTapGesture {
+                           imagePicker.showImagePicker = true
+                       }
+                }
+                
+                GroupBox(
+                       label: Label("TRANSCRIPTION", systemImage: "text.append")
+                           .foregroundColor(.mainYellow)
+                   ) {
+                       TextEditor(text: $transcription)
+                           .font(Font.custom("AppleSDGothicNeo-Regular", fixedSize: 16))
+                           .foregroundColor(.subBlack)
+                       
                 }
                 
                 Spacer()
@@ -125,14 +173,48 @@ struct NewReviewSaveView: View {
             .padding([.top], 10)
             
         } // END OF SCROLL VIEW
+        .navigationBarItems(trailing: Button(action: {
+            
+            
+            if let recording = reviews.last?.thaw() {
+                let realm = try! Realm()
+                
+
+                try! realm.write {
+                    recording.fileName = self.title.isEmpty ? "새 녹음 \(reviews.count + 1)" : title
+                    recording.image = self.image?.jpegData(compressionQuality: 0.9)
+                    recording.reviewGoal = self.score
+                    if let tagRealm = realm.objects(TagNotification.self).filter("title == \"\(self.tagEntry)\"").first {
+                        tagRealm.reviews.append(recording)
+                    } else {
+                        realm.objects(TagNotification.self).filter("title == \"Unfiled\"").first?.reviews.append(recording)
+                    }
+                        
+                    
+                }
+            }
+            
+            saved = true
+
+            
+        }, label: {
+            Text("Done")
+        }))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("새 녹음")
+        
         
         if self.audioRecorder.audioConverter.isLoading {
-				  CustomProgressiveView(msg: "Transcripting...")
-			  }
+              CustomProgressiveView(msg: "Transcripting...")
+                .onDisappear {
+                    transcription = reviews.last?.transcription ?? ""
+                    print("LAST REVIEW \(reviews.last)")
+                }
+          }
         
-      }
-      .navigationBarTitle("")
-      .navigationBarHidden(true)
+    }
+        
+//      .navigationBarHidden(true)
         
         
    

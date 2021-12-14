@@ -7,32 +7,25 @@
 
 import SwiftUI
 import Alamofire
+import RealmSwift
 
 struct RecordingsList: View {
     
 	@Binding var searchKey: String
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
+    @ObservedResults(Review.self) var reviews
 
     var body: some View {
-        ForEach(
-            searchKey.isEmpty ? audioRecorder.recordings : audioRecorder.recordings.filter {
-            ($0.fileName?.contains(searchKey) ?? false) || ($0.tags.contains(searchKey) ?? false)
-        }, id: \.createdAt) {
-			recording in
-			
-			
-			NavigationLink(destination: RecordingDetailView(recording: recording),
-						   label: {
-                RecordingRow(recording: recording).foregroundColor(.black)
-					
-			})
-				.buttonStyle(PlainButtonStyle()).cornerRadius(10)
-		}
-		.onDelete(perform: delete)
 
-		if audioRecorder.recordings.count == 0 {
-			Text("모든 복습을 완료하셨습니다.").font(.title2)
-		}
+        ForEach(reviews) { recording in
+            NavigationLink(destination: RecordingDetailView(recording: recording), label: {
+                RecordingRow(recording: recording).foregroundColor(.black)
+            })
+        }
+        .onDelete(perform: delete)
+        
+        
+
 }
 
 
@@ -47,51 +40,57 @@ struct RecordingsList: View {
 
 struct RecordingRow: View{
     
-    var recording: Recording
-    
-    init(recording: Recording) {
-        self.recording = recording
-    }
+//    var recording: Recording
+//
+//    init(recording: Recording) {
+//        self.recording = recording
+//    }
 	
-	
+    @ObservedRealmObject var recording: Review
 	
 	@ObservedObject var audioPlayer = AudioPlayer()
 	@State private var progress:Double = 0.8 * 100.0
 	
 	var body: some View {
+        
+        Text(recording.tag.value(forKey: "title") as! String)
 		
-		HStack(alignment: .top){
-			Button(action: {
-					print("This is Header Icon")
-				}, label: {
-					Image(systemName: "repeat.circle")
-						.foregroundColor(.black)
-			})
-			
-			
-			
-			VStack(alignment: .leading){
-				HStack{
-					Text("Subject")
-						.foregroundColor(.gray)
-						.font(.caption)
-				}
-				HStack{ //HSTACK2
-                    Text("\(recording.fileName ?? recording.audioFileName)")
-						.font(.system(size: 15))
-					Spacer()
-					Text("08:01").font(.caption2)
-				} // END OF HSTACK2
-				HStack{ //HSTACK3
-                    Text(recording.tags.reduce("", { $0 + "#\($1) "}))
-						.font(.caption2)
-						.foregroundColor(.gray)
-				} // END OF HSTACK3
-				ProgressView(value: progress, total: 100.0)
-			} // END OF VSTACK
-		} // END OF HSTACK
-		.padding()
-		.background(Color.cardViewBackground).cornerRadius(10)
+//		HStack(alignment: .top){
+//			Button(action: {
+//					print("This is Header Icon")
+//				}, label: {
+//					Image(systemName: "repeat.circle")
+//						.foregroundColor(.black)
+//			})
+//
+//
+//
+//			VStack(alignment: .leading){
+//				HStack{
+//					Text("Subject")
+//						.foregroundColor(.gray)
+//						.font(.caption)
+//				}
+//				HStack{ //HSTACK2
+//                    Text("\(recording.fileName ?? recording.audioFileName)")
+//						.font(.system(size: 15))
+//					Spacer()
+//					Text("08:01").font(.caption2)
+//				} // END OF HSTACK2
+//
+//                if let tag = recording.tag?.title {
+//                    HStack{ //HSTACK3
+//                        Text("#\(tag)")
+//                            .font(.caption2)
+//                            .foregroundColor(.gray)
+//                    } // END OF HSTACK3
+//
+//                }
+//                ProgressView(value: progress, total: 100.0)
+//			} // END OF VSTACK
+//		} // END OF HSTACK
+//		.padding()
+//		.background(Color.cardViewBackground).cornerRadius(10)
 		
 	}
 }

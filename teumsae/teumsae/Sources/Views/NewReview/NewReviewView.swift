@@ -9,11 +9,15 @@
 import SwiftUI
 import Photos
 import PhotosUI
+import RealmSwift
 
 
 struct NewReviewView: View {
     
 	@ObservedObject var audioRecorder: AudioRecorder = AudioRecorder.shared
+    
+    
+    
     @StateObject var imagePicker = ImagePicker()
     @StateObject var mic: MicrophoneMonitor = MicrophoneMonitor()
     @State var title: String = ""

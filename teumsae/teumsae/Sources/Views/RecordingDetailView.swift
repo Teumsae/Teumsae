@@ -7,11 +7,14 @@
 
 import SwiftUI
 import AVKit
+import RealmSwift
 
 struct RecordingDetailView: View {
     
     
-    var recording: Recording = Recording(audioFileName: "07-11-21_at_20:24:37.wav", createdAt: Date(), fileName: "제목", lastPlay: nil, image: UIImage(named: "dummyImage"), transcription: "transcription", reviewCount: 2, tags: ["tag1", "tag2"])
+//    var recording: Recording = Recording(audioFileName: "07-11-21_at_20:24:37.wav", createdAt: Date(), fileName: "제목", lastPlay: nil, image: UIImage(named: "dummyImage"), transcription: "transcription", reviewCount: 2, tags: ["tag1", "tag2"])
+    
+    @ObservedRealmObject var recording: Review
     
     
     // AUDIO PLAYER
@@ -25,15 +28,15 @@ struct RecordingDetailView: View {
     @State var percent: Double = 0
     var barWidth = 0
     
-    init() {
-        if let rec = AudioRecorder.shared.lastRecoreding {
-            self.recording = rec
-        }
-    }
-    
-    init(recording: Recording) {
-        self.recording = recording
-    }
+//    init() {
+//        if let rec = AudioRecorder.shared.lastRecoreding {
+//            self.recording = rec
+//        }
+//    }
+//
+//    init(recording: Recording) {
+//        self.recording = recording
+//    }
     
     var body: some View {
         
@@ -51,7 +54,7 @@ struct RecordingDetailView: View {
                     
                     Spacer()
                     
-                    Text("\(recording.reviewCount > 3 ? 3 : recording.reviewCount)/3")
+                    Text("\(recording.reviewCount)/\(recording.reviewGoal)")
                         .bold()
                         .foregroundColor(.white)
                         .font(.system(size: 14))
@@ -68,20 +71,20 @@ struct RecordingDetailView: View {
                     .font(.system(size: 16))
                 
                 // MARK - TAGS
-                FlexibleView(data: recording.tags, spacing: 8, alignment: .leading, content: { item in
-                    Text(item)
-                        .bold()
-                        .font(.system(size: 14))
-                        .foregroundColor(.mainYellow)
-                        .padding([.leading, .trailing], 10)
-                        .padding([.top, .bottom], 3)
-                        .background(RoundedRectangle(cornerRadius: 10).stroke(Color.mainYellow, lineWidth: 1))
-                    
-                })
+//                FlexibleView(data: recording.tags, spacing: 8, alignment: .leading, content: { item in
+//                    Text(item)
+//                        .bold()
+//                        .font(.system(size: 14))
+//                        .foregroundColor(.mainYellow)
+//                        .padding([.leading, .trailing], 10)
+//                        .padding([.top, .bottom], 3)
+//                        .background(RoundedRectangle(cornerRadius: 10).stroke(Color.mainYellow, lineWidth: 1))
+//
+//                })
                 
                 // MARK - IMAGE
                 if let image = recording.image {
-                    Image(uiImage: image)
+                    Image(uiImage: UIImage(data: image)!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                 }
@@ -118,6 +121,7 @@ struct RecordingDetailView: View {
                             }
                 
                     Button(action: {
+                        
                         self.audioPlayer.audioPlayer.currentTime = [self.audioPlayer.audioPlayer.duration,   self.audioPlayer.audioPlayer.currentTime + 15].min()!
                     }) {
                         Image(systemName: "goforward.15")
@@ -173,6 +177,13 @@ struct RecordingDetailView: View {
             
             
         } // END OF SCROLL VIEW
+        .onDisappear {
+            let realm = try! Realm()
+            try! realm.write {
+                print(self.percent)
+                recording.thaw()!.percent = self.percent
+            }
+        }
         .onAppear {
             
             self.audioPlayer.audioPlayer = try! AVAudioPlayer(contentsOf: self.recording.fileURL)
@@ -186,6 +197,10 @@ struct RecordingDetailView: View {
             
             NotificationCenter.default.addObserver(forName: NSNotification.Name("Finish"), object: nil, queue: .main) { _ in
                 self.finish = true
+                let realm = try! Realm()
+                try! realm.write {
+                    recording.thaw()!.reviewCount += 1
+                }
             }
         }
         

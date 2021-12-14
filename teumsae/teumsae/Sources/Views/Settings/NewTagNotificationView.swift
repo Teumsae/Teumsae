@@ -99,6 +99,7 @@ struct NewTagNotificationView: View {
                     timeStamps.remove(atOffsets: indexSet)
                 }
             }
+            .listStyle(.plain)
 
             Spacer()
         }
@@ -115,7 +116,7 @@ struct NewTagNotificationView: View {
                 guard let tagGroups = tagGroups.thaw() else { return }
                 
                 if let tagGroup = tagGroups.first {
-                    tagGroup.notifications.append(TagNotification(title: title.isEmpty ? "알림 \(tagGroups.first!.notifications.count + 1)" : title, timeStamps: timeStamps))
+                    tagGroup.notifications.append(TagNotification(title: title.isEmpty ? "과목 \(tagGroups.first!.notifications.count + 1)" : title, timeStamps: timeStamps))
                 }
             }
 

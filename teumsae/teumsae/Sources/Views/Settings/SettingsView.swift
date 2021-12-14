@@ -12,6 +12,7 @@ struct SettingsView: View {
     
     @ObservedResults(LocationNotificationGroup.self) var locationGroups
     @ObservedResults(TimeNotificationGroup.self) var timeGroups
+    @ObservedResults(TagNotificationGroup.self) var tagGroups
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
@@ -28,7 +29,7 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
+            List {
                 
                 // LOCATION BASED
                 if let locationGroup = locationGroups.first {
@@ -46,13 +47,32 @@ struct SettingsView: View {
                         $timeGroups.append(TimeNotificationGroup())
                     }
                 }
-
+                
+                if let tagGroup = tagGroups.first {
+                    TagNotificationView(group: tagGroup)
+                } else {
+                    ProgressView().onAppear {
+                        $tagGroups.append(TagNotificationGroup())
+                    }
+                }
+                
+                Spacer()
                 
 
             }
+//            .listStyle(.grouped)
+            .listRowSeparator(.hidden)
+            .listRowInsets(EdgeInsets(
+                top: 0,
+                leading: 20,
+                bottom: 0,
+                trailing: 0)
+            )
             .navigationBarTitle("Notifications", displayMode: .large)
             .navigationBarItems(trailing: NavigationLink(destination: CreateNotificationView(), label: {
                 Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30, alignment: .center)
                     .foregroundColor(.mainYellow)
             }))
             .accentColor(.mainYellow)
@@ -67,7 +87,6 @@ struct LocationNotificationView: View {
     @ObservedRealmObject var group: LocationNotificationGroup
     
     var body: some View {
-        List {
             Section(content: {
                 ForEach(group.notifications) { item in
                     HStack {
@@ -81,7 +100,7 @@ struct LocationNotificationView: View {
             }, header: {
                 HStack{
                     Text("Location-based")
-                        .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
+                        .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 20))
                     Text("\(group.notifications.count)")
                         .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 14))
                         .padding([.leading, .trailing], 6)
@@ -92,15 +111,7 @@ struct LocationNotificationView: View {
                 }
                 .foregroundColor(.gray)
             })
-        }
 //        .listRowSeparatorTint(Color.white)
-        .listRowSeparator(.hidden)
-        .listRowInsets(EdgeInsets(
-            top: 0,
-            leading: 10,
-            bottom: 0,
-            trailing: 0)
-        )
         
     }
     
@@ -112,37 +123,28 @@ struct TimeNotificationView: View {
     @ObservedRealmObject var group: TimeNotificationGroup
     
     var body: some View {
-        List {
-            Section(content: {
-                ForEach(group.notifications) { item in
-                    TimeNotificationRow(item: item)
-                    .listRowSeparator(.hidden)
-                }
-                .onDelete(perform: $group.notifications.remove)
-                .onMove(perform: $group.notifications.move)
-            }, header: {
-                HStack{
-                    Text("Time-based")
-                        .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
-                    Text("\(group.notifications.count)")
-                        .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 14))
-                        .padding([.leading, .trailing], 6)
-                        .padding([.top, .bottom], 3)
-                        .foregroundColor(Color.badgeTextGray)
-                        .background(RoundedRectangle(cornerRadius: 6).fill(Color.badgeBackgroundGray))
-                    Spacer()
-                }
-                .foregroundColor(.gray)
-            })
-        }
-//        .listRowSeparatorTint(Color.white)
-        .listRowSeparator(.hidden)
-        .listRowInsets(EdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0)
-        )
+        Section(content: {
+            ForEach(group.notifications) { item in
+                TimeNotificationRow(item: item)
+                .listRowSeparator(.hidden)
+            }
+            .onDelete(perform: $group.notifications.remove)
+            .onMove(perform: $group.notifications.move)
+        }, header: {
+            HStack{
+                Text("Time-based")
+                    .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 20))
+                Text("\(group.notifications.count)")
+                    .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 14))
+                    .padding([.leading, .trailing], 6)
+                    .padding([.top, .bottom], 3)
+                    .foregroundColor(Color.badgeTextGray)
+                    .background(RoundedRectangle(cornerRadius: 6).fill(Color.badgeBackgroundGray))
+                Spacer()
+            }
+            .foregroundColor(.gray)
+        })
+
         
     }
     
@@ -153,14 +155,61 @@ struct TimeNotificationRow: View {
     @ObservedRealmObject var item: TimeNotification
     var body: some View {
         // You can click an item in the list to navigate to an edit details screen.
-        HStack {
-            Text("\(item.hr) : \(item.min)")
-                .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 16))
-            if item.isTurnedOn {
-                // If the user "favorited" the item, display a heart icon
-                Image(systemName: "heart.fill")
-            }
+        Toggle(isOn: $item.isTurnedOn) {
+            Text(item.title)
+                .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
         }
+        .tint(.orange)
     }
 }
+
+struct TagNotificationView: View {
+    
+    @ObservedRealmObject var group: TagNotificationGroup
+    
+    var body: some View {
+        Section(content: {
+            ForEach(group.notifications) { item in
+                TagNotificationRow(item: item)
+                .listRowSeparator(.hidden)
+            }
+            .onDelete(perform: $group.notifications.remove)
+            .onMove(perform: $group.notifications.move)
+        }, header: {
+            HStack{
+                Text("Tag-based")
+                    .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 20))
+                Text("\(group.notifications.count)")
+                    .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 14))
+                    .padding([.leading, .trailing], 6)
+                    .padding([.top, .bottom], 3)
+                    .foregroundColor(Color.badgeTextGray)
+                    .background(RoundedRectangle(cornerRadius: 6).fill(Color.badgeBackgroundGray))
+                Spacer()
+            }
+            .foregroundColor(.gray)
+        })
+
+        
+    }
+    
+}
+
+
+struct TagNotificationRow: View {
+    @ObservedRealmObject var item: TagNotification
+    var body: some View {
+        // You can click an item in the list to navigate to an edit details screen.
+        Toggle(isOn: $item.isTurnedOn) {
+            Text(item.title)
+                .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
+        }
+        .tint(.orange)
+        
+    }
+}
+
+
+
+
 

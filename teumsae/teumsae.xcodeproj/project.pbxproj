@@ -41,6 +41,8 @@
 		CC495ABF2767C12B000D018E /* NewTagNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495ABE2767C12B000D018E /* NewTagNotificationView.swift */; };
 		CC495AC12767C217000D018E /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AC02767C217000D018E /* UINavigationController.swift */; };
 		CC495AC32767CB5E000D018E /* TimeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AC22767CB5E000D018E /* TimeNotification.swift */; };
+		CC495AC52768AA00000D018E /* TagNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AC42768AA00000D018E /* TagNotification.swift */; };
+		CC495AC72768BE7B000D018E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC495AC62768BE7A000D018E /* Review.swift */; };
 		CC7EA997273F81920049A3A5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7EA996273F81920049A3A5 /* LocationManager.swift */; };
 		CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750A427360F9F005CB3E5 /* STTDataModel.swift */; };
 		CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750B627362609005CB3E5 /* PersistenceManager.swift */; };
@@ -125,6 +127,8 @@
 		CC495ABE2767C12B000D018E /* NewTagNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagNotificationView.swift; sourceTree = "<group>"; };
 		CC495AC02767C217000D018E /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		CC495AC22767CB5E000D018E /* TimeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeNotification.swift; sourceTree = "<group>"; };
+		CC495AC42768AA00000D018E /* TagNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNotification.swift; sourceTree = "<group>"; };
+		CC495AC62768BE7A000D018E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		CC7EA996273F81920049A3A5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CC7EA999273F8AE90049A3A5 /* SimulatedLocations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimulatedLocations.gpx; sourceTree = "<group>"; };
 		CC9750A32736080A005CB3E5 /* teumsae.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = teumsae.entitlements; sourceTree = "<group>"; };
@@ -426,6 +430,8 @@
 				CC9750A427360F9F005CB3E5 /* STTDataModel.swift */,
 				CC495AB22767A247000D018E /* LocationNotification.swift */,
 				CC495AC22767CB5E000D018E /* TimeNotification.swift */,
+				CC495AC42768AA00000D018E /* TagNotification.swift */,
+				CC495AC62768BE7A000D018E /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -706,6 +712,7 @@
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,
 				CC9750D92737F6CC005CB3E5 /* FlexibleView.swift in Sources */,
 				CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */,
+				CC495AC52768AA00000D018E /* TagNotification.swift in Sources */,
 				CC495AC12767C217000D018E /* UINavigationController.swift in Sources */,
 				CCE3483F2731893E00471492 /* LaunchView.swift in Sources */,
 				CC2CE091273828950082E884 /* PhotoPicker.swift in Sources */,
@@ -744,6 +751,7 @@
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,
 				64A6F41E27363E02007B600D /* Const.swift in Sources */,
 				CC495AA827665712000D018E /* MotionManager.swift in Sources */,
+				CC495AC72768BE7B000D018E /* Review.swift in Sources */,
 				CC495AB92767BEE1000D018E /* CreateNotificationView.swift in Sources */,
 				CC9750D027366F2D005CB3E5 /* URL+Extension.swift in Sources */,
 				CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */,

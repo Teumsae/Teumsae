@@ -27,6 +27,7 @@ class TimeNotification: Object, ObjectKeyIdentifiable {
     
     convenience init(title: String, hr: Int, min: Int, days: [Int]) {
         self.init()
+        self.title = title
         self.hr = hr
         self.min = min
         self.days = List<Int>()

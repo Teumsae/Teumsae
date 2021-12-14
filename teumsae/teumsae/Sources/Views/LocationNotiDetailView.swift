@@ -36,13 +36,20 @@ struct LocationNotiDetailView: View {
 		)
 	}
     var body: some View {
-		Text(self.title)
-		
 		Map(
 			coordinateRegion: $region,
 			annotationItems: [annotationPoint(coordinate: .init(latitude: self.lat, longitude: self.lon))]
 		){ point in
-			MapPin(coordinate: point.coordinate, tint: .green)
+//			MapMarker(coordinate: point.coordinate, tint: .green)
+			MapAnnotation(
+							coordinate: point.coordinate,
+							anchorPoint: CGPoint(x: 0.5, y: 0.5)
+						) {
+							Text(self.title)
+							Circle()
+								.stroke(Color.red)
+								.frame(width: 44, height: 44)
+			}
 		}
     }
 }

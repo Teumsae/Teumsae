@@ -16,9 +16,15 @@ import RealmSwift
 
 
 struct LocationView: UIViewRepresentable {
-	let locationManager = LocationManager()
+	let locationManager: LocationManager
 	@Binding var lat: Double
 	@Binding var lon: Double
+	
+	init(locationManager: LocationManager,lat: Binding<Double>, lon: Binding<Double>){
+		self._lat = lat
+		self._lon = lon
+		self.locationManager = locationManager
+	}
 	
 	func updateUIView(_ mapView: MKMapView, context: Context) {
 		print("LocationView: updateUIView")
@@ -27,6 +33,7 @@ struct LocationView: UIViewRepresentable {
 		// 유저의 현재 위치 받아와서 지도 시작
 		let latitude: Double = locationManager.locationManager.location?.coordinate.latitude ??  37.532600
 		let longitude: Double = locationManager.locationManager.location?.coordinate.longitude ??  127.024612
+		
 		let coordinate = CLLocationCoordinate2DMake(latitude,longitude)
 		let region = MKCoordinateRegion(center: coordinate, span: span)
 		mapView.setRegion(region, animated: true)
@@ -79,15 +86,15 @@ struct LocationView: UIViewRepresentable {
                     mapView.addAnnotation(annotation)
 					entireMapViewController.lat = Double(coordinate.latitude)
 					entireMapViewController.lon = Double(coordinate.longitude)
-                    print("LocationView: addAnnotation ", annotation.coordinate.latitude, annotation.coordinate.longitude)
-
-                    print("LocationView: coreLocation before update ", locationManager.location.latitude, locationManager.location.latitude)
-                    
-                    locationManager.setCenterLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-                    
-                    print("LocationView: coreLocation after update ", locationManager.location.latitude, locationManager.location.latitude)
-                    
-					print("LocationView: annotations ",mapView.annotations)
+//                    print("LocationView: addAnnotation ", annotation.coordinate.latitude, annotation.coordinate.longitude)
+//
+//                    print("LocationView: coreLocation before update ", locationManager.location.latitude, locationManager.location.latitude)
+//
+//                    locationManager.setCenterLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+//
+//                    print("LocationView: coreLocation after update ", locationManager.location.latitude, locationManager.location.latitude)
+//
+//					print("LocationView: annotations ",mapView.annotations)
 		
                 }
             }

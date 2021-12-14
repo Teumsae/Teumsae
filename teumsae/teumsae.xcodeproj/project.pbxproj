@@ -10,6 +10,7 @@
 		40AF3B0B566FA5BDAD2A68C6 /* Pods_teumsae.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09191B3000ADF87C26AEAE2 /* Pods_teumsae.framework */; };
 		643A680C27687BA700114F68 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A680B27687BA600114F68 /* TimeManager.swift */; };
 		644CF8DA27382F6300524F0C /* CustomProgressiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644CF8D927382F6300524F0C /* CustomProgressiveView.swift */; };
+		648026382769092A0093F9C2 /* LocationNotiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648026372769092A0093F9C2 /* LocationNotiDetailView.swift */; };
 		64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */; };
 		64A5CBDA273677DF00A59508 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BE2735012000996B17 /* Colors.xcassets */; };
 		64A6F41727357458007B600D /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6F41627357457007B600D /* AudioConverter.swift */; };
@@ -97,6 +98,7 @@
 		5C56032DAEFB90EE2E52BF06 /* Pods-teumsae.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teumsae.debug.xcconfig"; path = "Target Support Files/Pods-teumsae/Pods-teumsae.debug.xcconfig"; sourceTree = "<group>"; };
 		643A680B27687BA600114F68 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		644CF8D927382F6300524F0C /* CustomProgressiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressiveView.swift; sourceTree = "<group>"; };
+		648026372769092A0093F9C2 /* LocationNotiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotiDetailView.swift; sourceTree = "<group>"; };
 		64A5CBD82736686800A59508 /* RecordingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsHeaderView.swift; sourceTree = "<group>"; };
 		64A6F41627357457007B600D /* AudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
 		64A6F4182736244A007B600D /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				A99A30DC273638CA0048C3C5 /* RecordingView.swift */,
 				CC9750DD2737F8E7005CB3E5 /* RecordingDetailView.swift */,
 				64F19F1627687E4700FCD96E /* TimeNotiView.swift */,
+				648026372769092A0093F9C2 /* LocationNotiDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				64F19F1727687E4700FCD96E /* TimeNotiView.swift in Sources */,
 				64A6F41B273627F4007B600D /* SoundWaveView.swift in Sources */,
 				CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */,
+				648026382769092A0093F9C2 /* LocationNotiDetailView.swift in Sources */,
 				CCE3484A27318B6E00471492 /* AudioRecorder.swift in Sources */,
 				CC2CE0952738F0300082E884 /* AVdelegate.swift in Sources */,
 				CC9750A527360F9F005CB3E5 /* STTDataModel.swift in Sources */,

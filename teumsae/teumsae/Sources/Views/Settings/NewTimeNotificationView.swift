@@ -51,7 +51,7 @@ struct NewTimeNotificationView: View {
                            }, label: {
                                Text(day)
                                    .frame(maxWidth: .infinity)
-                                   .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 15))
+								   .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 15))
                                    .padding([.leading, .trailing], 3)
                                    .padding([.top, .bottom], 2)
                                    .foregroundColor(daysSelected.contains(idx) ? Color.white: Color.mainYellow)
@@ -85,11 +85,6 @@ struct NewTimeNotificationView: View {
             
             presentationMode.wrappedValue.dismiss()
 
-            
-            
-            
-
-            
         }, label: {
             Text("Done")
         }))

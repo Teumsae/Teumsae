@@ -9,7 +9,7 @@
 
 import SwiftUI
 import MapKit
-
+import RealmSwift
 // TODO: 위치 등록한거 DB에 저장하기. 기존에 등록된 알람 삭제 기능?
 
 
@@ -17,7 +17,9 @@ import MapKit
 
 struct LocationView: UIViewRepresentable {
 	let locationManager = LocationManager()
-
+	@Binding var lat: Double
+	@Binding var lon: Double
+	
 	func updateUIView(_ mapView: MKMapView, context: Context) {
 		print("LocationView: updateUIView")
 		let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -36,14 +38,16 @@ struct LocationView: UIViewRepresentable {
          
 		let myMap = MKMapView(frame: .zero)
 		let longPress = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(entireMapViewCoordinator.addAnnotation(gesture:)))
+//		 let tapGesture = UITapGestureRecognizer(target:context.coordinator, action: #selector(entireMapViewCoordinator))
+		 
 		longPress.minimumPressDuration = 1
 		myMap.addGestureRecognizer(longPress)
 		myMap.delegate = context.coordinator
 		myMap.showsUserLocation = true
 		print("LocationView: makeUIView: ", myMap.annotations.count)
-            
+		
 		return myMap
-        }
+	}
 
     func makeCoordinator() -> EntireMapViewCoordinator {
         return EntireMapViewCoordinator(self, locationManager: locationManager)
@@ -54,24 +58,27 @@ struct LocationView: UIViewRepresentable {
 
         var entireMapViewController: LocationView
         let locationManager: LocationManager
-
+		
         init(_ control: LocationView, locationManager: LocationManager) {
           self.entireMapViewController = control
           self.locationManager = locationManager
         }
 
-
         @objc func addAnnotation(gesture: UIGestureRecognizer) {
-
             if gesture.state == .ended {
-
                 if let mapView = gesture.view as? MKMapView {
                     let point = gesture.location(in: mapView)
                     let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
                         
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = coordinate
+					annotation.title="복습 할 장소"
+					if(mapView.annotations.count > 1){
+						mapView.removeAnnotations(mapView.annotations)
+					}
                     mapView.addAnnotation(annotation)
+					entireMapViewController.lat = Double(coordinate.latitude)
+					entireMapViewController.lon = Double(coordinate.longitude)
                     print("LocationView: addAnnotation ", annotation.coordinate.latitude, annotation.coordinate.longitude)
 
                     print("LocationView: coreLocation before update ", locationManager.location.latitude, locationManager.location.latitude)
@@ -80,15 +87,17 @@ struct LocationView: UIViewRepresentable {
                     
                     print("LocationView: coreLocation after update ", locationManager.location.latitude, locationManager.location.latitude)
                     
+					print("LocationView: annotations ",mapView.annotations)
+		
                 }
             }
         }
     }
 }
 
-struct LocationView_Previews: PreviewProvider {
-    static var previews: some View {
-//        LocationView(locationManager: LocationManager())
-		LocationView()
-    }
-}
+//struct LocationView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        LocationView(locationManager: LocationManager())
+//		LocationView()
+//    }
+//}

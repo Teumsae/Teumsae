@@ -50,11 +50,18 @@ class TimeManager: NSObject, ObservableObject{
       notificationCenter
         .requestAuthorization(options: options) { [weak self] result, _ in
           // 4
-          print("Auth Request result: \(result)")
-          if result {
-                  self?.registerNotification(title_: "복습할 시간입니다 :)")
-              }
-          }
+          print("Notification Auth Request result: \(result)")
+//          if result {
+//                  self?.registerNotification(title_: "복습할 시간입니다 :)")
+//              }
+//          }
+			if(!result){
+				print("not accept authorization")
+			}else{
+				print("accept authorization")
+				self?.notificationCenter.delegate = self
+			}
+		}
     }
 
 

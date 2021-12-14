@@ -16,7 +16,7 @@ struct LaunchView: View {
     
     @StateObject var motionManager = MotionManager()
     @StateObject var timeManager = TimeManager()
-    
+	
     var body: some View {
         GeometryReader { geometry in
 
@@ -31,7 +31,8 @@ struct LaunchView: View {
                  case .book:
                      ReviewList()
                  case .search:
-                      Text("Search")
+//                      Text("Search")
+					 TimeNotiView(timeManager: timeManager)
                  case .settings:
 //                      Text("Settings")
                      LocationView(locationManager: locationManager)

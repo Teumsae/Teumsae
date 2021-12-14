@@ -31,7 +31,8 @@ struct LaunchView: View {
                  case .book:
                      ReviewList()
                  case .search:
-					 LocationView(locationManager: locationManager)
+					 Text("Search")
+//					 LocationView(locationManager: locationManager)
                  case .settings:
 //                      Text("Settings")
                      SettingsView()

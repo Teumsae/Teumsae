@@ -24,23 +24,25 @@ class LocationManager: NSObject, ObservableObject {
     // 4
     return manager
   }
-
+	
+	
     // 1
-    public func setCenterLocation(latitude: Double, longitude: Double) {
+	public func setCenterLocation(title: String, latitude: Double, longitude: Double) {
       // 2
         self.location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude) //default
         print("LocationManager: setCenterLocation ", location.latitude, location.longitude)
         storeRegion = makeStoreRegion()
-        validateLocationAuthorizationStatus()
+		validateLocationAuthorizationStatus(title: title)
 //      return location
     }
    
   // 1
   private func makeStoreRegion() -> CLCircularRegion {
     // 2
+	// radius는 미터 단위를 가짐
     let region = CLCircularRegion(
       center: location,
-      radius: 2,
+      radius: 30,
       identifier: UUID().uuidString)
     // 3
     region.notifyOnEntry = true
@@ -49,9 +51,9 @@ class LocationManager: NSObject, ObservableObject {
   }
 
   // 1
-  func validateLocationAuthorizationStatus() {
+	func validateLocationAuthorizationStatus(title: String = "") {
     // 2
-      
+	
     print("LocationManager: validateLocationAuthorizationStatus()")
     switch locationManager.authorizationStatus {
     // 3
@@ -59,13 +61,13 @@ class LocationManager: NSObject, ObservableObject {
       // 4
       print("Location Services Not Authorized")
       locationManager.requestWhenInUseAuthorization()
-      requestNotificationAuthorization()
+		requestNotificationAuthorization(title: title)
 
     // 5
     case .authorizedWhenInUse, .authorizedAlways:
       // 6
       print("Location Services Authorized")
-      requestNotificationAuthorization()
+		requestNotificationAuthorization(title: title)
 
     default:
       break
@@ -73,7 +75,7 @@ class LocationManager: NSObject, ObservableObject {
   }
 
   // 1
-  private func requestNotificationAuthorization() {
+	private func requestNotificationAuthorization(title:String) {
     // 2
     print("LocationManager: requestNotificationAuthorization()")
     let options: UNAuthorizationOptions = [.sound, .alert]
@@ -83,17 +85,17 @@ class LocationManager: NSObject, ObservableObject {
         // 4
         print("Auth Request result: \(result)")
         if result {
-          self?.registerNotification()
+			self?.registerNotification(title: title)
         }
       }
   }
 
   // 1
-  private func registerNotification() {
+	private func registerNotification(title: String) {
     // 2
     print("LocationManager: registerNotification() ")
     let notificationContent = UNMutableNotificationContent()
-    notificationContent.title = "집에 도착하셨나요?"
+    notificationContent.title = "\(title)에 도착하셨나요?"
     notificationContent.body = "복습을 시작해봅시다"
     notificationContent.sound = .default
 

@@ -23,9 +23,15 @@ struct CreateNotificationView: View {
     var body: some View {
         VStack {
             Picker("What is your favorite color?", selection: $notificationType) {
-                Text("Location").tag(0)
-                Text("Time").tag(1)
-                Text("Tag").tag(2)
+                Text("LOCATION")
+                    .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 14))
+                    .tag(0)
+                Text("TIME")
+                    .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 14))
+                    .tag(1)
+                Text("TAG")
+                    .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 14))
+                    .tag(2)
             }
             .pickerStyle(.segmented)
             switch notificationType {

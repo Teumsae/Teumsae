@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>📍틈새복습이 사용자의 위치정보를 이용합니다</string>
 	<key>NSMotionUsageDescription</key>
@@ -47,12 +49,5 @@
 		<string>location</string>
 		<string>remote-notification</string>
 	</array>
-	<key>NSExtension</key>
-	<dict>
-		<key>NSExtensionPointIdentifier</key>
-		<string>com.apple.usernotifications.service</string>
-		<key>NSExtensionPrincipalClass</key>
-		<string>$(PRODUCT_MODULE_NAME).NotificationService</string>
-	</dict>
 </dict>
 </plist>

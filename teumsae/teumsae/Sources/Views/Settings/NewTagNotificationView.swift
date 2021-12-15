@@ -30,6 +30,7 @@ struct NewTagNotificationView: View {
                    TextField("과목 \(tagGroups.first!.notifications.count + 1)", text: $title)
                        .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 24))
                        .foregroundColor(.subBlack)
+                   
             }
             
             GroupBox(
@@ -131,11 +132,25 @@ struct NewTagNotificationView: View {
     
     func getTodayWeekDay(components: DateComponents)-> String{
         
+        let dayDict = [
+            1: "SUN",
+            2: "MON",
+            3: "TUE",
+            4: "WED",
+            5: "THU",
+            6: "FRI",
+            7: "SAT"
+        ]
+        
+        print("COMPONENTS \(components)")
         let calendar = Calendar.current
         let date = calendar.date(from: components)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh : mm a · EEE"
+        dateFormatter.dateFormat = "hh : mm a · "
         let weekDay = dateFormatter.string(from: date!)
-        return weekDay
+        return weekDay+dayDict[components.weekday!]!
      }
 }
+
+
+

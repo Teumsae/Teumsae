@@ -61,8 +61,8 @@ struct NewTimeNotificationView: View {
 
                    }
             }
+            Spacer()
         }
-
         .navigationBarItems(trailing: Button(action: {
             
             let calendar = Calendar.current

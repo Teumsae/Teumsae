@@ -24,6 +24,11 @@ class TagNotification: Object, ObjectKeyIdentifiable {
     @Persisted var isTurnedOn = false
     @Persisted(originProperty: "notifications") var group: LinkingObjects<TagNotificationGroup>
     @Persisted var reviews = RealmSwift.List<Review>()
+    var timeStamps: [DateComponents] {
+        timeTables.map({
+            DateComponents(hour: $0.hr, minute: $0.min, weekday: $0.day)
+        })
+    }
     
     convenience init(title: String, timeStamps: [DateComponents]) {
         self.init()

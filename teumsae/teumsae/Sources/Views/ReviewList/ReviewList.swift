@@ -29,7 +29,7 @@ struct ReviewList: View {
                         DisclosureGroup(content: {
                             ForEach(tag.reviews) { review in
                                 NavigationLink(destination: RecordingDetailView(recording: review) ) {
-                                    VStack {
+                                    VStack(spacing: 3) {
                                         HStack {
                                             Image(systemName: "pencil")
                                                 .renderingMode(.template)
@@ -64,16 +64,21 @@ struct ReviewList: View {
                                         }
                                         
                                         
+                                        
                                     }
-                                    
-                                    .padding(8)
-                                    .background(Color(UIColor.white))
-                                    .foregroundColor(Color.mainYellow)
+                                    .padding([.leading, .trailing], 10)
+                                    .padding([.top, .bottom], 3)
+                                    .background(Color(UIColor.systemGroupedBackground))
                                     .cornerRadius(8)
+                                    .padding([.trailing], 20)
+                                    
+                                    .foregroundColor(Color.mainYellow)
+                                    
                                 }
                                 
                             }
                             .padding([.leading], 10)
+                            .padding([.top], 3)
                         }, label: {
                             GroupBox(
                                 label: Label("\(tag.title)", systemImage: "folder.fill")
@@ -88,13 +93,8 @@ struct ReviewList: View {
                                    .padding(.top, 3)
                                    
                             }
-                            .background(Color(UIColor.systemGray6))
                         })
                         .accentColor(.mainYellow)
-                        .padding([.trailing], 10)
-                        .padding([.bottom], 10)
-                        .background(Color(UIColor.systemGray6))
-                        .cornerRadius(8)
                         .listRowSeparator(.hidden)
                        
                     }

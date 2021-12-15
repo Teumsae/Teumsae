@@ -55,6 +55,8 @@
 		CC9750E227381631005CB3E5 /* NewReviewSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9750E127381631005CB3E5 /* NewReviewSaveView.swift */; };
 		CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99C5B62734FD5500996B17 /* AudioPlayer.swift */; };
 		CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BB273500FE00996B17 /* Assets.xcassets */; };
+		CCAC4304276A0D0C0002DB62 /* TagNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC4303276A0D0C0002DB62 /* TagNotificationDetailView.swift */; };
+		CCAC4306276A18670002DB62 /* TimeNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC4305276A18670002DB62 /* TimeNotificationDetailView.swift */; };
 		CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */; };
 		CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */; };
 		CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B740273446C100CFD1B2 /* ViewRounter.swift */; };
@@ -146,6 +148,8 @@
 		CC99C5B62734FD5500996B17 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		CC99C5BB273500FE00996B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC99C5BE2735012000996B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		CCAC4303276A0D0C0002DB62 /* TagNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNotificationDetailView.swift; sourceTree = "<group>"; };
+		CCAC4305276A18670002DB62 /* TimeNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeNotificationDetailView.swift; sourceTree = "<group>"; };
 		CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		CCB0B740273446C100CFD1B2 /* ViewRounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRounter.swift; sourceTree = "<group>"; };
@@ -252,11 +256,13 @@
 			isa = PBXGroup;
 			children = (
 				CC495AAC2767A15E000D018E /* SettingsViewKeep.swift */,
+				CCAC4303276A0D0C0002DB62 /* TagNotificationDetailView.swift */,
 				CC495AB62767ADA9000D018E /* SettingsView.swift */,
 				CC495AB82767BEE1000D018E /* CreateNotificationView.swift */,
 				CC495ABA2767C117000D018E /* NewLocationNotificationView.swift */,
 				CC495ABC2767C121000D018E /* NewTimeNotificationView.swift */,
 				CC495ABE2767C12B000D018E /* NewTagNotificationView.swift */,
+				CCAC4305276A18670002DB62 /* TimeNotificationDetailView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -737,6 +743,7 @@
 				CCE3480A2731884D00471492 /* SceneDelegate.swift in Sources */,
 				CCE3484527318ADF00471492 /* NewReviewView.swift in Sources */,
 				CC7EA997273F81920049A3A5 /* LocationManager.swift in Sources */,
+				CCAC4304276A0D0C0002DB62 /* TagNotificationDetailView.swift in Sources */,
 				CC495AB52767A919000D018E /* Collapsible.swift in Sources */,
 				CC9750B727362609005CB3E5 /* PersistenceManager.swift in Sources */,
 				CC9750DB2737F6D9005CB3E5 /* _FlexibleView.swift in Sources */,
@@ -754,6 +761,7 @@
 				64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */,
 				644CF8DA27382F6300524F0C /* CustomProgressiveView.swift in Sources */,
 				CCB143252768FC05004E30B1 /* LocalNotificationManager.swift in Sources */,
+				CCAC4306276A18670002DB62 /* TimeNotificationDetailView.swift in Sources */,
 				CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */,
 				64A6F4192736244A007B600D /* MicrophoneMonitor.swift in Sources */,
 				CC99C5B72734FD5500996B17 /* AudioPlayer.swift in Sources */,

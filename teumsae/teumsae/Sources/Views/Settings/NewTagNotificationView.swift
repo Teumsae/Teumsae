@@ -16,7 +16,7 @@ struct NewTagNotificationView: View {
 
     @State private var title: String = ""
     @State private var currentDate = Date()
-    private var days = ["M", "T", "W", "T", "F", "S", "S"]
+    private var days = [ "S", "M", "T", "W", "T", "F", "S"]
     @State private var daysSelected: [Int] = []
     @State private var timeStamps: [DateComponents] = []
         
@@ -43,7 +43,7 @@ struct NewTagNotificationView: View {
                            let minute = calendar.component(.minute, from: currentDate)
                            
                            daysSelected.map ({
-                               timeStamps.append(DateComponents(day: $0+1, hour: hour, minute: minute))
+                               timeStamps.append(DateComponents(hour: hour, minute: minute, weekday: $0))
                            })
                            daysSelected = []
                            
@@ -61,10 +61,10 @@ struct NewTagNotificationView: View {
                        ForEach(Array(days.enumerated()), id: \.offset) { idx, day in
                            
                            Button(action: {
-                               if daysSelected.contains(idx) {
-                                   daysSelected = daysSelected.filter({$0 != idx})
+                               if daysSelected.contains(idx+1) {
+                                   daysSelected = daysSelected.filter({$0 != idx+1})
                                } else {
-                                   daysSelected.append(idx)
+                                   daysSelected.append(idx+1)
                     
                                }
                            }, label: {
@@ -73,8 +73,8 @@ struct NewTagNotificationView: View {
                                    .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 15))
                                    .padding([.leading, .trailing], 3)
                                    .padding([.top, .bottom], 2)
-                                   .foregroundColor(daysSelected.contains(idx) ? Color.white: Color.mainYellow)
-                                   .background(RoundedRectangle(cornerRadius: 6).fill(daysSelected.contains(idx) ? Color.mainYellow: Color.clear))
+                                   .foregroundColor(daysSelected.contains(idx+1) ? Color.white: Color.mainYellow)
+                                   .background(RoundedRectangle(cornerRadius: 6).fill(daysSelected.contains(idx+1) ? Color.mainYellow: Color.clear))
                            })
                        }
 
@@ -115,6 +115,7 @@ struct NewTagNotificationView: View {
             try! realm.write {
                 guard let tagGroups = tagGroups.thaw() else { return }
                 
+                print(timeStamps)
                 if let tagGroup = tagGroups.first {
                     tagGroup.notifications.append(TagNotification(title: title.isEmpty ? "과목 \(tagGroups.first!.notifications.count + 1)" : title, timeStamps: timeStamps))
                 }

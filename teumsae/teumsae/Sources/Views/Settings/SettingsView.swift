@@ -155,10 +155,17 @@ struct TimeNotificationRow: View {
     @ObservedRealmObject var item: TimeNotification
     var body: some View {
         // You can click an item in the list to navigate to an edit details screen.
-        Toggle(isOn: $item.isTurnedOn) {
+        Toggle(isOn: $item.isTurnedOn, label: {
             Text(item.title)
                 .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
-        }
+        }).onChange(of: item.isTurnedOn, perform: { newValue in
+            if newValue {
+                LocalNotificationManager().createNotification(time: item)
+            }
+            else {
+                LocalNotificationManager().removeNotification(time: item)
+            }
+        })
         .tint(.orange)
     }
 }
@@ -200,10 +207,21 @@ struct TagNotificationRow: View {
     @ObservedRealmObject var item: TagNotification
     var body: some View {
         // You can click an item in the list to navigate to an edit details screen.
-        Toggle(isOn: $item.isTurnedOn) {
+//        Toggle(isOn: $item.isTurnedOn) {
+//
+//        }
+        Toggle(isOn: $item.isTurnedOn, label: {
             Text(item.title)
                 .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
-        }
+        }).onChange(of: item.isTurnedOn, perform: { newValue in
+            if newValue {
+                LocalNotificationManager().createNotification(tag: item)
+            }
+            else {
+                LocalNotificationManager().removeNotification(tag: item)
+            }
+            
+        })
         .tint(.orange)
         
     }

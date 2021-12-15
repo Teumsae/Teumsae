@@ -44,7 +44,7 @@ class TimeTable: Object, ObjectKeyIdentifiable {
     
     convenience init(date: DateComponents) {
         self.init()
-        self.day = date.day!
+        self.day = date.weekday!
         self.hr = date.hour!
         self.min = date.minute!
         

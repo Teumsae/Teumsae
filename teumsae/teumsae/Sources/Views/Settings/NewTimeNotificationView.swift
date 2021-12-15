@@ -15,7 +15,7 @@ struct NewTimeNotificationView: View {
 
     @State private var title: String = ""
     @State private var currentDate = Date()
-    private var days = ["M", "T", "W", "T", "F", "S", "S"]
+    private var days = ["S", "M", "T", "W", "T", "F", "S", ]
     @State private var daysSelected: [Int] = []
         
     var body: some View {
@@ -42,10 +42,10 @@ struct NewTimeNotificationView: View {
                        ForEach(Array(days.enumerated()), id: \.offset) { idx, day in
                            
                            Button(action: {
-                               if daysSelected.contains(idx) {
-                                   daysSelected = daysSelected.filter({$0 != idx})
+                               if daysSelected.contains(idx+1) {
+                                   daysSelected = daysSelected.filter({$0 != idx+1})
                                } else {
-                                   daysSelected.append(idx)
+                                   daysSelected.append(idx+1)
                                    
                                }
                            }, label: {
@@ -54,8 +54,8 @@ struct NewTimeNotificationView: View {
                                    .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 15))
                                    .padding([.leading, .trailing], 3)
                                    .padding([.top, .bottom], 2)
-                                   .foregroundColor(daysSelected.contains(idx) ? Color.white: Color.mainYellow)
-                                   .background(RoundedRectangle(cornerRadius: 6).fill(daysSelected.contains(idx) ? Color.mainYellow: Color.clear))
+                                   .foregroundColor(daysSelected.contains(idx+1) ? Color.white: Color.mainYellow)
+                                   .background(RoundedRectangle(cornerRadius: 6).fill(daysSelected.contains(idx+1) ? Color.mainYellow: Color.clear))
                            })
                        }
 

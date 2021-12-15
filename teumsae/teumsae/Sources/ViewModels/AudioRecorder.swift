@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 import AVFoundation
+import RealmSwift
 
 
 class AudioRecorder: NSObject, ObservableObject {
@@ -17,7 +18,11 @@ class AudioRecorder: NSObject, ObservableObject {
     
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
     var audioRecorder: AVAudioRecorder!
+    
+    // REALM
     var recordings = [Recording]()
+    @ObservedResults(Review.self) var reviews
+    
     var recording = false {
             didSet {
                 objectWillChange.send(self)
@@ -65,7 +70,9 @@ class AudioRecorder: NSObject, ObservableObject {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()
             recording = true
-            PersistenceManager.shared.create(Recording(audioFileName: relFilePath, createdAt: timeStamp))
+            
+            // REALM
+            $reviews.append(Review(audioFileName: relFilePath, createdAt: timeStamp))
         } catch {
             print("Could not start recording")
         }
@@ -76,7 +83,24 @@ class AudioRecorder: NSObject, ObservableObject {
         audioRecorder.stop()
         recording = false
         fetchRecordings()
-        audioConverter.convertToText(fileURL: (recordings.last?.fileURL) as! URL)
+        
+//        let realm: Realm = try! Realm()
+//        if let audioFileURL = recordings.last?.fileURL {
+//            let audioAsset = AVURLAsset.init(url: audioFileURL, options: nil)
+//            let duration = audioAsset.duration
+//            let durationInSeconds = CMTimeGetSeconds(duration)
+////            try! realm.write {
+////                reviews.last?.totalLength = Int(durationInSeconds)!
+////            }
+//        } else {
+//            try! realm.write {
+//                reviews.last?.totalLength = 1
+//            }
+//        }
+//
+        
+        
+        audioConverter.convertToText(fileURL: (reviews.last?.fileURL) as! URL)
         
         print("\(PersistenceManager.shared.read())") 
     }

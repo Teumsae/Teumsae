@@ -9,6 +9,7 @@ import Alamofire
 import AVFAudio
 import SwiftUI
 import Combine
+import RealmSwift
 
 struct DecodableType: Decodable {
     var type: String
@@ -36,6 +37,7 @@ struct voieceProfileStruct: Decodable {
 class AudioConverter: NSObject, ObservableObject {
 	
 	let objectWillChange = PassthroughSubject<AudioConverter, Never>()
+    @ObservedResults(Review.self) var reviews
 
 	var isLoading = false {
 		didSet {
@@ -84,13 +86,15 @@ class AudioConverter: NSObject, ObservableObject {
                         let finalText = self.getBestText(text: text ?? "empty")
                         
                         print("CONVERT TO TEXT - FILE NAME \(fileName)")
-                        PersistenceManager.shared.updateByFileURL(audioFileName: fileName, recording: Recording(audioFileName: fileName, createdAt: fileURL.getCreationDate(), transcription: finalText))
-						AudioRecorder.shared.fetchRecordings()
                         
-                        let updatedRecordings = PersistenceManager.shared.read()
-                        print("UPDATED RECORDINGS \(updatedRecordings)")
+                        // REALM
+                        let realm = try! Realm()
+                        guard let recording = self.reviews.last else { return }
+                        try! realm.write {
+                            recording.transcription = finalText
+                        }
                         
-                        print(finalText)
+                        
 						self.isLoading = false
                     }
             

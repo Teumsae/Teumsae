@@ -20,11 +20,13 @@ class Review: Object, ObjectKeyIdentifiable {
     
     // POST PROCESSING
     @Persisted var fileName: String?
-    @Persisted var lastPlay: Int?
+    @Persisted var percent: Double = 0
+    @Persisted var totalLength: Int = 1
     @Persisted var image: Data?
     @Persisted var transcription: String?
     @Persisted var reviewCount: Int = 0
-    @Persisted(originProperty: "reviews") var tags: LinkingObjects<TagNotification>
+    @Persisted var reviewGoal: Int = 3
+    @Persisted(originProperty: "reviews") var tag: LinkingObjects<TagNotification>
     
     var fileURL: URL {
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -36,25 +38,16 @@ class Review: Object, ObjectKeyIdentifiable {
         return "\(createdAt.toString(dateFormat: "YYYY.MM.dd hh:mm:ss a"))"
     }
     
-    convenience init(audioFileName: String, createdAt: Date, fileName: String? = nil, lastPlay: CMTime? = nil, image: UIImage? = nil, transcription: String? = nil, reviewCount: Int = 0, tags: [String] = []) {
+    convenience init(audioFileName: String, createdAt: Date, fileName: String? = nil, image: UIImage? = nil, transcription: String? = nil, reviewCount: Int = 0) {
         self.init()
         self.audioFileName = audioFileName
         self.createdAt = createdAt
         self.fileName = fileName
         
-        if let lastPlaySec = lastPlay {
-            let lastPlaySecs = Int(CMTimeGetSeconds(lastPlaySec))
-            self.lastPlay = lastPlaySecs
-        }
-        
         self.image = image?.jpegData(compressionQuality: 0.9)
         self.transcription = transcription
         self.reviewCount = reviewCount
-        let realm = try! Realm()
-        tags.map {
-            let result = realm.objects(TagNotification.self).filter("title == \($0)")
-            
-        }
+
     }
 
 }

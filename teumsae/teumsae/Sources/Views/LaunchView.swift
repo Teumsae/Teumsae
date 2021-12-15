@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import RealmSwift
 
 struct LaunchView: View {
     
@@ -15,8 +16,20 @@ struct LaunchView: View {
     @ObservedObject var audioRecorder = AudioRecorder.shared
     
     @StateObject var motionManager = MotionManager()
-    @StateObject var timeManager = TimeManager()
-	
+    
+    @ObservedResults(TagNotificationGroup.self) var tagGroups
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .font : UIFont(name: "AppleSDGothicNeo-Bold", size: 32)!,
+            .foregroundColor: UIColor(Color.mainYellow)]
+        UITableViewCell.appearance().backgroundColor = .clear
+        UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorStyle = .none
+        UITableViewHeaderFooterView.appearance().tintColor = UIColor(Color.badgeTextGray)
+        UINavigationBar.appearance().tintColor = UIColor(Color.mainYellow)
+    }
+    
     var body: some View {
         GeometryReader { geometry in
 
@@ -31,7 +44,7 @@ struct LaunchView: View {
                  case .book:
                      ReviewList()
                  case .search:
-					 LocationView(locationManager: locationManager)
+                      SearchView()
                  case .settings:
 //                      Text("Settings")
                      SettingsView()
@@ -61,7 +74,17 @@ struct LaunchView: View {
              .onAppear {
                  locationManager.validateLocationAuthorizationStatus()
                  motionManager.validateMotionAuthorizationStatus()
-                 timeManager.validateTimeAuthorizationStatus()
+                 
+                 if tagGroups.isEmpty {
+                     let realm = try! Realm()
+                     try! realm.write {
+                         
+                         let tagGroup = TagNotificationGroup()
+                         tagGroup.notifications.append(TagNotification(title: "Unfiled", timeStamps: []))
+                         
+                         $tagGroups.append(tagGroup)
+                     }
+                 }
              }
              .sheet(isPresented: $viewRouter.openCreateReview, onDismiss: {
                  viewRouter.openCreateReview = false
@@ -75,3 +98,4 @@ struct LaunchView: View {
         
     }
 }
+

@@ -13,6 +13,7 @@ struct NewTimeNotificationView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedResults(TimeNotificationGroup.self) var timeGroups
 
+    @StateObject var timeManager = TimeManager()
     @State private var title: String = ""
     @State private var currentDate = Date()
     private var days = ["M", "T", "W", "T", "F", "S", "S"]
@@ -51,7 +52,7 @@ struct NewTimeNotificationView: View {
                            }, label: {
                                Text(day)
                                    .frame(maxWidth: .infinity)
-                                   .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 15))
+								   .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 15))
                                    .padding([.leading, .trailing], 3)
                                    .padding([.top, .bottom], 2)
                                    .foregroundColor(daysSelected.contains(idx) ? Color.white: Color.mainYellow)
@@ -68,12 +69,15 @@ struct NewTimeNotificationView: View {
             let calendar = Calendar.current
             let hour = calendar.component(.hour, from: currentDate)
             let minute = calendar.component(.minute, from: currentDate)
+            print("type of hour and minute", type(of: hour), type(of: minute))
             
             let realm = try! Realm()
             
             let title = title.isEmpty ? "알림 \(timeGroups.first!.notifications.count + 1)" : title
             print("TITLE \(title)")
             print("IS TITLE EMPTY \(title.isEmpty)")
+            
+            timeManager.registerNotification(title_: title, hr: hour, min: minute, daysSelected: daysSelected)
 
             try! realm.write {
                 guard let timeGroups = timeGroups.thaw() else { return }
@@ -85,11 +89,6 @@ struct NewTimeNotificationView: View {
             
             presentationMode.wrappedValue.dismiss()
 
-            
-            
-            
-
-            
         }, label: {
             Text("Done")
         }))

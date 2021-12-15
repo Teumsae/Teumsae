@@ -90,8 +90,13 @@ struct LocationNotificationView: View {
             Section(content: {
                 ForEach(group.notifications) { item in
                     HStack {
-                        Text("hello")
-                        Spacer()
+						NavigationLink {
+							LocationNotiDetailView(title: item.title, lat: item.lat, lon: item.lon)
+						} label: {
+							LocationNotificationRow(item:item)
+							Spacer()
+						}
+
                     }
                     .listRowSeparator(.hidden)
                 }
@@ -116,6 +121,19 @@ struct LocationNotificationView: View {
     }
     
 }
+
+struct LocationNotificationRow: View {
+	@ObservedRealmObject var item: LocationNotification
+	var body: some View {
+		// You can click an item in the list to navigate to an edit details screen.
+		Toggle(isOn: $item.isTurnedOn) {
+			Text(item.title)
+				.font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 18))
+		}
+		.tint(.orange)
+	}
+}
+
 
 
 struct TimeNotificationView: View {

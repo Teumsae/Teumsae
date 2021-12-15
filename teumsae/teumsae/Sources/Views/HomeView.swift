@@ -69,7 +69,7 @@ struct HomeView: View {
                             .foregroundColor(.orange)
                     ) {
                         HStack {
-                            Text("📚 \(Int(round(getPercentage())))% of total goal!! 📚")
+                            Text("📚 \(Int(round(getPercentage())))% of the total goal!! 📚")
                             Spacer()
                         }
                         .font(Font.custom("AppleSDGothicNeo-Bold", fixedSize: 18))
@@ -218,12 +218,6 @@ struct HomeView: View {
                 trailing: 0)
             )
             .navigationBarTitle("Home", displayMode: .large)
-            .navigationBarItems(trailing: NavigationLink(destination: CreateNotificationView(), label: {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30, alignment: .center)
-                    .foregroundColor(.mainYellow)
-            }))
             .accentColor(.mainYellow)
         }
         

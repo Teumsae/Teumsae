@@ -39,8 +39,8 @@ struct LaunchView: View {
                  Spacer()
                  switch viewRouter.currentPage {
                  case .home:
-//                      Text("Home")
-                     MotionTestView()
+                     HomeView()
+//                     MotionTestView()
                  case .book:
                      ReviewList()
                  case .search:

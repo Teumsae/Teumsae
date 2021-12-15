@@ -57,6 +57,8 @@
 		CC99C5BD273500FE00996B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC99C5BB273500FE00996B17 /* Assets.xcassets */; };
 		CCAC4304276A0D0C0002DB62 /* TagNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC4303276A0D0C0002DB62 /* TagNotificationDetailView.swift */; };
 		CCAC4306276A18670002DB62 /* TimeNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC4305276A18670002DB62 /* TimeNotificationDetailView.swift */; };
+		CCAC4308276A206F0002DB62 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC4307276A206F0002DB62 /* TimeManager.swift */; };
+		CCAC430A276A238C0002DB62 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC4309276A238C0002DB62 /* HomeView.swift */; };
 		CCB0B73927343F6400CFD1B2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */; };
 		CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */; };
 		CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B740273446C100CFD1B2 /* ViewRounter.swift */; };
@@ -150,6 +152,8 @@
 		CC99C5BE2735012000996B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CCAC4303276A0D0C0002DB62 /* TagNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNotificationDetailView.swift; sourceTree = "<group>"; };
 		CCAC4305276A18670002DB62 /* TimeNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeNotificationDetailView.swift; sourceTree = "<group>"; };
+		CCAC4307276A206F0002DB62 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		CCAC4309276A238C0002DB62 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CCB0B73827343F6400CFD1B2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		CCB0B73E2734403B00CFD1B2 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		CCB0B740273446C100CFD1B2 /* ViewRounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRounter.swift; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 				CC9750DD2737F8E7005CB3E5 /* RecordingDetailView.swift */,
 				CCC1AFAB2769580B00AEA90F /* SearchView.swift */,
 				648026372769092A0093F9C2 /* LocationNotiDetailView.swift */,
+				CCAC4309276A238C0002DB62 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -450,7 +455,7 @@
 		CCE3484727318B5700471492 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				648F0536276A178400CEE3AF /* TimeManager.swift */,
+				CCAC4307276A206F0002DB62 /* TimeManager.swift */,
 				CC495AA727665712000D018E /* MotionManager.swift */,
 				64A6F41627357457007B600D /* AudioConverter.swift */,
 				CC99C5B62734FD5500996B17 /* AudioPlayer.swift */,
@@ -756,6 +761,7 @@
 				648F0537276A178400CEE3AF /* TimeManager.swift in Sources */,
 				CC495AC32767CB5E000D018E /* TimeNotification.swift in Sources */,
 				A99A30DD273638CA0048C3C5 /* RecordingView.swift in Sources */,
+				CCAC430A276A238C0002DB62 /* HomeView.swift in Sources */,
 				64A6F41727357458007B600D /* AudioConverter.swift in Sources */,
 				CC2CE09327382B2C0082E884 /* ImagePicker.swift in Sources */,
 				64A5CBD92736686800A59508 /* RecordingsHeaderView.swift in Sources */,
@@ -771,6 +777,7 @@
 				CC495AB92767BEE1000D018E /* CreateNotificationView.swift in Sources */,
 				CC9750D027366F2D005CB3E5 /* URL+Extension.swift in Sources */,
 				CC9750CD27366612005CB3E5 /* ReviewList.swift in Sources */,
+				CCAC4308276A206F0002DB62 /* TimeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

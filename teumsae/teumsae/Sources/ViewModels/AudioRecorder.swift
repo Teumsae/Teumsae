@@ -82,16 +82,26 @@ class AudioRecorder: NSObject, ObservableObject {
     func stopRecording() {
         audioRecorder.stop()
         recording = false
-        fetchRecordings()
+        
+        guard let audioFileURL = reviews.last?.fileURL else {
+            return
+        }
+        
+        let audioAsset = AVURLAsset.init(url: audioFileURL, options: nil)
+        let duration = audioAsset.duration
+        let durationInSeconds = CMTimeGetSeconds(duration)
+        
+
+        let realm = try! Realm()
+        // Persist your data easily
+        try! realm.write {
+            reviews.last?.totalLength = Int(durationInSeconds)
+        }
         
 //        let realm: Realm = try! Realm()
 //        if let audioFileURL = recordings.last?.fileURL {
-//            let audioAsset = AVURLAsset.init(url: audioFileURL, options: nil)
-//            let duration = audioAsset.duration
-//            let durationInSeconds = CMTimeGetSeconds(duration)
-////            try! realm.write {
-////                reviews.last?.totalLength = Int(durationInSeconds)!
-////            }
+//
+//
 //        } else {
 //            try! realm.write {
 //                reviews.last?.totalLength = 1

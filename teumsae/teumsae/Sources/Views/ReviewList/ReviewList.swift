@@ -54,9 +54,7 @@ struct ReviewList: View {
                                                 .bold()
                                                 .foregroundColor(.subBlack)
                                             
-                                            ProgressView(value: progress).onAppear {
-                                                progress = review.percent
-                                            }
+                                            ProgressView(value: review.percent)
                                             
                                             Text("\(secToHMS(review.totalLength))")
                                                 .font(Font.custom("AppleSDGothicNeo-SemiBold", fixedSize: 12))

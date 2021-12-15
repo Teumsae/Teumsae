@@ -44,7 +44,7 @@ struct LaunchView: View {
                  case .book:
                      ReviewList()
                  case .search:
-                      Text("Search")
+                      SearchView()
                  case .settings:
 //                      Text("Settings")
                      SettingsView()

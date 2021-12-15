@@ -58,6 +58,7 @@
 		CCB0B741273446C100CFD1B2 /* ViewRounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B740273446C100CFD1B2 /* ViewRounter.swift */; };
 		CCB0B7432734496100CFD1B2 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B7422734496100CFD1B2 /* PlusButton.swift */; };
 		CCB143252768FC05004E30B1 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB143242768FC05004E30B1 /* LocalNotificationManager.swift */; };
+		CCC1AFAC2769580B00AEA90F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1AFAB2769580B00AEA90F /* SearchView.swift */; };
 		CCE348082731884D00471492 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE348072731884D00471492 /* AppDelegate.swift */; };
 		CCE3480A2731884D00471492 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE348092731884D00471492 /* SceneDelegate.swift */; };
 		CCE348122731884D00471492 /* teumsae.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCE348102731884D00471492 /* teumsae.xcdatamodeld */; };
@@ -146,6 +147,7 @@
 		CCB0B740273446C100CFD1B2 /* ViewRounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRounter.swift; sourceTree = "<group>"; };
 		CCB0B7422734496100CFD1B2 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		CCB143242768FC05004E30B1 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		CCC1AFAB2769580B00AEA90F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CCE348042731884D00471492 /* teumsae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teumsae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE348072731884D00471492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE348092731884D00471492 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				CCE3483E2731893E00471492 /* LaunchView.swift */,
 				A99A30DC273638CA0048C3C5 /* RecordingView.swift */,
 				CC9750DD2737F8E7005CB3E5 /* RecordingDetailView.swift */,
+				CCC1AFAB2769580B00AEA90F /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				CC9750DE2737F8E7005CB3E5 /* RecordingDetailView.swift in Sources */,
 				CC495AB72767ADA9000D018E /* SettingsView.swift in Sources */,
 				CC495ABB2767C117000D018E /* NewLocationNotificationView.swift in Sources */,
+				CCC1AFAC2769580B00AEA90F /* SearchView.swift in Sources */,
 				CCB0B73F2734403B00CFD1B2 /* TabBarItem.swift in Sources */,
 				CC495ABD2767C121000D018E /* NewTimeNotificationView.swift in Sources */,
 				CC495AB32767A247000D018E /* LocationNotification.swift in Sources */,
